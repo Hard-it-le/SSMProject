@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../Maven-java/Maven-web" />
+    <file type="web" url="file://$PROJECT_DIR$/Maven-Web" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-ajax" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-ajax-low" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-base" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-convertion" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-download" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-exception" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-interceptor" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-login-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-multi-ioc" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-other" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-REST" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-rest-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-upload" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVC-validate" />
+    <file type="web" url="file://$PROJECT_DIR$/SSM-integration" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../Maven-java/pom.xml" />
+        <option value="$PROJECT_DIR$/../Maven-java/Maven-web/pom.xml" />
+        <option value="$PROJECT_DIR$/Maven-java01/pom.xml" />
+        <option value="$PROJECT_DIR$/Maven-Web/pom.xml" />
+        <option value="$PROJECT_DIR$/Maven-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/Maven-Mybatis-base/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-relationship/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-bases/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-lazyloading/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-dynamicSplicing/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-cache/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-EhCache/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-MBGs/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-QBC/pom.xml" />
+        <option value="$PROJECT_DIR$/Mybatis-convert/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-base/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-iox-xml/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-ioc-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-aop-annotation-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-aop-xml/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-get-bean/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-JDBC-transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-annntation-transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-xml-transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-junit5/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-base/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-other/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-REST/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-rest-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-ajax/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-ajax-low/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-convertion/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-validate/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-upload/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-download/pom.xml" />
+        <option value="$PROJECT_DIR$/SSM-integration/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-exception/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-multi-ioc/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVC-login-demo/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Mybatis-cache/Mybatis-MBG/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-base-iocXml/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 自动扫描的包 -->
+    <context:component-scan base-package="com.yjl.mvc.demo"/>
+
+    <!-- 视图解析器 -->
+    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        <property name="prefix" value="/WEB-INF/templates/"/>
+                        <property name="suffix" value=".html"/>
+                        <property name="characterEncoding" value="UTF-8"/>
+                        <property name="templateMode" value="HTML5"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- SpringMVC 标配：注解驱动 -->
+    <mvc:annotation-driven/>
+
+    <!-- 对于没有 @RequestMapping 的请求直接放行 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 使用 mvc:view-controller 功能就不必编写 handler 方法，直接跳转 -->
+    <mvc:view-controller path="/" view-name="portal"/>
+    <mvc:view-controller path="/index.html" view-name="portal"/>
+    <mvc:view-controller path="/add/movie/page" view-name="movie-add"/>
+
+</beans>

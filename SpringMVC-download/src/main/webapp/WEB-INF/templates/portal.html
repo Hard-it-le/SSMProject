@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>初始形态</h1>
+    <a href="../../download/hello.atguigu">下载</a><br/>
+    <a href="../../download/tank.jpg">下载</a><br/>
+    <a href="../../download/chapter04.zip">下载</a><br/>
+
+    <h1>提示下载</h1>
+    <!-- 访问 handler 方法实现下载 -->
+    <a th:href="@{/download/handler}">下载 坦克</a><br/>
+
+</body>
+</html>

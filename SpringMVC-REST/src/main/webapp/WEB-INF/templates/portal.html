@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>首页</h1>
+    <h3>将POST请求转成PUT请求</h3>
+
+    <!-- 原请求方式必须是 post -->
+    <form th:action="@{/emp}" method="post">
+        <!-- 通过表单隐藏域携带一个请求参数 -->
+        <!-- 请求参数名：_method -->
+        <!-- 请求参数值：put -->
+        <input type="hidden" name="_method" value="put" />
+
+        <input type="text" name="message" value="你好" /><br/>
+
+        <button type="submit">更新</button>
+    </form>
+
+    <!-- 创建一个通用表单，在删除超链接的单击响应函数中通过这个表单把GET请求转换为POST，进而再转DELETE -->
+    <form method="post" id="convertForm">
+        <input type="hidden" name="_method" value="delete" />
+    </form>
+
+    <h3>将XXX请求转换为DELETE请求</h3>
+    <table id="dataTable">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>删除</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>40</td>
+            <td>
+                <a th:href="@{/emp}" @click="doConvert">删除</a>
+            </td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>30</td>
+            <td>
+                <a th:href="@{/emp}" @click="doConvert">删除</a>
+            </td>
+        </tr>
+    </table>
+
+    <h3>测试@PathVariable注解</h3>
+    <a th:href="@{/emp/20}">传一个值</a><br/>
+    <a th:href="@{/emp/tom/18/50}">传多个值</a><br/>
+
+</body>
+<script type="text/javascript" th:src="@{/script/vue.js}"></script>
+<script type="text/javascript">
+    new Vue({
+        "el":"#dataTable",
+        "methods":{
+            "doConvert":function (event) {
+
+                // 1.先根据id获取到表单的元素对象
+                var formEle = document.getElementById("convertForm");
+
+                // 2.将表单的action属性设置为当前超链接的href属性
+                // ①之所以要这样赋值就是为了将来提交表单的时候访问的还是原超链接要访问的地址
+                // ②event对象：当前事件对象
+                // ③event.target对象：发生事件的元素对象，现在是我们点击的超链接
+                // ④event.target.href属性：超链接的href属性值
+                // ⑤formEle.action属性：表单的action属性的值
+                formEle.action = event.target.href;
+
+                // 3.提交表单
+                formEle.submit();
+
+                // 阻止超链接的默认行为（跳转页面）
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [06/Oct/2021:15:12:13 +0800] "GET /SpringMVC-loginDemo HTTP/1.1" 302 - http-bio-18804-exec-1 0
+0:0:0:0:0:0:0:1 - - [06/Oct/2021:15:12:15 +0800] "GET /SpringMVC-loginDemo/ HTTP/1.1" 200 482 http-bio-18804-exec-3 2004
+0:0:0:0:0:0:0:1 - - [06/Oct/2021:15:12:15 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-18804-exec-4 0
+0:0:0:0:0:0:0:1 - - [06/Oct/2021:15:12:18 +0800] "GET /SpringMVC-loginDemo/public/resource HTTP/1.1" 200 225 http-bio-18804-exec-5 88
+0:0:0:0:0:0:0:1 - - [06/Oct/2021:15:12:20 +0800] "GET /SpringMVC-loginDemo/private/resource/one HTTP/1.1" 200 281 http-bio-18804-exec-6 92
+0:0:0:0:0:0:0:1 - - [06/Oct/2021:15:12:21 +0800] "GET /SpringMVC-loginDemo/ HTTP/1.1" 200 482 http-bio-18804-exec-7 27

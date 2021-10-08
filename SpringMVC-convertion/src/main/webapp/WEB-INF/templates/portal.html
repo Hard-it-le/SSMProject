@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>首页</h1>
+    <h3>日期和数值类型转换</h3>
+    <form th:action="@{/save/product}" method="post">
+        生产日期：<input type="text" name="productDate" value="1992-10-15 17:15:06" /><br/>
+        产品价格：<input type="text" name="productPrice" value="111,222,333.444" /><br/>
+        <button type="submit">保存</button>
+    </form>
+
+    <br/>
+    <br/>
+
+    <h3>自定义类型转换器</h3>
+    <form th:action="@{/save/student}" method="post">
+        地址：<input type="text" name="address" value="aaa,bbb,ccc" /><br/>
+        <button type="submit">保存</button>
+    </form>
+</body>
+</html>

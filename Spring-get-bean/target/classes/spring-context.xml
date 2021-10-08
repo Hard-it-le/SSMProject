@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 情况一 -->
+    <bean id="hello" class="com.yjl.bean.impl.Hello"/>
+    <!--<bean id="hello1" class="com.yjl.bean.impl.Hello"/>-->
+
+    <!-- 情况二 -->
+    <bean id="happy2" class="com.yjl.bean.impl.HappyImpl"/>
+
+    <!-- 情况三 -->
+    <bean id="moreHappy" class="com.yjl.bean.impl.MoreHappyImpl"/>
+
+    <!-- 情况四 -->
+    <bean id="logAspect" class="com.yjl.aspect.LogAspect"/>
+
+    <bean id="fruitApple" class="com.yjl.bean.impl.FruitAppleImpl"/>
+
+    <aop:config>
+        <aop:aspect ref="logAspect">
+            <aop:before method="printBefore" pointcut="execution(* com.yjl.bean.api.Fruit.eatFruit())"/>
+            <aop:after method="printAfter" pointcut="execution(* com.yjl.bean.impl.Hello.doSth())"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

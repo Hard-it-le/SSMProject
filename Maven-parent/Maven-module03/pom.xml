@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Maven-parent</artifactId>
+        <groupId>com.yjl</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Maven-module03</artifactId>
+
+    <!-- 实际开发时，子工程引用父工程中管理的依赖信息并不是直接把父工程管理的依赖全部拿过来 -->
+    <!-- 而是用到哪些拿来哪些 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <!-- 在子工程的具体依赖信息中，去掉version标签，表示服从父工程统一管理 -->
+            <!-- <version>4.0.0.RELEASE</version> -->
+        </dependency>
+    </dependencies>
+</project>

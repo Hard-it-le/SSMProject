@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>数据校验</h1>
+    <form th:action="@{/save/president}" method="post">
+        总统的邮箱：<input type="text" name="email" /><br/>
+        <button type="submit">保存</button>
+    </form>
+
+</body>
+</html>

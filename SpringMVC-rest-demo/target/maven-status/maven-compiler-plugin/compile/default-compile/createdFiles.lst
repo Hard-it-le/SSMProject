@@ -1,0 +1,4 @@
+com/yjl/demo/handler/MovieHandler.class
+com/yjl/demo/service/MovieService.class
+com/yjl/demo/entity/Movie.class
+com/yjl/demo/service/impl/MovieServiceImpl.class

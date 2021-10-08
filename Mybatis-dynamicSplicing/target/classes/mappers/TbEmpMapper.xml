@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjl.mybatis.mapper.TbEmpMapper">
+    <!-- 使用sql标签抽取重复出现的SQL片段 -->
+    <sql id="selectPart">
+        select emp_id,emp_name,emp_salary from tb_emp
+    </sql>
+
+
+    <select id="selectEmployeeByCondition" resultType="com.yjl.mybatis.entity.TbEmp">
+        <!-- 使用include标签引用声明的SQL片段 -->
+       <include refid="selectPart"></include>
+        <!-- where标签会自动去掉“标签体内前面多余的and/or” -->
+        <where>
+            <!-- 使用if标签，让我们可以有选择的加入SQL语句的片段。这个SQL语句片段是否要加入整个SQL语句，就看if标签判断的结果是否为true -->
+            <!-- 在if标签的test属性中，可以访问实体类的属性，不可以访问数据库表的字段 -->
+            <if test="tbEmp.empName != null">
+                <!-- 在if标签内部，需要访问接口的参数时还是正常写#{} -->
+                or emp_name=#{tbEmp.empName}
+            </if>
+            <if test="tbEmp.empSalary != null ">
+                or emp_salary>#{tbEmp.empSalary}
+            </if>
+            <!--
+             第一种情况：所有条件都满足 WHERE emp_name=? or emp_salary>?
+             第二种情况：部分条件满足 WHERE emp_salary>?
+             第三种情况：所有条件都不满足 没有where子句
+             -->
+        </where>
+    </select>
+
+    <select id="selectEmpByName" resultType="com.yjl.mybatis.entity.TbEmp">
+        <!-- 使用include标签引用声明的SQL片段 -->
+        <include refid="selectPart"></include>
+        where emp_id =#{empId}
+    </select>
+
+    <update id="updateEmployeeByCondition">
+        update tb_emp
+        <!-- set emp_name=#{tbEmp.empName},emp_salary=#{tbEmp.empSalary} -->
+        <!-- 使用set标签动态管理set子句，并且动态去掉两端多余的逗号 -->
+        <set>
+            <if test="tbEmp.empName != null">
+                emp_name=#{tbEmp.empName},
+            </if>
+            <if test="tbEmp.empSalary != null">
+                emp_salary=#{tbEmp.empSalary},
+            </if>
+        </set>
+        where emp_id=#{tbEmp.empId}
+        <!--
+             第一种情况：所有条件都满足 SET emp_name=?, emp_salary=?
+             第二种情况：部分条件满足 SET emp_salary=?
+             第三种情况：所有条件都不满足 update t_emp where emp_id=?
+                没有set子句的update语句会导致SQL语法错误
+         -->
+    </update>
+
+    <select id="selectEmployeeByConditionByTrim" resultType="com.yjl.mybatis.entity.TbEmp">
+        <!-- 使用include标签引用声明的SQL片段 -->
+        <include refid="selectPart"></include>
+        <!-- prefix属性指定要动态添加的前缀 -->
+        <!-- suffix属性指定要动态添加的后缀 -->
+        <!-- prefixOverrides属性指定要动态去掉的前缀，使用“|”分隔有可能的多个值 -->
+        <!-- suffixOverrides属性指定要动态去掉的后缀，使用“|”分隔有可能的多个值 -->
+        <!-- 当前例子用where标签实现更简洁，但是trim标签更灵活，可以用在任何有需要的地方 -->
+        <trim prefix="where" suffixOverrides="and|or">
+            <if test="tbEmp.empName != null">
+                emp_name=#{tbEmp.empName} or
+            </if>
+            <if test="tbEmp.empSalary != null">
+                emp_salary>#{tbEmp.empSalary} and
+            </if>
+        </trim>
+    </select>
+
+    <select id="selectEmployeeByConditionByChoose" resultType="com.yjl.mybatis.entity.TbEmp">
+        <!-- 使用include标签引用声明的SQL片段 -->
+        <include refid="selectPart"></include>
+        where
+        <choose>
+            <when test="tbEmp.empName != null">emp_name=#{tbEmp.empName}</when>
+            <when test="tbEmp.empSalary &lt; 3000">emp_salary &lt; 3000</when>
+            <otherwise>1=1</otherwise>
+        </choose>
+
+        <!--
+         第一种情况：第一个when满足条件 where emp_name=?
+         第二种情况：第二个when满足条件 where emp_salary < 3000
+         第三种情况：两个when都不满足 where 1=1 执行了otherwise
+         -->
+    </select>
+
+    <!--
+    collection属性：要遍历的集合
+    item属性：遍历集合的过程中能得到每一个具体对象，在item属性中设置一个名字，将来通过这个名字引用遍历出来的对象
+    separator属性：指定当foreach标签的标签体重复拼接字符串时，各个标签体字符串之间的分隔符
+    open属性：指定整个循环把字符串拼好后，字符串整体的前面要添加的字符串
+    close属性：指定整个循环把字符串拼好后，字符串整体的后面要添加的字符串
+    index属性：这里起一个名字，便于后面引用
+        遍历List集合，这里能够得到List集合的索引值
+        遍历Map集合，这里能够得到Map集合的key
+        <foreach collection="empList" item="emp" separator="," open="values" index="myIndex">
+</foreach>
+ -->
+    <update id="updateEmployeeBatchByForeach">
+        <!-- 在foreach标签内部如果需要引用遍历得到的具体的一个对象，需要使用item属性声明的名称 -->
+        <foreach collection="empList" item="emp" separator=";">
+            update tb_emp set emp_name=#{emp.empName} where emp_id=#{emp.empId}
+        </foreach>
+    </update>
+
+    <update id="updateEmp">
+            update tb_emp
+            set emp_name = #{emp.empName},
+            emp_salary=#{emp.empSalary}
+            where emp_id = #{emp.empId}
+    </update>
+</mapper>

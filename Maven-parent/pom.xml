@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yjl</groupId>
+    <artifactId>Maven-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!-- modules/module配置聚合，展示当前工程下所有模块的列表 -->
+    <modules>
+        <!-- 在module标签中指定具体模块的artifactId值即可 -->
+        <module>maven-module01</module>
+        <module>maven-module02</module>
+        <module>maven-module03</module>
+    </modules>
+
+
+    <!-- 如果当前工程要作为父工程管理其他工程，那么打包方式必须是pom -->
+    <packaging>pom</packaging>
+
+    <name>Maven-parent</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- 创建自定义标签，声明我们自己需要的属性值。例如：Spring框架版本 -->
+        <!-- 使用${自定义标签名}的形式来引用自定义属性值 -->
+        <spring.version>5.2.6.RELEASE</spring.version>
+    </properties>
+
+    <!-- 在父工程中通过dependencyManagement来统一管理依赖 -->
+    <!-- dependencyManagement标签和dependencies不同 -->
+    <!-- 	dependencies标签：能够把依赖的jar包真正的引入到当前工程 -->
+    <!-- 	dependencyManagement标签：仅仅是管理依赖信息，并不负责真实引入依赖 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

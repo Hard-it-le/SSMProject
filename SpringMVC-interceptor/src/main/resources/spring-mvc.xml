@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 配置自动扫描的包 -->
+    <context:component-scan base-package="com.yjl.mvc.handler"/>
+
+    <!-- Thymeleaf视图解析器 -->
+    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        <property name="prefix" value="/WEB-INF/templates/"/>
+                        <property name="suffix" value=".html"/>
+                        <property name="characterEncoding" value="UTF-8"/>
+                        <property name="templateMode" value="HTML5"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 开启 SpringMVC 的注解驱动功能。这个配置也被称为 SpringMVC 的标配。 -->
+    <!-- 标配：因为 SpringMVC 环境下非常多的功能都要求必须打开注解驱动才能正常工作。 -->
+    <mvc:annotation-driven/>
+
+    <!-- 加入这个配置，SpringMVC 就会在遇到没有 @RequestMapping 的请求时放它过去 -->
+    <!-- 所谓放它过去就是让这个请求去找它原本要访问的资源 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 直接将请求地址映射到目标视图上 -->
+    <!--
+        @RequestMapping("/index.html")
+        public String showIndex() {
+            return "portal";
+        }
+    -->
+    <mvc:view-controller path="/index.html" view-name="portal"/>
+    <mvc:view-controller path="/" view-name="portal"/>
+    
+    <!-- 注册拦截器 -->
+    <mvc:interceptors>
+
+        <!-- 直接通过内部 bean 配置的拦截器默认拦截全部请求（SpringMVC 范围内） -->
+        <bean class="com.yjl.mvc.interceptor.Process01Interceptor"/>
+        <bean class="com.yjl.mvc.interceptor.Process02Interceptor"/>
+
+        <!-- 具体配置拦截器可以指定拦截的请求地址 -->
+        <mvc:interceptor>
+            <!-- 精确匹配 -->
+            <mvc:mapping path="/common/request/one"/>
+            <bean class="com.yjl.mvc.interceptor.Process03Interceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <!-- /*匹配路径中的一层 -->
+            <mvc:mapping path="/common/request/*"/>
+            <bean class="com.yjl.mvc.interceptor.Process04Interceptor"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <!-- /**匹配路径中的多层 -->
+            <mvc:mapping path="/common/request/**"/>
+
+            <!-- 使用 mvc:exclude-mapping 标签配置不拦截的地址 -->
+            <mvc:exclude-mapping path="/common/request/two/bbb"/>
+
+            <bean class="com.yjl.mvc.interceptor.Process05Interceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+</beans>

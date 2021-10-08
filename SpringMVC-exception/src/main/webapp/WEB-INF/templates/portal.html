@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>首页</h1>
+
+    <a th:href="@{/throw/arithmetic/exception}">数学异常</a><br/>
+    <a th:href="@{/throw/null-pointer/exception}">空指针异常</a><br/>
+    <a th:href="@{/throw/out/of/index/exception/common}">数组下标越界异常</a><br/>
+
+    <div id="btnDiv">
+        <button @click="sendAjaxRequest">发送一个Ajax请求</button>
+    </div>
+
+</body>
+<script type="text/javascript" th:src="@{/script/vue.js}"></script>
+<script type="text/javascript" th:src="@{/script/axios.min.js}"></script>
+<script type="text/javascript">
+
+    new Vue({
+        "el":"#btnDiv",
+        "methods":{
+            "sendAjaxRequest":function () {
+                axios({
+                    "method":"post",
+                    "url":"[[@{/throw/out/of/index/exception/ajax}]]"
+                }).then(function (response) {
+                    console.log(response);
+                }).catch(function (response) {
+                    console.log(response);
+                });
+            }
+        }
+    });
+
+</script>
+</html>

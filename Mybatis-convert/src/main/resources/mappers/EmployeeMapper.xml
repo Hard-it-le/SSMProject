@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjl.mybatis.dao.EmployeeMapper">
+
+    <!-- Emp selectById(int empId); -->
+    <select id="selectById" resultType="com.yjl.mybatis.entity.Emp">
+        select emp_id,emp_name,emp_salary,emp_address
+        from t_emp
+        where emp_id=#{empId}
+    </select>
+
+</mapper>

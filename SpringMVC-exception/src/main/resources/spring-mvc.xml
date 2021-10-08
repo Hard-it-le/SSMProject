@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.yjl.mvc.handler,com.yjl.mvc.exception"/>
+
+    <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        <property name="prefix" value="/WEB-INF/templates/"/>
+                        <property name="suffix" value=".html"/>
+                        <property name="characterEncoding" value="UTF-8"/>
+                        <property name="templateMode" value="HTML5"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <mvc:view-controller path="/" view-name="portal"/>
+    <mvc:view-controller path="/index.html" view-name="portal"/>
+
+    <!-- 配置异常映射 -->
+    <bean id="exceptionResolver"
+          class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+
+        <!-- 配置异常映射关系 -->
+        <property name="exceptionMappings">
+            <props>
+                <!-- key属性：指定异常类型 -->
+                <!-- 文本标签体：和异常类型对应的逻辑视图 -->
+                <prop key="java.lang.ArithmeticException">error-arith</prop>
+                <prop key="java.lang.RuntimeException">error-runtime</prop>
+                <prop key="java.lang.NullPointerException">error-nullpointer-xml</prop>
+            </props>
+        </property>
+
+        <!-- 使用 exceptionAttribute 属性配置将异常对象存入请求域时使用的属性名 -->
+        <!-- 这个属性名默认是exception -->
+        <property name="exceptionAttribute" value="atguiguException"/>
+    </bean>
+
+</beans>

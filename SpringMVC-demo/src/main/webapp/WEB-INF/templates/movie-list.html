@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+        margin: 0px auto 0px auto;
+    }
+    table th,td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+<body>
+
+    <table>
+        <tr>
+            <th>电影ID</th>
+            <th>电影名称</th>
+            <th>电影票价格</th>
+            <th>删除</th>
+            <th>更新</th>
+        </tr>
+        <tbody th:if="${#lists.isEmpty(movieList)}">
+            <tr>
+                <td colspan="5">抱歉！没有查询到数据！</td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <a th:href="@{/add/movie/page}">跳转到添加数据的表单页面</a>
+                </td>
+            </tr>
+        </tbody>
+        <tbody th:if="${not #lists.isEmpty(movieList)}">
+            <tr th:each="movie : ${movieList}">
+                <td th:text="${movie.movieId}">这里显示电影ID</td>
+                <td th:text="${movie.movieName}">这里显示电影名称</td>
+                <td th:text="${movie.moviePrice}">这里显示电影价格</td>
+                <td>
+                    <a th:href="@{/remove/movie(movieId=${movie.movieId})}">删除</a>
+                </td>
+                <td>
+                    <a th:href="@{/edit/movie/page(movieId=${movie.movieId})}">更新</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <a th:href="@{/add/movie/page}">跳转到添加数据的表单页面</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

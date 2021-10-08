@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center">
+
+    <h1>首页</h1>
+
+    <!-- method 属性：用来上传文件的表单，请求方式必须是 POST -->
+    <!-- enctype 属性：用来指定请求体的编码类型。 -->
+    <!--                默认值：application/x-www-form-urlencoded 按照普通字符方式编码 -->
+    <!--                指定值：multipart/form-data 按照二进制文件方式编码 -->
+    <!--                       由于整个请求体都是按照二进制方式来编码的，所以非上传文件的普通表单项也不能按照原来的方式解码了。 -->
+    <form th:action="@{/simple/upload}" method="post" enctype="multipart/form-data">
+
+        用户昵称：<input type="text" name="nickName" value="小明" /><br/>
+
+        <!-- type 属性：取值为 file 表示这个表单项是一个文件上传框 -->
+        用户头像：<input type="file" name="picture" /><br/>
+
+        <button type="submit">保存</button>
+    </form>
+
+</body>
+</html>

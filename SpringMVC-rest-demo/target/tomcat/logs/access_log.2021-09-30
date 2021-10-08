@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:33 +0800] "GET /SpringMVC-rest HTTP/1.1" 302 - http-bio-18802-exec-1 0
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:36 +0800] "GET /SpringMVC-rest/ HTTP/1.1" 200 254 http-bio-18802-exec-3 2459
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:36 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-18802-exec-4 0
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:45 +0800] "GET /SpringMVC-rest/movie HTTP/1.1" 200 9503 http-bio-18802-exec-5 191
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:45 +0800] "GET /SpringMVC-rest/script/vue.js HTTP/1.1" 200 342146 http-bio-18802-exec-6 47
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:48 +0800] "POST /SpringMVC-rest/movie/372F89B750984F2BB17A689BA542D865 HTTP/1.1" 302 - http-bio-18802-exec-7 87
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:48 +0800] "GET /SpringMVC-rest/movie HTTP/1.1" 200 9075 http-bio-18802-exec-8 23
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:48 +0800] "GET /SpringMVC-rest/movie/2F094DF475E946BBB0587BE90C9E3A1F HTTP/1.1" 200 597 http-bio-18802-exec-9 38
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:51 +0800] "POST /SpringMVC-rest/movie HTTP/1.1" 302 - http-bio-18802-exec-10 53
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:51 +0800] "GET /SpringMVC-rest/movie HTTP/1.1" 200 9077 http-bio-18802-exec-1 24
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:53 +0800] "GET /SpringMVC-rest/movie/add/page HTTP/1.1" 200 409 http-bio-18802-exec-1 62
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:55 +0800] "POST /SpringMVC-rest/movie HTTP/1.1" 302 - http-bio-18802-exec-1 28
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:55 +0800] "GET /SpringMVC-rest/movie HTTP/1.1" 200 9494 http-bio-18802-exec-1 45
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:57 +0800] "POST /SpringMVC-rest/movie/2613c908d9ea4f199aba42947bf3e3a2 HTTP/1.1" 302 - http-bio-18802-exec-1 7
+0:0:0:0:0:0:0:1 - - [30/Sep/2021:14:03:57 +0800] "GET /SpringMVC-rest/movie HTTP/1.1" 200 9077 http-bio-18802-exec-1 67
