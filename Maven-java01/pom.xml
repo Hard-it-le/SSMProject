@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 根标签project表示当前配置文件是用来管理工程的 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- Maven从2版本开始modelVersion就是4.0.0，这是一个固定值，我们不要修改，不要删除 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 当前工程的坐标 -->
+    <groupId>com.yjl</groupId>
+    <artifactId>Maven-java01</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>untitled</module>
+    </modules>
+
+    <!-- packaging标签规定当前工程打包的方式 -->
+    <!-- jar：Java工程 -->
+    <!-- war：Web工程 -->
+    <!-- pom：管理其他工程的工程 -->
+    <packaging>pom</packaging>
+
+    <!-- properties标签是在当前配置文件中定义的属性 -->
+    <properties>
+        <!-- project.build.sourceEncoding：解析源码文件时使用的字符集 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- dependencies：复数形式 -->
+    <!-- dependency：单数形式 -->
+    <!-- dependencies标签中包含所有具体的依赖信息 -->
+    <dependencies>
+
+        <!-- dependency标签配置具体的一个依赖信息 -->
+        <dependency>
+
+            <!-- 通过坐标来引用一个想要依赖的jar包（依赖谁，就写谁的坐标） -->
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+
+            <!-- scope标签配置依赖的范围 -->
+            <scope>test</scope>
+        </dependency>
+
+        <!-- 为了测试依赖的传递性，依赖spring-core -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.2.4.RELEASE</version>
+
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+</project>

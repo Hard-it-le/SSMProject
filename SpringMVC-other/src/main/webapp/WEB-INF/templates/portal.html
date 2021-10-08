@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+
+    <h1>首页[新]</h1>
+
+    <h3>获取原生 Servlet API</h3>
+    <a th:href="@{/original/api/direct}">可以直接得到的三个</a><br/>
+    <a th:href="@{/original/servlet/context/first/way}">获取ServletContext对象的第一种方式</a><br/>
+    <a th:href="@{/original/servlet/context/second/way}">获取ServletContext对象的第二种方式</a><br/>
+
+    <h3>测试属性域</h3>
+    <a th:href="@{/attr/request/model}">测试通过Model操作请求域</a><br/>
+    <a th:href="@{/attr/request/model/map}">测试通过ModelMap操作请求域</a><br/>
+    <a th:href="@{/attr/request/map}">测试通过Map操作请求域</a><br/>
+    <a th:href="@{/attr/request/original}">测试通过原生对象操作请求域</a><br/>
+    <a th:href="@{/attr/request/mav}">测试通过ModelAndView操作请求域</a><br/>
+    <a th:href="@{/attr/session}">测试访问会话域</a><br/>
+    <a th:href="@{/attr/application}">测试访问应用域</a><br/>
+
+    <h3>测试表单回显</h3>
+    <a th:href="@{/form/redisplay/simple}">测试简单的表单标签回显</a><br/>
+    <a th:href="@{/form/redisplay/choose}">测试带选择功能的表单标签回显[单选]</a><br/>
+    <a th:href="@{/form/redisplay/choose/multi}">测试带选择功能的表单标签回显[多选]</a><br/>
+
+</body>
+</html>

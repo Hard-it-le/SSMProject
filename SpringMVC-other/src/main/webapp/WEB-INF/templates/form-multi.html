@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <!--
+        seasonListForRedisplay.contains(season)
+        用包含回显数据的集合调用contains()方法判断是否应该被选中；
+        传入contains()方法的是生成具体每一个标签时遍历得到的对象
+     -->
+    <input type="checkbox" name="xxx"
+           th:each="season : ${seasonList}"
+           th:value="${season.submitValue}"
+           th:text="${season.showForUserValue}"
+           th:checked="${seasonListForRedisplay.contains(season)}"
+    />
+
+</body>
+</html>

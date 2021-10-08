@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>目标页面</h1>
+
+    访问请求域Model：[[${requestScopeMessageModel}]]<br/>
+    访问请求域ModelMap：[[${requestScopeMessageModelMap}]]<br/>
+    访问请求域Map：[[${requestScopeMessageMap}]]<br/>
+    访问请求域Original：[[${requestScopeMessageOriginal}]]<br/>
+    访问请求域MAV：[[${requestScopeMessageMAV}]]<br/>
+    访问会话域：[[${session.sessionScopeMessage}]]<br/>
+    访问应用域：[[${application.appScopeMsg}]]<br/>
+
+    <a th:href="@{/}">回首页</a>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <base href="/demo/"/>
+</head>
+<body style="text-align: center">
+
+    <h1>首页</h1>
+    <span id="btnSpan">
+        <button id="btn01" @click="experimentOne">实验一</button>
+        <button id="btn02" @click="experimentTwo">实验二</button>
+        <button id="btn03" @click="experimentThree">实验三</button>
+        <button id="btn04" @click="experimentFour">实验四</button>
+    </span>
+
+</body>
+<script type="text/javascript" src="script/vue.js"></script>
+<script type="text/javascript" src="script/axios.min.js"></script>
+<script type="text/javascript">
+    new Vue({
+        "el":"#btnSpan",
+        "methods":{
+            "experimentOne":function () {
+
+                // 请求：发送普通请求参数
+                // 响应：普通文本
+                axios({
+                    "method":"post",
+                    "url":"ajax/experiment/one.html",
+
+                    // params属性发送的是普通请求参数
+                    "params":{
+                        "userName":"tom",
+                        "password":"123456"
+                    }
+                }).then(function (response) {
+
+                    // response接收服务器端返回的响应数据
+                    console.log(response);
+                }).catch(function (response) {
+                    console.log(response);
+                });
+
+            },
+            "experimentTwo":function () {
+
+                axios({
+                    "method":"post",
+                    "url":"ajax/experiment/two.html",
+
+                    // data属性中指定一个 JSON 数据作为请求体
+                    "data":{
+                        "stuId": 55,
+                        "stuName": "tom",
+                        "subjectList": [
+                            {
+                                "subjectName": "java",
+                                "subjectScore": 50.55
+                            },
+                            {
+                                "subjectName": "php",
+                                "subjectScore": 30.26
+                            }
+                        ],
+                        "teacherMap": {
+                            "one": {
+                                "teacherName":"tom",
+                                "teacherAge":23
+                            },
+                            "two": {
+                                "teacherName":"jerry",
+                                "teacherAge":31
+                            },
+                        },
+                        "school": {
+                            "schoolId": 23,
+                            "schoolName": "atguigu"
+                        }
+                    }
+                }).then(function (response) {
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+            },
+            "experimentThree":function () {
+
+                axios({
+                    "method":"post",
+                    "url":"ajax/experimentThree.html",
+
+                    // 普通的请求参数正好对应服务器端的一个实体类
+                    "params":{
+                        "soldierId":"666",
+                        "soldierName":"tigerMan"
+                    }
+                }).then(function (response) {
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+            },
+            "experimentFour":function () {
+
+                axios({
+                    "method":"post",
+                    "url":"ajax/experimentFour.json"
+                }).then(function (response) {
+                    console.log(response);
+
+                    // 服务器返回的响应体数据被封装到了 data 属性中
+                    console.log(response.data);
+                    console.log("response.data.soldierId = " + response.data.soldierId);
+                    console.log("response.data.soldierName = " + response.data.soldierName);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+            }
+        }
+    });
+</script>
+</html>

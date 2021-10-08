@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Mybatis-relationship" />
+        <module name="SpringMVC-upload" />
+        <module name="SpringMVC-convertion" />
+        <module name="Maven-module01" />
+        <module name="Spring-ioc-annotation" />
+        <module name="SpringMVC-demo" />
+        <module name="Mybatis-lazyloading" />
+        <module name="SpringMVC-ajax" />
+        <module name="Spring-junit5" />
+        <module name="Mybatis-bases" />
+        <module name="Mybatis-convert" />
+        <module name="Maven-Web" />
+        <module name="Mybatis-QBC" />
+        <module name="SpringMVC-validate" />
+        <module name="Maven-module03" />
+        <module name="SpringMVC-exception" />
+        <module name="Spring-xml-transaction" />
+        <module name="Maven-module02" />
+        <module name="SpringMVC-download" />
+        <module name="Spring-aop-xml" />
+        <module name="Spring-aop-annotation-proxy" />
+        <module name="Mybatis-MBGs" />
+        <module name="untitled" />
+        <module name="SpringMVC-rest-demo" />
+        <module name="Spring-get-bean" />
+        <module name="Spring-iox-xml" />
+        <module name="Mybatis-EhCache" />
+        <module name="Mybatis-dynamicSplicing" />
+        <module name="Spring-annntation-transaction" />
+        <module name="SpringMVC-multi-ioc" />
+        <module name="SSM-integration" />
+        <module name="Spring-JDBC-transaction" />
+        <module name="SpringMVC-ajax-low" />
+        <module name="SpringMVC-login-demo" />
+        <module name="SpringMVC-REST" />
+        <module name="Spring-proxy" />
+        <module name="SpringMVC-interceptor" />
+        <module name="SpringMVC-base" />
+        <module name="SpringMVC-other" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="maven-01" target="1.8" />
+      <module name="Maven-java" target="1.8" />
+      <module name="Maven-java01" target="1.5" />
+      <module name="Maven-module01" target="1.5" />
+      <module name="Maven-module02" target="1.5" />
+      <module name="Maven-module03" target="1.5" />
+      <module name="Maven-Mybatis-base" target="1.8" />
+      <module name="Maven-parent" target="1.5" />
+      <module name="Maven-Web" target="1.7" />
+      <module name="Maven-web" target="1.8" />
+      <module name="Mybatis-base" target="1.8" />
+      <module name="Mybatis-bases" target="1.5" />
+      <module name="Mybatis-cache" target="1.5" />
+      <module name="Mybatis-convert" target="1.5" />
+      <module name="Mybatis-dynamicSplicing" target="1.5" />
+      <module name="Mybatis-EhCache" target="1.5" />
+      <module name="Mybatis-lazyloading" target="1.5" />
+      <module name="Mybatis-MBG" target="1.8" />
+      <module name="Mybatis-MBGs" target="1.5" />
+      <module name="Mybatis-QBC" target="1.5" />
+      <module name="Mybatis-relationship" target="1.5" />
+      <module name="Spring-annntation-transaction" target="1.5" />
+      <module name="Spring-aop-annotation-proxy" target="1.5" />
+      <module name="Spring-aop-xml" target="1.5" />
+      <module name="Spring-base-iocXml" target="1.8" />
+      <module name="Spring-get-bean" target="1.5" />
+      <module name="Spring-ioc-annotation" target="1.5" />
+      <module name="Spring-iox-xml" target="1.5" />
+      <module name="Spring-JDBC-transaction" target="1.5" />
+      <module name="Spring-junit5" target="1.5" />
+      <module name="Spring-proxy" target="1.5" />
+      <module name="Spring-xml-transaction" target="1.5" />
+      <module name="SpringMVC-ajax" target="1.7" />
+      <module name="SpringMVC-ajax-low" target="1.7" />
+      <module name="SpringMVC-base" target="1.7" />
+      <module name="SpringMVC-convertion" target="1.7" />
+      <module name="SpringMVC-demo" target="1.7" />
+      <module name="SpringMVC-download" target="1.7" />
+      <module name="SpringMVC-exception" target="1.7" />
+      <module name="SpringMVC-interceptor" target="1.7" />
+      <module name="SpringMVC-login-demo" target="1.7" />
+      <module name="SpringMVC-multi-ioc" target="1.7" />
+      <module name="SpringMVC-other" target="1.7" />
+      <module name="SpringMVC-REST" target="1.7" />
+      <module name="SpringMVC-rest-demo" target="1.7" />
+      <module name="SpringMVC-upload" target="1.7" />
+      <module name="SpringMVC-validate" target="1.7" />
+      <module name="SSM-integration" target="1.7" />
+      <module name="untitled" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

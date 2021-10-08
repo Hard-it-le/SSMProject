@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:05:10 +0800] "GET /SpringMVC-demo HTTP/1.1" 302 - http-bio-18801-exec-1 0
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:05:11 +0800] "GET /SpringMVC-demo/ HTTP/1.1" 200 52 http-bio-18801-exec-3 941
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:05:11 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-18801-exec-4 0
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:05:48 +0800] "GET /SpringMVC-demo/show/list HTTP/1.1" 200 8615 http-bio-18801-exec-5 2830
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:05:54 +0800] "GET /SpringMVC-demo/add/movie/page HTTP/1.1" 200 414 http-bio-18801-exec-6 47
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:03 +0800] "POST /SpringMVC-demo/save/movie HTTP/1.1" 302 - http-bio-18801-exec-7 110
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:03 +0800] "GET /SpringMVC-demo/show/list HTTP/1.1" 200 9095 http-bio-18801-exec-8 19
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:07 +0800] "GET /SpringMVC-demo/remove/movie?movieId=916d1c373dd0424e9cba86ff173553f8 HTTP/1.1" 302 - http-bio-18801-exec-9 63
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:07 +0800] "GET /SpringMVC-demo/show/list HTTP/1.1" 200 8615 http-bio-18801-exec-10 27
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:09 +0800] "GET /SpringMVC-demo/edit/movie/page?movieId=2F78AA8A367B48399C48E37D096B430F HTTP/1.1" 200 538 http-bio-18801-exec-10 59
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:12 +0800] "POST /SpringMVC-demo/update/movie HTTP/1.1" 302 - http-bio-18801-exec-10 19
+0:0:0:0:0:0:0:1 - - [29/Sep/2021:18:06:12 +0800] "GET /SpringMVC-demo/show/list HTTP/1.1" 200 8617 http-bio-18801-exec-10 52

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjl.TbCustomerMapper">
+
+    <!-- 根据id查询客户信息-->
+    <select id="selectCustomerById" resultType="com.yjl.TbCustomer">
+            select * from tb_customer
+            where customer_id =#{customerId}
+    </select>
+
+    <resultMap id="selectCustomerAndOrderTwoStepResultMap" type="com.yjl.TbCustomer">
+        <id column="customer_id" property="customerId" />
+        <result column="customer_name" property="customerName"/>
+        <!-- orderList集合属性的映射关系，使用分步查询 -->
+        <!-- 在collection标签中使用select属性指定要引用的SQL语句 -->
+        <!-- select属性值的格式是：Mapper配置文件的名称空间.SQL语句id -->
+        <!-- column属性：指定Customer和Order之间建立关联关系时所依赖的字段 -->
+        <collection property="orderList"
+                    column="customer_id"
+                    select="com.yjl.TbOrderMapper.selectOrderListByCustomerId"/>
+    </resultMap>
+
+    <select id="selectCustomerAndOrderTwoStep" resultMap="selectCustomerAndOrderTwoStepResultMap">
+            select * from tb_customer
+            where customer_id =#{customerId}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [05/Oct/2021:22:04:44 +0800] "GET /SpringMVC-download HTTP/1.1" 302 - http-bio-18802-exec-1 0
+0:0:0:0:0:0:0:1 - - [05/Oct/2021:22:04:45 +0800] "GET /SpringMVC-download/ HTTP/1.1" 200 500 http-bio-18802-exec-3 1745
+0:0:0:0:0:0:0:1 - - [05/Oct/2021:22:04:49 +0800] "GET /download/hello.atguigu HTTP/1.1" 404 - http-bio-18802-exec-4 0
+0:0:0:0:0:0:0:1 - - [05/Oct/2021:22:04:53 +0800] "GET /SpringMVC-download/download/handler HTTP/1.1" 200 27933 http-bio-18802-exec-5 140

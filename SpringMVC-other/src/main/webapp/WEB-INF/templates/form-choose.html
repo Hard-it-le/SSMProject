@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form th:action="@{/save/paige}" method="post">
+
+        佩奇id：<input type="text" name="paigeId" th:value="${paige.paigeId}" /><br/>
+        佩奇名字：<input type="text" name="paigeName" th:value="${paige.paigeName}" /><br/>
+        佩奇最喜欢的季节：<br/>
+
+        <!-- th:each属性：指定用来生成这一组标签的集合数据 -->
+        <!-- th:value属性：获取数据用来设置HTML标签的value属性，成为将来提交给服务器的值 -->
+        <!-- th:text属性：获取数据用来设置HTML标签旁边给用户看的名字 -->
+        <!-- th:checked属性：判断是否回显（把适合的标签设置为默认被选中） -->
+        <input type="radio" name="season.submitValue"
+                th:each="season : ${seasonList}"
+                th:value="${season.submitValue}"
+                th:text="${season.showForUserValue}"
+                th:checked="${season.submitValue == paige.season.submitValue}"
+        />
+
+        <br/>
+
+        <select name="season.submitValue">
+            <option th:each="season : ${seasonList}"
+                    th:value="${season.submitValue}"
+                    th:text="${season.showForUserValue}"
+                    th:selected="${season.submitValue == paige.season.submitValue}"/>
+        </select>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>首页</h1>
+
+    <a th:href="@{/common/request/one}">普通请求 1</a><br/>
+    <a th:href="@{/common/request/two}">普通请求 2</a><br/>
+    <a th:href="@{/common/request/two/aaa}">普通请求 2 aaa</a><br/>
+    <a th:href="@{/common/request/two/bbb}">普通请求 2 bbb</a><br/>
+    <a th:href="@{/common/request/two/bbb/111}">普通请求 2 bbb 111</a><br/>
+    <a th:href="@{/common/request/two/bbb/222}">普通请求 2 bbb 222</a><br/>
+    <a th:href="@{/common/request}">普通请求 0</a><br/>
+
+</body>
+</html>
