@@ -292,14 +292,9 @@ public class DemoController {
         if (!folder.exists()) {
             folder.mkdirs();
         }
-
-
         // 存储文件到目录
         uploadFile.transferTo(new File(folder, newName));
-
-
         // TODO 文件磁盘路径要更新到数据库字段
-
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("date", date);
@@ -318,7 +313,6 @@ public class DemoController {
 
     @RequestMapping("/handleRedirect")
     public String handleRedirect(String name, RedirectAttributes redirectAttributes) {
-
         //return "redirect:handle01?name=" + name;  // 拼接参数安全性、参数长度都有局限
         // addFlashAttribute方法设置了一个flash类型属性，该属性会被暂存到session中，在跳转到页面之后该属性销毁
         redirectAttributes.addFlashAttribute("name", name);

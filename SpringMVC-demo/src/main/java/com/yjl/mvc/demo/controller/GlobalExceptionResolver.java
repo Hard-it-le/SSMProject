@@ -14,7 +14,6 @@ import java.io.IOException;
 @ControllerAdvice
 public class GlobalExceptionResolver {
 
-
     @ExceptionHandler(ArithmeticException.class)
     public ModelAndView handleException(ArithmeticException exception, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
