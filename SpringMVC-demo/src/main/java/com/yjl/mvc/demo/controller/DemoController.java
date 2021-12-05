@@ -27,12 +27,10 @@ import java.util.UUID;
 
 /**
  * @author yjl
- *
  */
 @Controller
 @RequestMapping("/demo")
-public class DemoController  {
-
+public class DemoController {
 
 
     // SpringMVC的异常处理机制（异常处理器）
@@ -48,23 +46,15 @@ public class DemoController  {
     }*/
 
 
-
-
-    /**
-     * url: http://localhost:8080/demo/handle01
-     */
     @RequestMapping("/handle01")
     public ModelAndView handle01(@ModelAttribute("name") String name) {
-
-        int c = 1/0;
-
-
+        int c = 1 / 0;
         Date date = new Date();// 服务器时间
         // 返回服务器时间到前端页面
         // 封装了数据和页面信息的 ModelAndView
         ModelAndView modelAndView = new ModelAndView();
         // addObject 其实是向请求域中request.setAttribute("date",date);
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         // 视图信息(封装跳转的页面信息) 逻辑视图名
         modelAndView.setViewName("success");
         return modelAndView;
@@ -79,10 +69,6 @@ public class DemoController  {
      *  Map(jdk中的接口)        Model（spring的接口）
      *
      *  ModelMap(class,实现Map接口)
-     *
-     *
-     *
-     *
      *              BindingAwareModelMap继承了ExtendedModelMap，ExtendedModelMap继承了ModelMap,实现了Model接口
      *
      */
@@ -90,13 +76,13 @@ public class DemoController  {
     /**
      * 直接声明形参ModelMap，封装数据
      * url: http://localhost:8080/demo/handle11
-     *
+     * <p>
      * =================modelmap:class org.springframework.validation.support.BindingAwareModelMap
      */
     @RequestMapping("/handle11")
     public String handle11(ModelMap modelMap) {
         Date date = new Date();// 服务器时间
-        modelMap.addAttribute("date",date);
+        modelMap.addAttribute("date", date);
         System.out.println("=================modelmap:" + modelMap.getClass());
         return "success";
     }
@@ -110,7 +96,7 @@ public class DemoController  {
     @RequestMapping("/handle12")
     public String handle12(Model model) {
         Date date = new Date();
-        model.addAttribute("date",date);
+        model.addAttribute("date", date);
         System.out.println("=================model:" + model.getClass());
         return "success";
     }
@@ -122,29 +108,26 @@ public class DemoController  {
      * =================map:class org.springframework.validation.support.BindingAwareModelMap
      */
     @RequestMapping("/handle13")
-    public String handle13(Map<String,Object> map) {
+    public String handle13(Map<String, Object> map) {
         Date date = new Date();
-        map.put("date",date);
+        map.put("date", date);
         System.out.println("=================map:" + map.getClass());
         return "success";
     }
 
 
-
     /**
-     *
      * SpringMVC 对原生servlet api的支持  url：/demo/handle02?id=1
-     *
+     * <p>
      * 如果要在SpringMVC中使用servlet原生对象，比如HttpServletRequest\HttpServletResponse\HttpSession，直接在Handler方法形参中声明使用即可
-     *
      */
     @RequestMapping("/handle02")
-    public ModelAndView handle02(HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+    public ModelAndView handle02(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
         String id = request.getParameter("id");
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -157,11 +140,10 @@ public class DemoController  {
      * 要求：传递的参数名和声明的形参名称保持一致
      */
     @RequestMapping("/handle03")
-    public ModelAndView handle03(@RequestParam("ids") Integer id,Boolean flag) {
-
+    public ModelAndView handle03(@RequestParam("id") Integer id, Boolean flag) {
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -178,7 +160,7 @@ public class DemoController  {
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -196,7 +178,7 @@ public class DemoController  {
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -205,28 +187,29 @@ public class DemoController  {
     /**
      * 绑定日期类型参数
      * 定义一个SpringMVC的类型转换器  接口，扩展实现接口接口，注册你的实现
+     *
      * @param birthday
      * @return
      */
     @RequestMapping("/handle06")
     public ModelAndView handle06(Date birthday) {
-        Date date = new Date();ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        Date date = new Date();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
 
 
-
     /*
      * restful  get   /demo/handle/15
      */
-    @RequestMapping(value = "/handle/{id}",method = {RequestMethod.GET})
+    @RequestMapping(value = "/handle/{id}", method = {RequestMethod.GET})
     public ModelAndView handleGet(@PathVariable("id") Integer id) {
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -235,12 +218,12 @@ public class DemoController  {
     /*
      * restful  post  /demo/handle
      */
-    @RequestMapping(value = "/handle",method = {RequestMethod.POST})
+    @RequestMapping(value = "/handle", method = {RequestMethod.POST})
     public ModelAndView handlePost(String username) {
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -249,12 +232,12 @@ public class DemoController  {
     /*
      * restful  put  /demo/handle/15/lisi
      */
-    @RequestMapping(value = "/handle/{id}/{name}",method = {RequestMethod.PUT})
-    public ModelAndView handlePut(@PathVariable("id") Integer id,@PathVariable("name") String username) {
+    @RequestMapping(value = "/handle/{id}/{name}", method = {RequestMethod.PUT})
+    public ModelAndView handlePut(@PathVariable("id") Integer id, @PathVariable("name") String username) {
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -263,22 +246,22 @@ public class DemoController  {
     /*
      * restful  delete  /demo/handle/15
      */
-    @RequestMapping(value = "/handle/{id}",method = {RequestMethod.DELETE})
+    @RequestMapping(value = "/handle/{id}", method = {RequestMethod.DELETE})
     public ModelAndView handleDelete(@PathVariable("id") Integer id) {
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
 
 
-
     @RequestMapping("/handle07")
     // 添加@ResponseBody之后，不再走视图解析器那个流程，而是等同于response直接输出数据
 
-    public @ResponseBody User handle07(@RequestBody User user) {
+    public @ResponseBody
+    User handle07(@RequestBody User user) {
 
         // 业务逻辑处理，修改name为张三丰
         user.setName("张三丰");
@@ -288,10 +271,11 @@ public class DemoController  {
 
     /**
      * 文件上传
+     *
      * @return
      */
     @RequestMapping(value = "/upload")
-    public ModelAndView upload(MultipartFile uploadFile,HttpSession session) throws IOException {
+    public ModelAndView upload(MultipartFile uploadFile, HttpSession session) throws IOException {
 
         // 处理上传文件
         // 重命名，原名123.jpg ，获取后缀
@@ -305,20 +289,20 @@ public class DemoController  {
         String datePath = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         File folder = new File(realPath + "/" + datePath);
 
-        if(!folder.exists()) {
+        if (!folder.exists()) {
             folder.mkdirs();
         }
 
 
         // 存储文件到目录
-        uploadFile.transferTo(new File(folder,newName));
+        uploadFile.transferTo(new File(folder, newName));
 
 
         // TODO 文件磁盘路径要更新到数据库字段
 
         Date date = new Date();
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("date",date);
+        modelAndView.addObject("date", date);
         modelAndView.setViewName("success");
         return modelAndView;
     }
@@ -327,17 +311,17 @@ public class DemoController  {
     /**
      * SpringMVC 重定向时参数传递的问题
      * 转发：A 找 B 借钱400，B没有钱但是悄悄的找到C借了400块钱给A
-     *      url不会变,参数也不会丢失,一个请求
+     * url不会变,参数也不会丢失,一个请求
      * 重定向：A 找 B 借钱400，B 说我没有钱，你找别人借去，那么A 又带着400块的借钱需求找到C
-     *      url会变,参数会丢失需要重新携带参数,两个请求
+     * url会变,参数会丢失需要重新携带参数,两个请求
      */
 
     @RequestMapping("/handleRedirect")
-    public String handleRedirect(String name,RedirectAttributes redirectAttributes) {
+    public String handleRedirect(String name, RedirectAttributes redirectAttributes) {
 
         //return "redirect:handle01?name=" + name;  // 拼接参数安全性、参数长度都有局限
         // addFlashAttribute方法设置了一个flash类型属性，该属性会被暂存到session中，在跳转到页面之后该属性销毁
-        redirectAttributes.addFlashAttribute("name",name);
+        redirectAttributes.addFlashAttribute("name", name);
         return "redirect:handle01";
 
     }

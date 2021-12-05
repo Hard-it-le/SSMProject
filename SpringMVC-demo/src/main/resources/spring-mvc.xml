@@ -65,7 +65,7 @@
         mapping:约定的静态资源的url规则
         location：指定的静态资源的存放位置
     -->
-    <mvc:resources location="classpath:/" mapping="/resources/**"/>
+    <mvc:resources mapping="/resources/**" location="classpath:"/>
     <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 
     <mvc:interceptors>
