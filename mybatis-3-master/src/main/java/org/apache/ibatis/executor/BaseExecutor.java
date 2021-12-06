@@ -88,7 +88,8 @@ public abstract class BaseExecutor implements Executor {
         this.localOutputParameterCache = new PerpetualCache("LocalOutputParameterCache");
         this.closed = false;
         this.configuration = configuration;
-        this.wrapper = this; // 自己
+        // 自己
+        this.wrapper = this;
     }
 
     @Override
@@ -156,7 +157,16 @@ public abstract class BaseExecutor implements Executor {
         return doFlushStatements(isRollBack);
     }
 
-    //此方法在SimpleExecutor的父类BaseExecutor中实现
+    /**
+     * 此方法在SimpleExecutor的父类BaseExecutor中实现
+     * @param ms
+     * @param parameter
+     * @param rowBounds
+     * @param resultHandler
+     * @param <E>
+     * @return
+     * @throws SQLException
+     */
     @Override
     public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler) throws SQLException {
         //根据传入的参数动态获得SQL语句，最后返回用BoundSql对象表示
@@ -167,6 +177,18 @@ public abstract class BaseExecutor implements Executor {
         return query(ms, parameter, rowBounds, resultHandler, key, boundSql);
     }
 
+    /**
+     * query查询操作
+     * @param ms
+     * @param parameter
+     * @param rowBounds
+     * @param resultHandler
+     * @param key
+     * @param boundSql
+     * @param <E>
+     * @return
+     * @throws SQLException
+     */
     @SuppressWarnings("unchecked")
     @Override
     public <E> List<E> query(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
@@ -188,7 +210,7 @@ public abstract class BaseExecutor implements Executor {
             // 获取到，则进行处理
             if (list != null) {
                 handleLocallyCachedOutputParameters(ms, key, parameter, boundSql);
-            // 获得不到，则从数据库中查询
+                // 获得不到，则从数据库中查询
             } else {
                 list = queryFromDatabase(ms, parameter, rowBounds, resultHandler, key, boundSql);
             }
@@ -232,12 +254,20 @@ public abstract class BaseExecutor implements Executor {
         // 如果可加载，则执行加载
         if (deferredLoad.canLoad()) {
             deferredLoad.load();
-        // 如果不可加载，则添加到 deferredLoads 中
+            // 如果不可加载，则添加到 deferredLoads 中
         } else {
             deferredLoads.add(new DeferredLoad(resultObject, property, key, localCache, configuration, targetType));
         }
     }
 
+    /**
+     * 创建缓存
+     * @param ms
+     * @param parameterObject
+     * @param rowBounds
+     * @param boundSql
+     * @return
+     */
     @Override
     public CacheKey createCacheKey(MappedStatement ms, Object parameterObject, RowBounds rowBounds, BoundSql boundSql) {
         if (closed) {
@@ -339,7 +369,10 @@ public abstract class BaseExecutor implements Executor {
     protected abstract <E> Cursor<E> doQueryCursor(MappedStatement ms, Object parameter, RowBounds rowBounds, BoundSql boundSql)
             throws SQLException;
 
-    // 关闭 Statement 对象
+    /**
+     * 关闭 Statement 对象
+     * @param statement
+     */
     protected void closeStatement(Statement statement) {
         if (statement != null) {
             try {
@@ -354,12 +387,13 @@ public abstract class BaseExecutor implements Executor {
 
     /**
      * 设置事务超时时间
-     *
+     * <p>
      * Apply a transaction timeout.
+     *
      * @param statement a current statement
      * @throws SQLException if a database access error occurs, this method is called on a closed <code>Statement</code>
-     * @since 3.4.0
      * @see StatementUtil#applyTransactionTimeout(Statement, Integer, Integer)
+     * @since 3.4.0
      */
     protected void applyTransactionTimeout(Statement statement) throws SQLException {
         StatementUtil.applyTransactionTimeout(statement, statement.getQueryTimeout(), transaction.getTimeout());
@@ -383,7 +417,19 @@ public abstract class BaseExecutor implements Executor {
         }
     }
 
-    // 从数据库中读取操作
+    /**
+     * 从数据库中读取操作
+     *
+     * @param ms
+     * @param parameter
+     * @param rowBounds
+     * @param resultHandler
+     * @param key
+     * @param boundSql
+     * @param <E>
+     * @return
+     * @throws SQLException
+     */
     private <E> List<E> queryFromDatabase(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, CacheKey key, BoundSql boundSql) throws SQLException {
         List<E> list;
         // 在缓存中，添加占位对象。此处的占位符，和延迟加载有关，可见 `DeferredLoad#canLoad()` 方法
@@ -404,7 +450,12 @@ public abstract class BaseExecutor implements Executor {
         return list;
     }
 
-    // 获得 Connection 对象
+    /**
+     *  获得 Connection 对象
+     * @param statementLog
+     * @return
+     * @throws SQLException
+     */
     protected Connection getConnection(Log statementLog) throws SQLException {
         // 获得 Connection 对象
         Connection connection = transaction.getConnection();
