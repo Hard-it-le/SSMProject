@@ -173,7 +173,7 @@ public abstract class BaseExecutor implements Executor {
         BoundSql boundSql = ms.getBoundSql(parameter);
         //为本次查询创建缓存的Key
         CacheKey key = createCacheKey(ms, parameter, rowBounds, boundSql);
-        // 查询
+        //调用具体实现方法
         return query(ms, parameter, rowBounds, resultHandler, key, boundSql);
     }
 
@@ -206,6 +206,7 @@ public abstract class BaseExecutor implements Executor {
             // queryStack + 1
             queryStack++;
             // 从一级缓存中，获取查询结果
+            //判断缓存的map集合中是否存有插入的sql数据，如果有就直接去除，如果没有就查询数据库
             list = resultHandler == null ? (List<E>) localCache.getObject(key) : null;
             // 获取到，则进行处理
             if (list != null) {
@@ -276,9 +277,13 @@ public abstract class BaseExecutor implements Executor {
         // 创建 CacheKey 对象
         CacheKey cacheKey = new CacheKey();
         // 设置 id、offset、limit、sql 到 CacheKey 对象中
+        // id就是Sql语句的所在位置包名+类名+ SQL名称
         cacheKey.update(ms.getId());
+        // offset就是0
         cacheKey.update(rowBounds.getOffset());
+        // limit就是Integer.MAXVALUE
         cacheKey.update(rowBounds.getLimit());
+        //具体的SQL语句
         cacheKey.update(boundSql.getSql());
         // 设置 ParameterMapping 数组的元素对应的每个 value 到 CacheKey 对象中
         List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
