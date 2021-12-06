@@ -2,6 +2,7 @@ package com.spring.mvc.framework.servlet;
 
 import com.spring.mvc.demo.controller.DemoController;
 import com.spring.mvc.framework.annotations.Autowired;
+import com.spring.mvc.framework.annotations.RequestMapping;
 import com.spring.mvc.framework.annotations.TestController;
 import com.spring.mvc.framework.annotations.TestService;
 
@@ -14,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.*;
 
 /**
@@ -34,6 +36,13 @@ public class DispatcherServlet extends HttpServlet {
      * ioc容器
      */
     private Map<String, Object> ioc = new HashMap<>();
+
+
+    /**
+     * handlerMapping
+     * 存储url和Method之间的映射关系
+     */
+    private Map<String, Method> handlerMapping = new HashMap<>();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -63,8 +72,50 @@ public class DispatcherServlet extends HttpServlet {
 
     /**
      * 构造一个HandlerMapping构造器映射器
+     * 最关键的环节
+     * 目的：将url和method建立关联
      */
     private void initHandlerMapping() {
+        if (ioc.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, Object> entry : ioc.entrySet()) {
+            //获取ioc中当前遍历的对象的class类型
+            Class<?> aClass = entry.getValue().getClass();
+
+            if (!aClass.isAnnotationPresent(TestController.class)) {
+                continue;
+            }
+
+            String baseUrl = "";
+            if (aClass.isAnnotationPresent(TestController.class)) {
+                RequestMapping annotation = aClass.getAnnotation(RequestMapping.class);
+                // 等同于/demo
+                baseUrl = annotation.value();
+            }
+
+            //获取方法
+            Method[] methods = aClass.getMethods();
+            for (int i = 0; i < methods.length; i++) {
+                Method method = methods[i];
+
+                //  方法没有标识RequestMapping，就不处理
+                if (!aClass.isAnnotationPresent(RequestMapping.class)) {
+                    continue;
+                }
+                // 如果标识，就处理
+                RequestMapping annotation = method.getAnnotation(RequestMapping.class);
+                //相当于query
+                String methodUrl = annotation.value();
+                // 计算出来的url /demo/query
+                String url = baseUrl + methodUrl;
+
+
+                // 建立url和method之间的映射关系（map缓存起来）
+                handlerMapping.put(url, method);
+
+            }
+        }
     }
 
     /**

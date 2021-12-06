@@ -21,6 +21,14 @@ public class DemoController {
     @Autowired
     private DemoService demoService;
 
+    /**
+     * URL:/demo/query
+     * @param request
+     * @param response
+     * @param name
+     * @return
+     */
+    @RequestMapping("/query")
     public String getName(HttpServletRequest request, HttpServletResponse response, String name) {
         return demoService.getName(name);
     }
