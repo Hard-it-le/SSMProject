@@ -21,14 +21,12 @@ public class Handler {
      */
     private Map<String, Integer> paramIndexMapping;
 
+
     public Handler(Object controller, Method method, Pattern pattern) {
         this.controller = controller;
         this.method = method;
         this.pattern = pattern;
-
     }
-
-
 
     public Object getController() {
         return controller;
