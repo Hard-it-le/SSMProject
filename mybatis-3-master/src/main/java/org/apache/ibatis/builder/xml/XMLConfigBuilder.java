@@ -105,7 +105,7 @@ public class XMLConfigBuilder extends BaseBuilder {
 
     /**
      * 解析 XML 成 Configuration 对象。
-     *
+     *如果标记为false表示xml未解析，标记为true，表示xml已经解析抛出异常
      * @return Configuration 对象
      */
     public Configuration parse() {
@@ -481,6 +481,11 @@ public class XMLConfigBuilder extends BaseBuilder {
         }
     }
 
+    /**
+     * 解析mapper标签
+     * @param parent
+     * @throws Exception
+     */
     private void mapperElement(XNode parent) throws Exception {
         if (parent != null) {
             // 遍历子节点
@@ -493,11 +498,11 @@ public class XMLConfigBuilder extends BaseBuilder {
                     configuration.addMappers(mapperPackage);
                 // 如果是 mapper 标签，
                 } else {
+                    //如果是单个的mapper标签则进行逐个获取配置
                     // 获得 resource、url、class 属性
                     String resource = child.getStringAttribute("resource");
                     String url = child.getStringAttribute("url");
                     String mapperClass = child.getStringAttribute("class");
-
                     // resource 不为空，且其他两者为空，则从指定路径中加载配置
                     if (resource != null && url == null && mapperClass == null) {
                         ErrorContext.instance().resource(resource);

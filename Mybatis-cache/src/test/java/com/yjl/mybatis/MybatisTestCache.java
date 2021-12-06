@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author yujiale
@@ -22,9 +23,20 @@ public class MybatisTestCache {
 
     private SqlSessionFactory factory;
 
+    @Before
+    public void init() throws IOException {
+        //1.Resources工具类，配置文件的加载，把配置文件加载成字节输入流
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
+        //2.解析了配置文件，并创建了sqlSessionFactory工厂
+        factory = new SqlSessionFactoryBuilder()
+                .build(resourceAsStream);
+    }
+
 
     @Test
     public void secondLevelCacheTest() {
+        //3.生产sqlSession
+        // 默认开启一个事务，但是该事务不会自动提交
         SqlSession session = factory.openSession();
         TbEmpMapper employeeMapper = session.getMapper(TbEmpMapper.class);
         Integer empId = 1;
@@ -164,6 +176,9 @@ public class MybatisTestCache {
     }
 
 
+    /**
+     * 一级缓存
+     */
     @Test
     public void firstLevelCacheTest() {
         SqlSession session = factory.openSession();
@@ -178,13 +193,6 @@ public class MybatisTestCache {
 
         session.commit();
         session.close();
-    }
-
-
-    @Before
-    public void init() throws IOException {
-        factory = new SqlSessionFactoryBuilder()
-                .build(Resources.getResourceAsStream("mybatis-config.xml"));
     }
 
 

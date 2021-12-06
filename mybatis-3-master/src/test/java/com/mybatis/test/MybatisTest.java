@@ -16,8 +16,8 @@ import java.util.List;
 
 public class MybatisTest {
 
-    /*
-        测试一对一查询
+    /**
+     * 测试一对一查询
      */
     @Test
     public void test1() throws IOException {
@@ -31,8 +31,8 @@ public class MybatisTest {
         }
     }
 
-    /*
-        测试一对多查询
+    /**
+     * 测试一对多查询
      */
     @Test
     public void test2() throws IOException {
@@ -53,9 +53,7 @@ public class MybatisTest {
     }
 
 
-
-
-    }
+}
 
 
 
