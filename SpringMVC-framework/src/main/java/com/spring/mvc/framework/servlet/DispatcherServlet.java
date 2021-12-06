@@ -1,6 +1,7 @@
 package com.spring.mvc.framework.servlet;
 
 import com.spring.mvc.demo.controller.DemoController;
+import com.spring.mvc.framework.annotations.Autowired;
 import com.spring.mvc.framework.annotations.TestController;
 import com.spring.mvc.framework.annotations.TestService;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.util.*;
 
 /**
@@ -69,6 +71,41 @@ public class DispatcherServlet extends HttpServlet {
      * 实现依赖注入
      */
     private void doAutowired() {
+        if (ioc.isEmpty()) {
+            return;
+        }
+
+        //1、如果有对象，再进行依赖注入
+
+        //2、遍历ioc中所有对象，查看对象中的字段，是否有@LagouAutowired注解，如果有需要维护依赖注入关系
+        for (Map.Entry<String, Object> entry : ioc.entrySet()) {
+            //获取bean对象的字段信息
+
+            Field[] declaredFields = entry.getValue().getClass().getDeclaredFields();
+            for (int i = 0; i < declaredFields.length; i++) {
+
+                Field declaredField = declaredFields[i];
+                if (!declaredField.isAnnotationPresent(Autowired.class)) {
+                    continue;
+                }
+
+                Autowired annotation = declaredField.getAnnotation(Autowired.class);
+                // 需要注入的bean的id
+                String beanName = annotation.value();
+                if ("".equals(beanName.trim())) {
+                    // 没有配置具体的bean id，那就需要根据当前字段类型注入（接口注入）  IDemoService
+                    beanName = declaredField.getType().getName();
+                }
+                // 开启赋值
+                declaredField.setAccessible(true);
+                try {
+                    declaredField.set(entry.getValue(), ioc.get(beanName));
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     /**
