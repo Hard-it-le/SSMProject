@@ -1,10 +1,11 @@
 package com.spring.mvc.framework.servlet;
 
-import com.spring.mvc.demo.controller.DemoController;
+
 import com.spring.mvc.framework.annotations.Autowired;
 import com.spring.mvc.framework.annotations.RequestMapping;
 import com.spring.mvc.framework.annotations.TestController;
 import com.spring.mvc.framework.annotations.TestService;
+import com.spring.mvc.framework.pojo.Handler;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -16,7 +17,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.*;
+import java.util.regex.Pattern;
 
 /**
  * @program: SSMProject
@@ -42,7 +45,8 @@ public class DispatcherServlet extends HttpServlet {
      * handlerMapping
      * 存储url和Method之间的映射关系
      */
-    private Map<String, Method> handlerMapping = new HashMap<>();
+    //  private Map<String, Method> handlerMapping = new HashMap<>();
+    private List<Handler> handlerMapping = new ArrayList<>();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -110,9 +114,28 @@ public class DispatcherServlet extends HttpServlet {
                 // 计算出来的url /demo/query
                 String url = baseUrl + methodUrl;
 
+                // 把method所有信息及url封装为一个Handler
+
+
+                Handler handler = new Handler(entry.getValue(), method, Pattern.compile(url));
+
+                // 计算方法的参数位置信息  // query(HttpServletRequest request, HttpServletResponse response,String name)
+                Parameter[] parameters = method.getParameters();
+                for (int j = 0; j < parameters.length; j++) {
+                    Parameter parameter = parameters[j];
+                    if (parameter.getType() == HttpServletRequest.class || parameter.getType() == HttpServletResponse.class) {
+                        // 如果是request和response对象，那么参数名称写HttpServletRequest和HttpServletResponse
+                        handler.getParamIndexMapping().put(parameter.getType().getSimpleName(), j);
+                    } else {
+                        // <name,2>
+                        handler.getParamIndexMapping().put(parameter.getName(), j);
+                    }
+
+                }
+
 
                 // 建立url和method之间的映射关系（map缓存起来）
-                handlerMapping.put(url, method);
+                handlerMapping.add(handler);
 
             }
         }
@@ -273,6 +296,14 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        // 处理请求：根据url，找到对应的Method方法，进行调用
+        // 获取uri
+        // String requestURI = req.getRequestURI();
+        // 获取到一个反射的方法
+        //Method method = handlerMapping.get(requestURI);
+        // 反射调用，需要传入对象，需要传入参数，此处无法完成调用，没有把对象缓存起来，也没有参数！！！！改造initHandlerMapping();
+        //  method.invoke();
+
+
     }
 }
