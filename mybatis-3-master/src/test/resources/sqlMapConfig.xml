@@ -19,9 +19,9 @@
     <!--给实体类的全限定类名给别名-->
     <typeAliases>
         <!--给单独的实体起别名-->
-        <!--  <typeAlias type="com.mybatis.pojo.User" alias="user"></typeAlias>-->
+        <!--  <typeAlias type="com.spring.mvc.controller.DemoController.mybatis.pojo.User" alias="user"></typeAlias>-->
         <!--批量起别名：该包下所有的类的本身的类名：别名还不区分大小写-->
-        <package name="com.mybatis.pojo"/>
+        <package name="com.spring.mvc.controller.DemoController.mybatis.pojo"/>
     </typeAliases>
 
 
@@ -42,7 +42,7 @@
 
     <!--引入映射配置文件-->
     <mappers>
-        <!-- <mapper class="com.mybatis.mapper.IOrderMapperr"></mapper>-->
-        <package name="com.mybatis.mapper"/>
+        <!-- <mapper class="com.spring.mvc.controller.DemoController.mybatis.mapper.IOrderMapperr"></mapper>-->
+        <package name="com.spring.mvc.controller.DemoController.mybatis.mapper"/>
     </mappers>
 </configuration>

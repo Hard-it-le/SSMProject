@@ -9,11 +9,11 @@
 
 	<mvc:cors>
 
-		<mvc:mapping path="/api/**" allowed-origins="https://domain1.com, https://domain2.com"
+		<mvc:mapping path="/api/**" allowed-origins="https://domain1.com.spring.mvc.controller.DemoController, https://domain2.com.spring.mvc.controller.DemoController"
 					 allowed-methods="GET, PUT" allowed-headers="header1, header2, header3"
 					 exposed-headers="header1, header2" allow-credentials="false" max-age="123" />
 
-		<mvc:mapping path="/resources/**" allowed-origins="https://domain1.com" />
+		<mvc:mapping path="/resources/**" allowed-origins="https://domain1.com.spring.mvc.controller.DemoController" />
 
 	</mvc:cors>
 

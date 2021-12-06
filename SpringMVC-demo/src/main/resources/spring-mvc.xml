@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 自动扫描的包 -->
-    <context:component-scan base-package="com.yjl.mvc.demo"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.mvc.demo"/>
 
     <!-- 视图解析器 -->
     <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
@@ -42,7 +42,7 @@
     <bean id="conversionServiceBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.yjl.mvc.demo.converter.DateConverter"></bean>
+                <bean class="com.spring.mvc.controller.DemoController.yjl.mvc.demo.converter.DateConverter"></bean>
             </set>
         </property>
     </bean>
@@ -75,13 +75,13 @@
             <mvc:mapping path="/**"/>
             <!--exclude-mapping可以在mapping的基础上排除一些url拦截-->
             <!--<mvc:exclude-mapping path="/demo/**"/>-->
-            <bean class="com.yjl.mvc.demo.interceptor.MyIntercepter01"/>
+            <bean class="com.spring.mvc.controller.DemoController.yjl.mvc.demo.interceptor.MyIntercepter01"/>
         </mvc:interceptor>
 
 
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.yjl.mvc.demo.interceptor.MyIntercepter02"/>
+            <bean class="com.spring.mvc.controller.DemoController.yjl.mvc.demo.interceptor.MyIntercepter02"/>
         </mvc:interceptor>
 
     </mvc:interceptors>

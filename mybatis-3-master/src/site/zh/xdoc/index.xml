@@ -21,9 +21,9 @@
 
   <properties>
     <title>MyBatis 3 | 简介</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="nanlei1987@gmail.com">Nan Lei</author>
-    <author email="echowdx@gmail.com">Dongxu Wang</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="nanlei1987@gmail.com.spring.mvc.controller.DemoController">Nan Lei</author>
+    <author email="echowdx@gmail.com.spring.mvc.controller.DemoController">Dongxu Wang</author>
   </properties>
 
   <body>
@@ -38,7 +38,7 @@
       <subsection name="帮助改进文档...">
         <p>如果你发现文档有任何的缺失，或者缺少某一个功能点的说明，最好的解决办法是先自己学习，并且为缺失的部份补上相应的文档。</p>
         <p>该文档 xdoc 格式的源码文件可通过<a
-        href="https://github.com/mybatis/mybatis-3/tree/master/src/site">项目的
+        href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/tree/master/src/site">项目的
         Git 代码库</a>来获取。Fork 该源码库，作出更新，并提交 Pull Request 吧。</p>
         <p>还有其他像你一样的人都需要阅读这份文档，而你，就是这份文档最好的作者。
         </p>

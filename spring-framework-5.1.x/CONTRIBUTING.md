@@ -29,7 +29,7 @@ If you have a question, check StackOverflow using
 Find an existing discussion or start a new one if necessary.
 
 If you suspect an issue, perform a search in the
-[Github issue tracker](https://github.com/spring-projects/spring-framework/issues), using a few different keywords.
+[Github issue tracker](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/issues), using a few different keywords.
 When you find related issues and discussions, prior or current, it helps you to learn and
 it helps us to make a decision.
 
@@ -42,7 +42,7 @@ Before you create a ticket, please take the time to [research first](#discuss).
 
 If creating a ticket after a discussion on StackOverflow, please provide a self-sufficient description in the ticket, independent of the details on StackOverview. We understand this is extra work but the issue tracker is an important place of record for design discussions and decisions that can often be referenced long after the fix version, for example to revisit decisions, to understand the origin of a feature, and so on.
 
-When ready create a ticket in the [Github issue tracker](https://github.com/spring-projects/spring-framework/issues).
+When ready create a ticket in the [Github issue tracker](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/issues).
 
 #### Ticket Lifecycle
 
@@ -80,13 +80,13 @@ otherwise using succinct, lower-case, dash (-) delimited names, such as `fix-war
 
 1. Choose the granularity of your commits consciously and squash commits that represent
 multiple edits or corrections of the same logical change. See
-[Rewriting History section of Pro Git](https://git-scm.com/book/en/Git-Tools-Rewriting-History)
+[Rewriting History section of Pro Git](https://git-scm.com.spring.mvc.controller.DemoController/book/en/Git-Tools-Rewriting-History)
 for an overview of streamlining commit history.
 
 1. Format commit messages using 55 characters for the subject line, 72 lines for the
 description, followed by the issue fixed, e.g. `Fixes #22276`.
 See the
-[Commit Guidelines section of Pro Git](https://git-scm.com/book/en/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines)
+[Commit Guidelines section of Pro Git](https://git-scm.com.spring.mvc.controller.DemoController/book/en/Distributed-Git-Contributing-to-a-Project#Commit-Guidelines)
 for best practices around commit messages and use `git log` to see some examples.
 
 1. List the GitHub issue number in the PR description.
@@ -101,15 +101,15 @@ when asked to make changes.
 
 ### Build from Source
 
-See the [Build from Source](https://github.com/spring-projects/spring-framework/wiki/Build-from-Source)
+See the [Build from Source](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Build-from-Source)
 wiki page for instructions on how to check out, build, and import the Spring Framework
 source code into your IDE.
 
 ### Source Code Style
 
 The wiki pages
-[Code Style](https://github.com/spring-projects/spring-framework/wiki/Code-Style) and
-[IntelliJ IDEA Editor Settings](https://github.com/spring-projects/spring-framework/wiki/IntelliJ-IDEA-Editor-Settings)
+[Code Style](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Code-Style) and
+[IntelliJ IDEA Editor Settings](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/IntelliJ-IDEA-Editor-Settings)
 defines the source file coding standards we use along with some IDEA editor settings we customize.
 
 ### Reference Docs

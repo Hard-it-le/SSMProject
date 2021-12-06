@@ -334,7 +334,7 @@ Consider the following example:
 ----
 	<!-- creates a java.util.Properties instance with values loaded from the supplied location -->
 	<bean id="jdbcConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-		<property name="location" value="classpath:com/foo/jdbc-production.properties"/>
+		<property name="location" value="classpath:com.spring.mvc.controller.DemoController/foo/jdbc-production.properties"/>
 	</bean>
 ----
 ====
@@ -350,7 +350,7 @@ The following example uses a `util:properties` element to make a more concise re
 [subs="verbatim,quotes"]
 ----
 	<!-- creates a java.util.Properties instance with values loaded from the supplied location -->
-	<util:properties id="jdbcConfiguration" location="classpath:com/foo/jdbc-production.properties"/>
+	<util:properties id="jdbcConfiguration" location="classpath:com.spring.mvc.controller.DemoController/foo/jdbc-production.properties"/>
 ----
 ====
 
@@ -767,10 +767,10 @@ to configure `SimpleDateFormat` objects:
 	<!-- myns.xsd (inside package org/springframework/samples/xml) -->
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<xsd:schema xmlns="http://www.mycompany.com/schema/myns"
+	<xsd:schema xmlns="http://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns"
 			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 			xmlns:beans="http://www.springframework.org/schema/beans"
-			targetNamespace="http://www.mycompany.com/schema/myns"
+			targetNamespace="http://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns"
 			elementFormDefault="qualified"
 			attributeFormDefault="unqualified">
 
@@ -972,7 +972,7 @@ namespace handler classes. For our example, we need to write the following:
 [literal]
 [subs="verbatim,quotes"]
 ----
-http\://www.mycompany.com/schema/myns=org.springframework.samples.xml.MyNamespaceHandler
+http\://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns=org.springframework.samples.xml.MyNamespaceHandler
 ----
 ====
 
@@ -1000,7 +1000,7 @@ The following snippet shows the line we need to add for our custom schema:
 [literal]
 [subs="verbatim,quotes"]
 ----
-http\://www.mycompany.com/schema/myns/myns.xsd=org/springframework/samples/xml/myns.xsd
+http\://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns/myns.xsd=org/springframework/samples/xml/myns.xsd
 ----
 ====
 
@@ -1026,10 +1026,10 @@ in a Spring XML configuration file:
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:myns="http://www.mycompany.com/schema/myns"
+		xmlns:myns="http://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns"
 		xsi:schemaLocation="
 			http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-			http://www.mycompany.com/schema/myns http://www.mycompany.com/schema/myns/myns.xsd">
+			http://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns http://www.mycompany.com.spring.mvc.controller.DemoController/schema/myns/myns.xsd">
 
 		<!-- as a top-level bean -->
 		<myns:dateformat id="defaultDateFormat" pattern="yyyy-MM-dd HH:mm" lenient="true"/> <1>
@@ -1067,10 +1067,10 @@ to satisfy a target of the following configuration:
 	<?xml version="1.0" encoding="UTF-8"?>
 	<beans xmlns="http://www.springframework.org/schema/beans"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:foo="http://www.foo.com/schema/component"
+		xmlns:foo="http://www.foo.com.spring.mvc.controller.DemoController/schema/component"
 		xsi:schemaLocation="
 			http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-			http://www.foo.com/schema/component http://www.foo.com/schema/component/component.xsd">
+			http://www.foo.com.spring.mvc.controller.DemoController/schema/component http://www.foo.com.spring.mvc.controller.DemoController/schema/component/component.xsd">
 
 		<foo:component id="bionic-family" name="Bionic-1">
 			<foo:component name="Mother-1">
@@ -1095,7 +1095,7 @@ The following listing shows the `Component` class:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import java.util.ArrayList;
 	import java.util.List;
@@ -1133,7 +1133,7 @@ setter property for the `components` property. The following listing shows such 
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.beans.factory.FactoryBean;
 
@@ -1184,9 +1184,9 @@ listing shows:
 ----
 	<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-	<xsd:schema xmlns="http://www.foo.com/schema/component"
+	<xsd:schema xmlns="http://www.foo.com.spring.mvc.controller.DemoController/schema/component"
 			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-			targetNamespace="http://www.foo.com/schema/component"
+			targetNamespace="http://www.foo.com.spring.mvc.controller.DemoController/schema/component"
 			elementFormDefault="qualified"
 			attributeFormDefault="unqualified">
 
@@ -1211,7 +1211,7 @@ we then create a custom `NamespaceHandler`:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
@@ -1232,7 +1232,7 @@ listing shows our custom `BeanDefinitionParser` implementation:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.beans.factory.config.BeanDefinition;
 	import org.springframework.beans.factory.support.AbstractBeanDefinition;
@@ -1288,14 +1288,14 @@ by modifying the `META-INF/spring.handlers` and `META-INF/spring.schemas` files,
 [subs="verbatim,quotes"]
 ----
 # in 'META-INF/spring.handlers'
-http\://www.foo.com/schema/component=com.foo.ComponentNamespaceHandler
+http\://www.foo.com.spring.mvc.controller.DemoController/schema/component=com.spring.mvc.controller.DemoController.foo.ComponentNamespaceHandler
 ----
 
 [literal]
 [subs="verbatim,quotes"]
 ----
 # in 'META-INF/spring.schemas'
-http\://www.foo.com/schema/component/component.xsd=com/foo/component.xsd
+http\://www.foo.com.spring.mvc.controller.DemoController/schema/component/component.xsd=com.spring.mvc.controller.DemoController/foo/component.xsd
 ----
 ====
 
@@ -1319,7 +1319,7 @@ The following listing shows such a definition:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="checkingAccountService" class="com.foo.DefaultCheckingAccountService"
+	<bean id="checkingAccountService" class="com.spring.mvc.controller.DemoController.foo.DefaultCheckingAccountService"
 			jcache:cache-name="checking.account">
 		<!-- other dependencies here... -->
 	</bean>
@@ -1336,7 +1336,7 @@ JCache-initializing `BeanDefinition`. The following listing shows our `JCacheIni
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	public class JCacheInitializer {
 
@@ -1362,9 +1362,9 @@ the XSD schema that describes the custom attribute, as follows:
 ----
 	<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-	<xsd:schema xmlns="http://www.foo.com/schema/jcache"
+	<xsd:schema xmlns="http://www.foo.com.spring.mvc.controller.DemoController/schema/jcache"
 			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-			targetNamespace="http://www.foo.com/schema/jcache"
+			targetNamespace="http://www.foo.com.spring.mvc.controller.DemoController/schema/jcache"
 			elementFormDefault="qualified">
 
 		<xsd:attribute name="cache-name" type="xsd:string"/>
@@ -1379,7 +1379,7 @@ Next, we need to create the associated `NamespaceHandler`, as follows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
@@ -1402,7 +1402,7 @@ The following listing shows our `BeanDefinitionDecorator` implementation:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.beans.factory.config.BeanDefinitionHolder;
 	import org.springframework.beans.factory.support.AbstractBeanDefinition;
@@ -1463,13 +1463,13 @@ by modifying the `META-INF/spring.handlers` and `META-INF/spring.schemas` files,
 [subs="verbatim,quotes"]
 ----
 # in 'META-INF/spring.handlers'
-http\://www.foo.com/schema/jcache=com.foo.JCacheNamespaceHandler
+http\://www.foo.com.spring.mvc.controller.DemoController/schema/jcache=com.spring.mvc.controller.DemoController.foo.JCacheNamespaceHandler
 ----
 
 [literal]
 [subs="verbatim,quotes"]
 ----
 # in 'META-INF/spring.schemas'
-http\://www.foo.com/schema/jcache/jcache.xsd=com/foo/jcache.xsd
+http\://www.foo.com.spring.mvc.controller.DemoController/schema/jcache/jcache.xsd=com.spring.mvc.controller.DemoController/foo/jcache.xsd
 ----
 ====

@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- 当前工程的坐标 -->
-    <groupId>com.yjl</groupId>
+    <groupId>com.spring.mvc.controller.DemoController.yjl</groupId>
     <artifactId>Maven-java01</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -44,7 +44,7 @@
         </dependency>
 
         <!-- 为了测试依赖的传递性，依赖spring-core -->
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <!-- https://mvnrepository.com.spring.mvc.controller.DemoController/artifact/org.springframework/spring-core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>

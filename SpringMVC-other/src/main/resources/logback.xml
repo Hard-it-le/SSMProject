@@ -19,7 +19,7 @@
 
     <!-- 根据特殊需求指定局部日志级别 -->
     <logger name="org.springframework.web.servlet.DispatcherServlet" level="DEBUG" />
-    <logger name="com.yjl.mvc.handler.Demo01GetOriginalObjHandler" level="DEBUG"/>
-    <logger name="com.yjl.mvc.handler.Demo02AttrHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.yjl.mvc.handler.Demo01GetOriginalObjHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.yjl.mvc.handler.Demo02AttrHandler" level="DEBUG"/>
 
 </configuration>

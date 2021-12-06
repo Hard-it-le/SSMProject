@@ -472,7 +472,7 @@ pointcut expressions by name. The following example shows three pointcut express
 	@Pointcut("execution(public * *(..))")
 	private void anyPublicOperation() {} <1>
 
-	@Pointcut("within(com.xyz.someapp.trading..*)")
+	@Pointcut("within(com.spring.mvc.controller.DemoController.xyz.someapp.trading..*)")
 	private void inTrading() {} <2>
 
 	@Pointcut("anyPublicOperation() && inTrading()")
@@ -504,7 +504,7 @@ this purpose. Such an aspect typically resembles the following example:
 [source,java,indent=0]
 [subs="verbatim"]
 ----
-	package com.xyz.someapp;
+	package com.spring.mvc.controller.DemoController.xyz.someapp;
 
 	import org.aspectj.lang.annotation.Aspect;
 	import org.aspectj.lang.annotation.Pointcut;
@@ -514,26 +514,26 @@ this purpose. Such an aspect typically resembles the following example:
 
 		/**
 		 * A join point is in the web layer if the method is defined
-		 * in a type in the com.xyz.someapp.web package or any sub-package
+		 * in a type in the com.spring.mvc.controller.DemoController.xyz.someapp.web package or any sub-package
 		 * under that.
 		 */
-		@Pointcut("within(com.xyz.someapp.web..*)")
+		@Pointcut("within(com.spring.mvc.controller.DemoController.xyz.someapp.web..*)")
 		public void inWebLayer() {}
 
 		/**
 		 * A join point is in the service layer if the method is defined
-		 * in a type in the com.xyz.someapp.service package or any sub-package
+		 * in a type in the com.spring.mvc.controller.DemoController.xyz.someapp.service package or any sub-package
 		 * under that.
 		 */
-		@Pointcut("within(com.xyz.someapp.service..*)")
+		@Pointcut("within(com.spring.mvc.controller.DemoController.xyz.someapp.service..*)")
 		public void inServiceLayer() {}
 
 		/**
 		 * A join point is in the data access layer if the method is defined
-		 * in a type in the com.xyz.someapp.dao package or any sub-package
+		 * in a type in the com.spring.mvc.controller.DemoController.xyz.someapp.dao package or any sub-package
 		 * under that.
 		 */
-		@Pointcut("within(com.xyz.someapp.dao..*)")
+		@Pointcut("within(com.spring.mvc.controller.DemoController.xyz.someapp.dao..*)")
 		public void inDataAccessLayer() {}
 
 		/**
@@ -542,15 +542,15 @@ this purpose. Such an aspect typically resembles the following example:
 		 * "service" package, and that implementation types are in sub-packages.
 		 *
 		 * If you group service interfaces by functional area (for example,
-		 * in packages com.xyz.someapp.abc.service and com.xyz.someapp.def.service) then
-		 * the pointcut expression "execution(* com.xyz.someapp..service.*.*(..))"
+		 * in packages com.spring.mvc.controller.DemoController.xyz.someapp.abc.service and com.spring.mvc.controller.DemoController.xyz.someapp.def.service) then
+		 * the pointcut expression "execution(* com.spring.mvc.controller.DemoController.xyz.someapp..service.*.*(..))"
 		 * could be used instead.
 		 *
 		 * Alternatively, you can write the expression using the 'bean'
 		 * PCD, like so "bean(*Service)". (This assumes that you have
 		 * named your Spring service beans in a consistent fashion.)
 		 */
-		@Pointcut("execution(* com.xyz.someapp..service.*.*(..))")
+		@Pointcut("execution(* com.spring.mvc.controller.DemoController.xyz.someapp..service.*.*(..))")
 		public void businessService() {}
 
 		/**
@@ -558,7 +558,7 @@ this purpose. Such an aspect typically resembles the following example:
 		 * dao interface. This definition assumes that interfaces are placed in the
 		 * "dao" package, and that implementation types are in sub-packages.
 		 */
-		@Pointcut("execution(* com.xyz.someapp.dao.*.*(..))")
+		@Pointcut("execution(* com.spring.mvc.controller.DemoController.xyz.someapp.dao.*.*(..))")
 		public void dataAccessOperation() {}
 
 	}
@@ -575,7 +575,7 @@ write the following:
 ----
 	<aop:config>
 		<aop:advisor
-			pointcut="com.xyz.someapp.SystemArchitecture.businessService()"
+			pointcut="com.spring.mvc.controller.DemoController.xyz.someapp.SystemArchitecture.businessService()"
 			advice-ref="tx-advice"/>
 	</aop:config>
 
@@ -650,7 +650,7 @@ The following examples show some common pointcut expressions:
 [source,java,indent=0]
 [subs="verbatim"]
 ----
-	execution(* com.xyz.service.AccountService.*(..))
+	execution(* com.spring.mvc.controller.DemoController.xyz.service.AccountService.*(..))
 ----
 ====
 
@@ -660,7 +660,7 @@ The following examples show some common pointcut expressions:
 [source,java,indent=0]
 [subs="verbatim"]
 ----
-	execution(* com.xyz.service.*.*(..))
+	execution(* com.spring.mvc.controller.DemoController.xyz.service.*.*(..))
 ----
 ====
 
@@ -670,7 +670,7 @@ The following examples show some common pointcut expressions:
 [source,java,indent=0]
 [subs="verbatim"]
 ----
-	execution(* com.xyz.service..*.*(..))
+	execution(* com.spring.mvc.controller.DemoController.xyz.service..*.*(..))
 ----
 ====
 
@@ -680,7 +680,7 @@ The following examples show some common pointcut expressions:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	within(com.xyz.service.*)
+	within(com.spring.mvc.controller.DemoController.xyz.service.*)
 ----
 ====
 
@@ -691,7 +691,7 @@ sub-packages:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	within(com.xyz.service..*)
+	within(com.spring.mvc.controller.DemoController.xyz.service..*)
 ----
 ====
 
@@ -702,7 +702,7 @@ sub-packages:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	this(com.xyz.service.AccountService)
+	this(com.spring.mvc.controller.DemoController.xyz.service.AccountService)
 ----
 ====
 +
@@ -716,7 +716,7 @@ implements the `AccountService` interface:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	target(com.xyz.service.AccountService)
+	target(com.spring.mvc.controller.DemoController.xyz.service.AccountService)
 ----
 ====
 +
@@ -791,7 +791,7 @@ and where the runtime type of the argument passed has the `@Classified` annotati
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@args(com.xyz.security.Classified)
+	@args(com.spring.mvc.controller.DemoController.xyz.security.Classified)
 ----
 ====
 +
@@ -882,7 +882,7 @@ You can declare before advice in an aspect by using the `@Before` annotation:
 	@Aspect
 	public class BeforeExample {
 
-		@Before("com.xyz.myapp.SystemArchitecture.dataAccessOperation()")
+		@Before("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation()")
 		public void doAccessCheck() {
 			// ...
 		}
@@ -904,7 +904,7 @@ following example:
 	@Aspect
 	public class BeforeExample {
 
-		@Before("execution(* com.xyz.myapp.dao.*.*(..))")
+		@Before("execution(* com.spring.mvc.controller.DemoController.xyz.myapp.dao.*.*(..))")
 		public void doAccessCheck() {
 			// ...
 		}
@@ -930,7 +930,7 @@ declare it by using the `@AfterReturning` annotation:
 	@Aspect
 	public class AfterReturningExample {
 
-		@AfterReturning("com.xyz.myapp.SystemArchitecture.dataAccessOperation()")
+		@AfterReturning("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation()")
 		public void doAccessCheck() {
 			// ...
 		}
@@ -958,7 +958,7 @@ the following example shows:
 	public class AfterReturningExample {
 
 		@AfterReturning(
-			pointcut="com.xyz.myapp.SystemArchitecture.dataAccessOperation()",
+			pointcut="com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation()",
 			returning="retVal")
 		public void doAccessCheck(Object retVal) {
 			// ...
@@ -995,7 +995,7 @@ example shows:
 	@Aspect
 	public class AfterThrowingExample {
 
-		@AfterThrowing("com.xyz.myapp.SystemArchitecture.dataAccessOperation()")
+		@AfterThrowing("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation()")
 		public void doRecoveryActions() {
 			// ...
 		}
@@ -1021,7 +1021,7 @@ following example shows how to do so:
 	public class AfterThrowingExample {
 
 		@AfterThrowing(
-			pointcut="com.xyz.myapp.SystemArchitecture.dataAccessOperation()",
+			pointcut="com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation()",
 			throwing="ex")
 		public void doRecoveryActions(DataAccessException ex) {
 			// ...
@@ -1056,7 +1056,7 @@ The following example shows how to use after finally advice:
 	@Aspect
 	public class AfterFinallyExample {
 
-		@After("com.xyz.myapp.SystemArchitecture.dataAccessOperation()")
+		@After("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation()")
 		public void doReleaseLock() {
 			// ...
 		}
@@ -1110,7 +1110,7 @@ The following example shows how to use around advice:
 	@Aspect
 	public class AroundExample {
 
-		@Around("com.xyz.myapp.SystemArchitecture.businessService()")
+		@Around("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService()")
 		public Object doBasicProfiling(ProceedingJoinPoint pjp) throws Throwable {
 			// start stopwatch
 			Object retVal = pjp.proceed();
@@ -1171,7 +1171,7 @@ You could write the following:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Before("com.xyz.myapp.SystemArchitecture.dataAccessOperation() && args(account,..)")
+	@Before("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation() && args(account,..)")
 	public void validateAccount(Account account) {
 		// ...
 	}
@@ -1192,7 +1192,7 @@ from the advice. This would look as follows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Pointcut("com.xyz.myapp.SystemArchitecture.dataAccessOperation() && args(account,..)")
+	@Pointcut("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.dataAccessOperation() && args(account,..)")
 	private void accountDataAccessOperation(Account account) {}
 
 	@Before("accountDataAccessOperation(account)")
@@ -1230,7 +1230,7 @@ The second of the two examples shows the advice that matches the execution of `@
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Before("com.xyz.lib.Pointcuts.anyPublicMethod() && @annotation(auditable)")
+	@Before("com.spring.mvc.controller.DemoController.xyz.lib.Pointcuts.anyPublicMethod() && @annotation(auditable)")
 	public void audit(Auditable auditable) {
 		AuditCode code = auditable.value();
 		// ...
@@ -1306,7 +1306,7 @@ following strategy to determine parameter names:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Before(value="com.xyz.lib.Pointcuts.anyPublicMethod() && target(bean) && @annotation(auditable)",
+	@Before(value="com.spring.mvc.controller.DemoController.xyz.lib.Pointcuts.anyPublicMethod() && target(bean) && @annotation(auditable)",
 			argNames="bean,auditable")
 	public void audit(Object bean, Auditable auditable) {
 		AuditCode code = auditable.value();
@@ -1324,7 +1324,7 @@ the join point object, the `argNames` attribute need not include it:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Before(value="com.xyz.lib.Pointcuts.anyPublicMethod() && target(bean) && @annotation(auditable)",
+	@Before(value="com.spring.mvc.controller.DemoController.xyz.lib.Pointcuts.anyPublicMethod() && target(bean) && @annotation(auditable)",
 			argNames="bean,auditable")
 	public void audit(JoinPoint jp, Object bean, Auditable auditable) {
 		AuditCode code = auditable.value();
@@ -1343,7 +1343,7 @@ the `argNames` attribute:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Before("com.xyz.lib.Pointcuts.anyPublicMethod()")
+	@Before("com.spring.mvc.controller.DemoController.xyz.lib.Pointcuts.anyPublicMethod()")
 	public void audit(JoinPoint jp) {
 		// ... use jp
 	}
@@ -1385,7 +1385,7 @@ The following example shows how to do so:
 [subs="verbatim,quotes"]
 ----
 	@Around("execution(List<Account> find*(..)) && " +
-			"com.xyz.myapp.SystemArchitecture.inDataAccessLayer() && " +
+			"com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.inDataAccessLayer() && " +
 			"args(accountHolderNamePattern)")
 	public Object preProcessQueryPattern(ProceedingJoinPoint pjp,
 			String accountHolderNamePattern) throws Throwable {
@@ -1444,10 +1444,10 @@ the `UsageTracked` interface (to expose statistics via JMX for example):
 	@Aspect
 	public class UsageTracking {
 
-		@DeclareParents(value="com.xzy.myapp.service.*+", defaultImpl=DefaultUsageTracked.class)
+		@DeclareParents(value="com.spring.mvc.controller.DemoController.xzy.myapp.service.*+", defaultImpl=DefaultUsageTracked.class)
 		public static UsageTracked mixin;
 
-		@Before("com.xyz.myapp.SystemArchitecture.businessService() && this(usageTracked)")
+		@Before("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService() && this(usageTracked)")
 		public void recordUsage(UsageTracked usageTracked) {
 			usageTracked.incrementUseCount();
 		}
@@ -1492,12 +1492,12 @@ annotation. Consider the following example:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Aspect("perthis(com.xyz.myapp.SystemArchitecture.businessService())")
+	@Aspect("perthis(com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService())")
 	public class MyAspect {
 
 		private int someState;
 
-		@Before(com.xyz.myapp.SystemArchitecture.businessService())
+		@Before(com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService())
 		public void recordServiceUsage() {
 			// ...
 		}
@@ -1563,7 +1563,7 @@ call `proceed` multiple times. The following listing shows the basic aspect impl
 			this.order = order;
 		}
 
-		@Around("com.xyz.myapp.SystemArchitecture.businessService()")
+		@Around("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService()")
 		public Object doConcurrentOperation(ProceedingJoinPoint pjp) throws Throwable {
 			int numAttempts = 0;
 			PessimisticLockingFailureException lockFailureException;
@@ -1599,7 +1599,7 @@ The corresponding Spring configuration follows:
 ----
 	<aop:aspectj-autoproxy/>
 
-	<bean id="concurrentOperationExecutor" class="com.xyz.myapp.service.impl.ConcurrentOperationExecutor">
+	<bean id="concurrentOperationExecutor" class="com.spring.mvc.controller.DemoController.xyz.myapp.service.impl.ConcurrentOperationExecutor">
 		<property name="maxRetries" value="3"/>
 		<property name="order" value="100"/>
 	</bean>
@@ -1628,8 +1628,8 @@ expression so that only `@Idempotent` operations match, as follows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	@Around("com.xyz.myapp.SystemArchitecture.businessService() && " +
-			"@annotation(com.xyz.myapp.service.Idempotent)")
+	@Around("com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService() && " +
+			"@annotation(com.spring.mvc.controller.DemoController.xyz.myapp.service.Idempotent)")
 	public Object doConcurrentOperation(ProceedingJoinPoint pjp) throws Throwable {
 		...
 	}
@@ -1715,7 +1715,7 @@ be defined as follows:
 	<aop:config>
 
 		<aop:pointcut id="businessService"
-			expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+			expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..))"/>
 
 	</aop:config>
 ----
@@ -1733,7 +1733,7 @@ pointcut expression. Another way of defining the above pointcut would be as foll
 	<aop:config>
 
 		<aop:pointcut id="businessService"
-			expression="com.xyz.myapp.SystemArchitecture.businessService()"/>
+			expression="com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService()"/>
 
 	</aop:config>
 ----
@@ -1753,7 +1753,7 @@ as the following example shows:
 		<aop:aspect id="myAspect" ref="aBean">
 
 			<aop:pointcut id="businessService"
-				expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+				expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..))"/>
 
 			...
 
@@ -1776,7 +1776,7 @@ collects the `this` object as the join point context and passes it to the advice
 		<aop:aspect id="myAspect" ref="aBean">
 
 			<aop:pointcut id="businessService"
-				expression="execution(* com.xyz.myapp.service.*.*(..)) &amp;&amp; this(service)"/>
+				expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..)) &amp;&amp; this(service)"/>
 
 			<aop:before pointcut-ref="businessService" method="monitor"/>
 
@@ -1814,7 +1814,7 @@ respectively. For example, the previous pointcut can be better written as follow
 		<aop:aspect id="myAspect" ref="aBean">
 
 			<aop:pointcut id="businessService"
-				expression="execution(* com.xyz.myapp.service.*.*(..)) and this(service)"/>
+				expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..)) and this(service)"/>
 
 			<aop:before pointcut-ref="businessService" method="monitor"/>
 
@@ -1871,7 +1871,7 @@ a `pointcut` attribute, as follows:
 	<aop:aspect id="beforeExample" ref="aBean">
 
 		<aop:before
-			pointcut="execution(* com.xyz.myapp.dao.*.*(..))"
+			pointcut="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.dao.*.*(..))"
 			method="doAccessCheck"/>
 
 		...
@@ -2096,7 +2096,7 @@ The following example shows how to specify an argument name in XML:
 [subs="verbatim,quotes"]
 ----
 	<aop:before
-		pointcut="com.xyz.lib.Pointcuts.anyPublicMethod() and @annotation(auditable)"
+		pointcut="com.spring.mvc.controller.DemoController.xyz.lib.Pointcuts.anyPublicMethod() and @annotation(auditable)"
 		method="audit"
 		arg-names="auditable"/>
 ----
@@ -2261,12 +2261,12 @@ through JMX for example.)
 	<aop:aspect id="usageTrackerAspect" ref="usageTracking">
 
 		<aop:declare-parents
-			types-matching="com.xzy.myapp.service.*+"
-			implement-interface="com.xyz.myapp.service.tracking.UsageTracked"
-			default-impl="com.xyz.myapp.service.tracking.DefaultUsageTracked"/>
+			types-matching="com.spring.mvc.controller.DemoController.xzy.myapp.service.*+"
+			implement-interface="com.spring.mvc.controller.DemoController.xyz.myapp.service.tracking.UsageTracked"
+			default-impl="com.spring.mvc.controller.DemoController.xyz.myapp.service.tracking.DefaultUsageTracked"/>
 
 		<aop:before
-			pointcut="com.xyz.myapp.SystemArchitecture.businessService()
+			pointcut="com.spring.mvc.controller.DemoController.xyz.myapp.SystemArchitecture.businessService()
 				and this(usageTracked)"
 				method="recordUsage"/>
 
@@ -2331,7 +2331,7 @@ namespace support in Spring. The following example shows an advisor:
 	<aop:config>
 
 		<aop:pointcut id="businessService"
-			expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+			expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..))"/>
 
 		<aop:advisor
 			pointcut-ref="businessService"
@@ -2437,7 +2437,7 @@ The corresponding Spring configuration is as follows:
 		<aop:aspect id="concurrentOperationRetry" ref="concurrentOperationExecutor">
 
 			<aop:pointcut id="idempotentOperation"
-				expression="execution(* com.xyz.myapp.service.*.*(..))"/>
+				expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..))"/>
 
 			<aop:around
 				pointcut-ref="idempotentOperation"
@@ -2448,7 +2448,7 @@ The corresponding Spring configuration is as follows:
 	</aop:config>
 
 	<bean id="concurrentOperationExecutor"
-		class="com.xyz.myapp.service.impl.ConcurrentOperationExecutor">
+		class="com.spring.mvc.controller.DemoController.xyz.myapp.service.impl.ConcurrentOperationExecutor">
 			<property name="maxRetries" value="3"/>
 			<property name="order" value="100"/>
 	</bean>
@@ -2480,8 +2480,8 @@ pointcut expression so that only `@Idempotent` operations match, as follows:
 [subs="verbatim"]
 ----
 	<aop:pointcut id="idempotentOperation"
-			expression="execution(* com.xyz.myapp.service.*.*(..)) and
-			@annotation(com.xyz.myapp.service.Idempotent)"/>
+			expression="execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..)) and
+			@annotation(com.spring.mvc.controller.DemoController.xyz.myapp.service.Idempotent)"/>
 ----
 ====
 
@@ -2874,7 +2874,7 @@ following example shows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.xyz.myapp.domain;
+	package com.spring.mvc.controller.DemoController.xyz.myapp.domain;
 
 	import org.springframework.beans.factory.annotation.Configurable;
 
@@ -2888,7 +2888,7 @@ following example shows:
 When used as a marker interface in this way, Spring configures new instances of the
 annotated type (`Account`, in this case) by using a bean definition (typically
 prototype-scoped) with the same name as the fully-qualified type name
-(`com.xyz.myapp.domain.Account`). Since the default name for a bean is the
+(`com.spring.mvc.controller.DemoController.xyz.myapp.domain.Account`). Since the default name for a bean is the
 fully-qualified name of its type, a convenient way to declare the prototype definition
 is to omit the `id` attribute, as the following example shows:
 
@@ -2896,7 +2896,7 @@ is to omit the `id` attribute, as the following example shows:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean class="com.xyz.myapp.domain.Account" scope="prototype">
+	<bean class="com.spring.mvc.controller.DemoController.xyz.myapp.domain.Account" scope="prototype">
 		<property name="fundsTransferService" ref="fundsTransferService"/>
 	</bean>
 ----
@@ -2909,7 +2909,7 @@ can do so directly in the annotation, as the following example shows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.xyz.myapp.domain;
+	package com.spring.mvc.controller.DemoController.xyz.myapp.domain;
 
 	import org.springframework.beans.factory.annotation.Configurable;
 
@@ -2945,7 +2945,7 @@ using Spring in accordance with the properties of the annotation`". In this cont
 "`initialization`" refers to newly instantiated objects (for example, objects instantiated
 with the `new` operator) as well as to `Serializable` objects that are undergoing
 deserialization (for example, through
-https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html[readResolve()]).
+https://docs.oracle.com.spring.mvc.controller.DemoController/javase/8/docs/api/java/io/Serializable.html[readResolve()]).
 
 [NOTE]
 =====
@@ -3017,7 +3017,7 @@ configuration aspect. The following example shows how to use the `depends-on` at
 [subs="verbatim,quotes"]
 ----
 	<bean id="myService"
-			class="com.xzy.myapp.service.MyService"
+			class="com.spring.mvc.controller.DemoController.xzy.myapp.service.MyService"
 			depends-on="org.springframework.beans.factory.aspectj.AnnotationBeanConfigurerAspect">
 
 		<!-- ... -->
@@ -3151,7 +3151,7 @@ an instance itself. The following example shows how to use the `factory-method="
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="profiler" class="com.xyz.profiler.Profiler"
+	<bean id="profiler" class="com.spring.mvc.controller.DemoController.xyz.profiler.Profiler"
 			factory-method="aspectOf"> <1>
 
 		<property name="profilingStrategy" ref="jamonProfilingStrategy"/>
@@ -3223,7 +3223,7 @@ who typically are in charge of the deployment configuration, such as the launch 
 Now that the sales pitch is over, let us first walk through a quick example of AspectJ
 LTW that uses Spring, followed by detailed specifics about elements introduced in the
 example. For a complete example, see the
-https://github.com/spring-projects/spring-petclinic[Petclinic sample application].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-petclinic[Petclinic sample application].
 
 
 [[aop-aj-ltw-first-example]]
@@ -3376,7 +3376,7 @@ java -javaagent:C:/projects/foo/lib/global/spring-instrument.jar foo.Main
 ====
 
 The `-javaagent` is a flag for specifying and enabling
-https://docs.oracle.com/javase/8/docs/api/java/lang/instrument/package-summary.html[agents
+https://docs.oracle.com.spring.mvc.controller.DemoController/javase/8/docs/api/java/lang/instrument/package-summary.html[agents
 to instrument programs that run on the JVM]. The Spring Framework ships with such an
 agent, the `InstrumentationSavingAgent`, which is packaged in the
 `spring-instrument.jar` that was supplied as the value of the `-javaagent` argument in
@@ -3557,11 +3557,11 @@ The following table summarizes various `LoadTimeWeaver` implementations:
 | Running in Red Hat's https://www.jboss.org/jbossas/[JBoss AS] or https://www.wildfly.org/[WildFly]
 | `JBossLoadTimeWeaver`
 
-| Running in IBM's https://www-01.ibm.com/software/webservers/appserv/was/[WebSphere]
+| Running in IBM's https://www-01.ibm.com.spring.mvc.controller.DemoController/software/webservers/appserv/was/[WebSphere]
 | `WebSphereLoadTimeWeaver`
 
 | Running in Oracle's
-  https://www.oracle.com/technetwork/middleware/weblogic/overview/index-085209.html[WebLogic]
+  https://www.oracle.com.spring.mvc.controller.DemoController/technetwork/middleware/weblogic/overview/index-085209.html[WebLogic]
 | `WebLogicLoadTimeWeaver`
 
 | JVM started with Spring `InstrumentationSavingAgent`

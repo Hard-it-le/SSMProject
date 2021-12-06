@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yjl.mybatis.mapper.TbEmpMapper">
+<mapper namespace="com.spring.mvc.controller.DemoController.yjl.mybatis.mapper.TbEmpMapper">
     <!-- 使用sql标签抽取重复出现的SQL片段 -->
     <sql id="selectPart">
         select emp_id,emp_name,emp_salary from tb_emp
     </sql>
 
 
-    <select id="selectEmployeeByCondition" resultType="com.yjl.mybatis.entity.TbEmp">
+    <select id="selectEmployeeByCondition" resultType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.TbEmp">
         <!-- 使用include标签引用声明的SQL片段 -->
        <include refid="selectPart"></include>
         <!-- where标签会自动去掉“标签体内前面多余的and/or” -->
@@ -31,7 +31,7 @@
         </where>
     </select>
 
-    <select id="selectEmpByName" resultType="com.yjl.mybatis.entity.TbEmp">
+    <select id="selectEmpByName" resultType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.TbEmp">
         <!-- 使用include标签引用声明的SQL片段 -->
         <include refid="selectPart"></include>
         where emp_id =#{empId}
@@ -58,7 +58,7 @@
          -->
     </update>
 
-    <select id="selectEmployeeByConditionByTrim" resultType="com.yjl.mybatis.entity.TbEmp">
+    <select id="selectEmployeeByConditionByTrim" resultType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.TbEmp">
         <!-- 使用include标签引用声明的SQL片段 -->
         <include refid="selectPart"></include>
         <!-- prefix属性指定要动态添加的前缀 -->
@@ -76,7 +76,7 @@
         </trim>
     </select>
 
-    <select id="selectEmployeeByConditionByChoose" resultType="com.yjl.mybatis.entity.TbEmp">
+    <select id="selectEmployeeByConditionByChoose" resultType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.TbEmp">
         <!-- 使用include标签引用声明的SQL片段 -->
         <include refid="selectPart"></include>
         where

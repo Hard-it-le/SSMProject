@@ -8,7 +8,7 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!-- 配置数据源 -->
-    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <bean id="druidDataSource" class="com.spring.mvc.controller.DemoController.alibaba.druid.pool.DruidDataSource">
         <property name="url" value="${dev.url}"/>
         <property name="driverClassName" value="${dev.driver}"/>
         <property name="username" value="${dev.username}"/>

@@ -21,18 +21,18 @@
         <!-- 方案一：针对具体的实体类逐个配置别名 -->
         <!-- type属性：实体类原本的全类名 -->
         <!-- alias属性：给实体类类型指定的别名，在Mapper配置文件中使用别名更简洁 -->
-        <!--<typeAlias type="com.yjl.mybatis.entity.Customer" alias="Maomi"/>-->
+        <!--<typeAlias type="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.Customer" alias="Maomi"/>-->
         
         <!-- 方案二：直接指定实体类所在的包，只要在这个包就用简单类名代替全类名 -->
-        <package name="com.yjl.mybatis.entity"/>
+        <package name="com.spring.mvc.controller.DemoController.yjl.mybatis.entity"/>
     </typeAliases>
 
     <!-- 注册自定义类型转换器 -->
     <typeHandlers>
         <typeHandler
-                javaType="com.yjl.mybatis.entity.Address"
+                javaType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.Address"
                 jdbcType="CHAR"
-                handler="com.yjl.mybatis.convertor.AddressConvertor"/>
+                handler="com.spring.mvc.controller.DemoController.yjl.mybatis.convertor.AddressConvertor"/>
     </typeHandlers>
 
     <!-- Mybatis工作时有可能用到的各种环境 -->

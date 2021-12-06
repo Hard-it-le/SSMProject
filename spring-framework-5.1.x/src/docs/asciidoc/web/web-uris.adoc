@@ -9,7 +9,7 @@
 [subs="verbatim,quotes"]
 ----
 	UriComponents uriComponents = UriComponentsBuilder
-			.fromUriString("https://example.com/hotels/{hotel}")  // <1>
+			.fromUriString("https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}")  // <1>
 			.queryParam("q", "{q}")  // <2>
 			.encode() // <3>
 			.build(); // <4>
@@ -31,7 +31,7 @@ as the following example shows:
 [subs="verbatim,quotes"]
 ----
 	URI uri = UriComponentsBuilder
-			.fromUriString("https://example.com/hotels/{hotel}")
+			.fromUriString("https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}")
 			.queryParam("q", "{q}")
 			.encode()
 			.buildAndExpand("Westin", "123")
@@ -47,7 +47,7 @@ as the following example shows:
 [subs="verbatim,quotes"]
 ----
 	URI uri = UriComponentsBuilder
-			.fromUriString("https://example.com/hotels/{hotel}")
+			.fromUriString("https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}")
 			.queryParam("q", "{q}")
 			.build("Westin", "123");
 ----
@@ -60,7 +60,7 @@ You shorter it further still with a full URI template, as the following example 
 [subs="verbatim,quotes"]
 ----
 	URI uri = UriComponentsBuilder
-			.fromUriString("https://example.com/hotels/{hotel}?q={q}")
+			.fromUriString("https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}?q={q}")
 			.build("Westin", "123");
 ----
 ====
@@ -122,7 +122,7 @@ that holds configuration and preferences, as the following example shows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	String baseUrl = "https://example.com";
+	String baseUrl = "https://example.com.spring.mvc.controller.DemoController";
 	DefaultUriBuilderFactory uriBuilderFactory = new DefaultUriBuilderFactory(baseUrl);
 
 	URI uri = uriBuilderFactory.uriString("/hotels/{hotel}")
@@ -203,7 +203,7 @@ as the following example shows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	String baseUrl = "https://example.com";
+	String baseUrl = "https://example.com.spring.mvc.controller.DemoController";
 	DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory(baseUrl)
 	factory.setEncodingMode(EncodingMode.TEMPLATE_AND_VALUES);
 

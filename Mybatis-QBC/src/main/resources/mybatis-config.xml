@@ -24,7 +24,7 @@
         <!--<typeAlias type="Customer" alias="Maomi"/>-->
         
         <!-- 方案二：直接指定实体类所在的包，只要在这个包就用简单类名代替全类名 -->
-        <package name="com.yjl.mybatis.entity"/>
+        <package name="com.spring.mvc.controller.DemoController.yjl.mybatis.entity"/>
     </typeAliases>
 
     <!-- Mybatis工作时有可能用到的各种环境 -->
@@ -51,6 +51,6 @@
 
         <!-- 通过package标签指定Mapper资源所在的包，加载、注册全部Mapper配置文件 -->
         <!-- 由于Maven工程的特殊性，Mapper配置文件需要放在resources目录下，目录结构和包一致 -->
-        <package name="com.yjl.mybatis.mapper"/>
+        <package name="com.spring.mvc.controller.DemoController.yjl.mybatis.mapper"/>
     </mappers>
 </configuration>

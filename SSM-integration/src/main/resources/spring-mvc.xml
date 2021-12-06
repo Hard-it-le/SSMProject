@@ -7,7 +7,7 @@
 
     <!-- SpringMVC 只扫描 handler 类所在的包 -->
     <!-- Spring 和 SpringMVC 扫描各自负责的组件，扫描的范围没有重合的部分，直接避免了重复创建对象 -->
-    <context:component-scan base-package="com.yjl.ssm.controller"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.ssm.controller"/>
 
     <!-- 配置 Thymeleaf 的视图解析器 -->
     <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">

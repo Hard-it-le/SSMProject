@@ -25,8 +25,8 @@
 			resource-ref="true"
 			lookup-on-startup="true"
 			expose-access-context="true"
-			expected-type="com.myapp.DefaultFoo"
-			proxy-interface="com.myapp.Foo"
+			expected-type="com.spring.mvc.controller.DemoController.myapp.DefaultFoo"
+			proxy-interface="com.spring.mvc.controller.DemoController.myapp.Foo"
 			default-value="myValue"/>
 
 	<jee:jndi-lookup id="withEnvironment" jndi-name="jdbc/MyDataSource" default-ref="myBean">

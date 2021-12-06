@@ -21,9 +21,9 @@
 
   <properties>
     <title>MyBatis 3 | 入门</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="nanlei1987@gmail.com">Nan Lei</author>
-    <author email="echowdx@gmail.com">Dongxu Wang</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="nanlei1987@gmail.com.spring.mvc.controller.DemoController">Nan Lei</author>
+    <author email="echowdx@gmail.com.spring.mvc.controller.DemoController">Dongxu Wang</author>
   </properties>
 
   <body>
@@ -31,7 +31,7 @@
     
     <subsection name="安装">
       <p>要使用 MyBatis， 只需将
-      <a href="https://github.com/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
+      <a href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
       文件置于 classpath 中即可。</p>
       <p>如果使用 Maven 来构建项目，则需将下面的 dependency 代码置于 pom.xml 文件中：</p>
         <source><![CDATA[
@@ -223,11 +223,11 @@ Blog blog = mapper.selectBlog(101);]]></source>
 
       <ul>
         <li>完全限定名（比如
-        “com.mypackage.MyMapper.selectAllThings）将被直接用于查找及使用。
+        “com.spring.mvc.controller.DemoController.mypackage.MyMapper.selectAllThings）将被直接用于查找及使用。
         </li>
         <li>短名称（比如 “selectAllThings”）如果全局唯一也可以作为一个单独的引用。
-        如果不唯一，有两个或两个以上的相同名称（比如 “com.foo.selectAllThings” 和
-        “com.bar.selectAllThings”），那么使用时就会产生“短名称不唯一”的错误，这种情况下就必须使用完全限定名。
+        如果不唯一，有两个或两个以上的相同名称（比如 “com.spring.mvc.controller.DemoController.foo.selectAllThings” 和
+        “com.spring.mvc.controller.DemoController.bar.selectAllThings”），那么使用时就会产生“短名称不唯一”的错误，这种情况下就必须使用完全限定名。
         </li>
       </ul>
       <hr/>

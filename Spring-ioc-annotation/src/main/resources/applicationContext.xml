@@ -5,11 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 情况一 配置自动扫描的包 -->
-    <context:component-scan base-package="com.yjl.annotation"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.annotation"/>
     <!-- 情况二 指定匹配模式-->
-    <context:component-scan base-package="com.yjl.annotation" resource-pattern="Soldier*.class"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.annotation" resource-pattern="Soldier*.class"/>
     <!-- 情况三 指定不扫描的组件-->
-    <context:component-scan base-package="com.yjl.annotation">
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.annotation">
         <!-- context:exclude-filter标签：指定排除规则 -->
         <!-- type属性：指定根据什么来进行排除，annotation取值表示根据注解来排除 -->
         <!-- expression属性：指定排除规则的表达式，对于注解来说指定全类名即可 -->
@@ -19,7 +19,7 @@
     <!-- 情况四：仅扫描指定的组件 -->
     <!-- 仅扫描 = 关闭默认规则 + 追加规则 -->
     <!-- use-default-filters属性：取值false表示关闭默认扫描规则 -->
-    <context:component-scan base-package="com.yjl.annotation" use-default-filters="false">
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.annotation" use-default-filters="false">
         <!-- context:include-filter标签：指定在原有扫描规则的基础上追加的规则 -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>

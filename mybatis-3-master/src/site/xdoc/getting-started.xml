@@ -21,7 +21,7 @@
 
   <properties>
     <title>MyBatis 3 | Getting started</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
   </properties>
 
   <body>
@@ -30,7 +30,7 @@
     <subsection name="Installation">
       <p>
         To use MyBatis you just need to include the
-          <a href="https://github.com/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
+          <a href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
         file in the classpath.
       </p>
       <p>
@@ -262,12 +262,12 @@ Blog blog = mapper.selectBlog(101);]]></source>
       </p>
       <ul>
         <li>Fully qualified names (e.g.
-          “com.mypackage.MyMapper.selectAllThings”) are looked up directly
+          “com.spring.mvc.controller.DemoController.mypackage.MyMapper.selectAllThings”) are looked up directly
           and used if found.
         </li>
         <li>Short names (e.g. “selectAllThings”) can be used to reference
           any unambiguous entry. However if there are two or more (e.g.
-          “com.foo.selectAllThings and com.bar.selectAllThings”), then you
+          “com.spring.mvc.controller.DemoController.foo.selectAllThings and com.spring.mvc.controller.DemoController.bar.selectAllThings”), then you
           will receive an error reporting that the short name is ambiguous
           and therefore must be fully qualified.
         </li>

@@ -10,20 +10,20 @@ This project is governed by the [Spring Code of Conduct](CODE_OF_CONDUCT.adoc). 
 
 ## Access to Binaries
 
-For access to artifacts or a distribution zip, see the [Spring Framework Artifacts](https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Artifacts) wiki page.
+For access to artifacts or a distribution zip, see the [Spring Framework Artifacts](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Spring-Framework-Artifacts) wiki page.
 
 ## Documentation
 
-The Spring Framework maintains reference documentation ([published](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/) and [source](src/docs/asciidoc)), Github [wiki pages](https://github.com/spring-projects/spring-framework/wiki), and an
+The Spring Framework maintains reference documentation ([published](https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/) and [source](src/docs/asciidoc)), Github [wiki pages](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki), and an
 [API reference](https://docs.spring.io/spring-framework/docs/current/javadoc-api/). There are also [guides and tutorials](https://spring.io/guides) across Spring projects.
 
 ## Build from Source
 
-See the [Build from Source](https://github.com/spring-projects/spring-framework/wiki/Build-from-Source) Wikipedia page and the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+See the [Build from Source](https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Build-from-Source) Wikipedia page and the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 ## Stay in Touch
 
-Follow [@SpringCentral](https://twitter.com/springcentral), [@SpringFramework](https://twitter.com/springframework), and its [team members](https://twitter.com/springframework/lists/team/members) on Twitter. In-depth articles can be found at [The Spring Blog](https://spring.io/blog/), and releases are announced via our [news feed](https://spring.io/blog/category/news).
+Follow [@SpringCentral](https://twitter.com.spring.mvc.controller.DemoController/springcentral), [@SpringFramework](https://twitter.com.spring.mvc.controller.DemoController/springframework), and its [team members](https://twitter.com.spring.mvc.controller.DemoController/springframework/lists/team/members) on Twitter. In-depth articles can be found at [The Spring Blog](https://spring.io/blog/), and releases are announced via our [news feed](https://spring.io/blog/category/news).
 
 ## License
 

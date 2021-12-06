@@ -13,7 +13,7 @@ The easiest way to learn about Spring and Kotlin is to follow
 https://spring.io/guides/tutorials/spring-boot-kotlin/[this comprehensive tutorial].
 Feel free to join the #spring channel of https://slack.kotlinlang.org/[Kotlin Slack]
 or ask a question with `spring` and `kotlin` as tags on
-https://stackoverflow.com/questions/tagged/spring+kotlin[Stackoverflow] if you need support.
+https://stackoverflow.com.spring.mvc.controller.DemoController/questions/tagged/spring+kotlin[Stackoverflow] if you need support.
 
 
 
@@ -22,10 +22,10 @@ https://stackoverflow.com/questions/tagged/spring+kotlin[Stackoverflow] if you n
 == Requirements
 
 Spring Framework 5.1 supports Kotlin 1.1+ and requires
-https://bintray.com/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-stdlib[`kotlin-stdlib`]
-(or one of its variants, such as https://bintray.com/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-stdlib-jre8[`kotlin-stdlib-jre8`]
-for Kotlin 1.1 or https://bintray.com/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-stdlib-jdk8[`kotlin-stdlib-jdk8`] for Kotlin 1.2+)
-and https://bintray.com/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-reflect[`kotlin-reflect`]
+https://bintray.com.spring.mvc.controller.DemoController/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-stdlib[`kotlin-stdlib`]
+(or one of its variants, such as https://bintray.com.spring.mvc.controller.DemoController/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-stdlib-jre8[`kotlin-stdlib-jre8`]
+for Kotlin 1.1 or https://bintray.com.spring.mvc.controller.DemoController/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-stdlib-jdk8[`kotlin-stdlib-jdk8`] for Kotlin 1.2+)
+and https://bintray.com.spring.mvc.controller.DemoController/bintray/jcenter/org.jetbrains.kotlin%3Akotlin-reflect[`kotlin-reflect`]
 to be present on the classpath. They are provided by default if you bootstrap a Kotlin project on
 https://start.spring.io/#!language=kotlin[start.spring.io].
 
@@ -48,7 +48,7 @@ is available only if `org.springframework.context.support.registerBean` is impor
 That said, similar to static imports, an IDE should automatically suggest the import in most cases.
 
 For example, https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters[Kotlin reified type parameters]
-provide a workaround for JVM https://docs.oracle.com/javase/tutorial/java/generics/erasure.html[generics type erasure],
+provide a workaround for JVM https://docs.oracle.com.spring.mvc.controller.DemoController/javase/tutorial/java/generics/erasure.html[generics type erasure],
 and the Spring Framework provides some extensions to take advantage of this feature.
 This allows for a better Kotlin API `RestTemplate`, for the new `WebClient` from Spring
 WebFlux, and for various other APIs.
@@ -90,7 +90,7 @@ which cleanly deals with `null` values at compile time rather than bumping into 
 `NullPointerException` at runtime. This makes applications safer through nullability
 declarations and expressing "`value or no value`" semantics without paying the cost of wrappers, such as `Optional`.
 (Kotlin allows using functional constructs with nullable values. See this
-https://www.baeldung.com/kotlin-null-safety[comprehensive guide to Kotlin null-safety].)
+https://www.baeldung.com.spring.mvc.controller.DemoController/kotlin-null-safety[comprehensive guide to Kotlin null-safety].)
 
 Although Java does not let you express null-safety in its type-system, the Spring Framework
 provides <<core#null-safety, null-safety of the whole Spring Framework API>>
@@ -114,7 +114,7 @@ API nullability declaration could evolve even between minor releases and that mo
 be added in the future).
 
 NOTE: Generic type arguments, varargs, and array elements nullability are not supported yet,
-but should be in an upcoming release. See https://github.com/Kotlin/KEEP/issues/79[this discussion]
+but should be in an upcoming release. See https://github.com.spring.mvc.controller.DemoController/Kotlin/KEEP/issues/79[this discussion]
 for up-to-date information.
 
 
@@ -131,7 +131,7 @@ Kotlin parameter names are recognized through a dedicated `KotlinReflectionParam
 which allows finding interface method parameter names without requiring the Java 8 `-parameters`
 compiler flag to be enabled during compilation.
 
-The https://github.com/FasterXML/jackson-module-kotlin[Jackson Kotlin module], which is required
+The https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-module-kotlin[Jackson Kotlin module], which is required
 for serializing or deserializing JSON data, is automatically registered when
 found in the classpath, and a warning message is logged if Jackson and Kotlin are
 detected without the Jackson Kotlin module being present.
@@ -167,7 +167,7 @@ NOTE: If you use bean validation on classes with properties or a primary constru
 parameters, you may need to use
 https://kotlinlang.org/docs/reference/annotations.html#annotation-use-site-targets[annotation use-site targets],
 such as `@field:NotNull` or `@get:Size(min=5, max=15)`, as described in
-https://stackoverflow.com/a/35853200/1092077[this Stack Overflow response].
+https://stackoverflow.com.spring.mvc.controller.DemoController/a/35853200/1092077[this Stack Overflow response].
 
 
 
@@ -259,12 +259,12 @@ as the following example shows:
 ====
 
 
-See https://github.com/sdeleuze/spring-kotlin-functional[spring-kotlin-functional beans declaration] for a concrete example.
+See https://github.com.spring.mvc.controller.DemoController/sdeleuze/spring-kotlin-functional[spring-kotlin-functional beans declaration] for a concrete example.
 
 NOTE: Spring Boot is based on JavaConfig and
-https://github.com/spring-projects/spring-boot/issues/8115[does not yet provide specific support for functional bean definition],
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/8115[does not yet provide specific support for functional bean definition],
 but you can experimentally use functional bean definitions through Spring Boot's `ApplicationContextInitializer` support.
-See https://stackoverflow.com/questions/45935931/how-to-use-functional-bean-definition-kotlin-dsl-with-spring-boot-and-spring-w/46033685#46033685[this Stack Overflow answer]
+See https://stackoverflow.com.spring.mvc.controller.DemoController/questions/45935931/how-to-use-functional-bean-definition-kotlin-dsl-with-spring-boot-and-spring-w/46033685#46033685[this Stack Overflow answer]
 for more details and up-to-date information.
 
 
@@ -308,7 +308,7 @@ NOTE: This DSL is programmatic, meaning that it allows custom registration logic
 through an `if` expression, a `for` loop, or any other Kotlin constructs. That can be useful when you need to register routes
 depending on dynamic data (for example, from a database).
 
-See https://github.com/mixitconf/mixit/tree/dafd5ccc92dfab6d9c306fcb60b28921a1ccbf79/src/main/kotlin/mixit/web/routes[MiXiT project routes]
+See https://github.com.spring.mvc.controller.DemoController/mixitconf/mixit/tree/dafd5ccc92dfab6d9c306fcb60b28921a1ccbf79/src/main/kotlin/mixit/web/routes[MiXiT project routes]
 for a concrete example.
 
 
@@ -323,10 +323,10 @@ Spring Framework 5 goes even further by extending this feature to WebFlux and su
 https://jira.spring.io/browse/SPR-15064[i18n and nested templates].
 
 Kotlin provides similar support and allows the rendering of Kotlin-based templates. See
-https://github.com/spring-projects/spring-framework/commit/badde3a479a53e1dd0777dd1bd5b55cb1021cf9e[this commit] for details.
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/commit/badde3a479a53e1dd0777dd1bd5b55cb1021cf9e[this commit] for details.
 
 This enables some interesting use cases - such as writing type-safe templates by using
-https://github.com/Kotlin/kotlinx.html[kotlinx.html] DSL or by a using Kotlin multiline `String` with interpolation.
+https://github.com.spring.mvc.controller.DemoController/Kotlin/kotlinx.html[kotlinx.html] DSL or by a using Kotlin multiline `String` with interpolation.
 
 This can let you write Kotlin templates with full autocompletion and
 refactoring support in a supported IDE, as the following example shows:
@@ -348,10 +348,10 @@ refactoring support in a supported IDE, as the following example shows:
 ====
 
 NOTE: Kotlin Script Templates are not compatible yet with Spring Boot fatjar mechanism, see related
-https://youtrack.jetbrains.com/issue/KT-21443[KT-21443] and https://youtrack.jetbrains.com/issue/KT-27956[KT-27956]
+https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-21443[KT-21443] and https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-27956[KT-27956]
 issues.
 
-See the https://github.com/sdeleuze/kotlin-script-templating[kotlin-script-templating] example
+See the https://github.com.spring.mvc.controller.DemoController/sdeleuze/kotlin-script-templating[kotlin-script-templating] example
 project for more details.
 
 
@@ -433,7 +433,7 @@ As the following example shows, this allows for easy changes to individual prope
 
 Common persistence technologies (such as JPA) require a default constructor, preventing this
 kind of design. Fortunately, there is now a workaround for this
-https://stackoverflow.com/questions/32038177/kotlin-with-jpa-default-constructor-hell["`default constructor hell`"],
+https://stackoverflow.com.spring.mvc.controller.DemoController/questions/32038177/kotlin-with-jpa-default-constructor-hell["`default constructor hell`"],
 since Kotlin provides a https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-jpa-compiler-plugin[`kotlin-jpa`]
 plugin that generates synthetic no-arg constructor for classes annotated with JPA annotations.
 
@@ -532,8 +532,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-ext
 instead of `@Value` annotations. However, currently, this only works with `lateinit` or
 nullable `var` properties (we recommended the former), since immutable classes initialized
 by constructors are not yet supported. See these issues about
-https://github.com/spring-projects/spring-boot/issues/8762[`@ConfigurationProperties` binding for immutable POJOs]
-and https://github.com/spring-projects/spring-boot/issues/1254[`@ConfigurationProperties` binding on interfaces]
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/8762[`@ConfigurationProperties` binding for immutable POJOs]
+and https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/1254[`@ConfigurationProperties` binding on interfaces]
 for more details.
 
 
@@ -722,7 +722,7 @@ class SpecificationLikeTests {
 [[kotlin-webtestclient-issue]]
 ==== `WebTestClient` Type Inference Issue in Kotlin
 
-Due to a https://youtrack.jetbrains.com/issue/KT-5464[type inference issue], you must
+Due to a https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-5464[type inference issue], you must
 use the Kotlin `expectBody` extension (such as `.expectBody<String>().isEqualTo("toys")`),
 since it provides a workaround for the Kotlin issue with the Java API.
 
@@ -769,9 +769,9 @@ Kotlin and the Spring Framework:
 
 * https://kotlinlang.org/docs/reference/[Kotlin language reference]
 * https://slack.kotlinlang.org/[Kotlin Slack] (with a dedicated #spring channel)
-* https://stackoverflow.com/questions/tagged/spring+kotlin[Stackoverflow, with `spring` and `kotlin` tags]
+* https://stackoverflow.com.spring.mvc.controller.DemoController/questions/tagged/spring+kotlin[Stackoverflow, with `spring` and `kotlin` tags]
 * https://try.kotlinlang.org/[Try Kotlin in your browser]
-* https://blog.jetbrains.com/kotlin/[Kotlin blog]
+* https://blog.jetbrains.com.spring.mvc.controller.DemoController/kotlin/[Kotlin blog]
 * https://kotlin.link/[Awesome Kotlin]
 
 
@@ -780,13 +780,13 @@ Kotlin and the Spring Framework:
 
 The following Github projects offer examples that you can learn from and possibly even extend:
 
-* https://github.com/sdeleuze/spring-boot-kotlin-demo[spring-boot-kotlin-demo]: Regular Spring Boot and Spring Data JPA project
-* https://github.com/mixitconf/mixit[mixit]: Spring Boot 2, WebFlux, and Reactive Spring Data MongoDB
-* https://github.com/sdeleuze/spring-kotlin-functional[spring-kotlin-functional]: Standalone WebFlux and functional bean definition DSL
-* https://github.com/sdeleuze/spring-kotlin-fullstack[spring-kotlin-fullstack]: WebFlux Kotlin fullstack example with Kotlin2js for frontend instead of JavaScript or TypeScript
-* https://github.com/spring-petclinic/spring-petclinic-kotlin[spring-petclinic-kotlin]: Kotlin version of the Spring PetClinic Sample Application
-* https://github.com/sdeleuze/spring-kotlin-deepdive[spring-kotlin-deepdive]: A step-by-step migration guide for Boot 1.0 and Java to Boot 2.0 and Kotlin
-* https://github.com/spring-cloud/spring-cloud-gcp/tree/master/spring-cloud-gcp-kotlin-samples/spring-cloud-gcp-kotlin-app-sample[spring-cloud-gcp-kotlin-app-sample]: Spring Boot with Google Cloud Platform Integrations
+* https://github.com.spring.mvc.controller.DemoController/sdeleuze/spring-boot-kotlin-demo[spring-boot-kotlin-demo]: Regular Spring Boot and Spring Data JPA project
+* https://github.com.spring.mvc.controller.DemoController/mixitconf/mixit[mixit]: Spring Boot 2, WebFlux, and Reactive Spring Data MongoDB
+* https://github.com.spring.mvc.controller.DemoController/sdeleuze/spring-kotlin-functional[spring-kotlin-functional]: Standalone WebFlux and functional bean definition DSL
+* https://github.com.spring.mvc.controller.DemoController/sdeleuze/spring-kotlin-fullstack[spring-kotlin-fullstack]: WebFlux Kotlin fullstack example with Kotlin2js for frontend instead of JavaScript or TypeScript
+* https://github.com.spring.mvc.controller.DemoController/spring-petclinic/spring-petclinic-kotlin[spring-petclinic-kotlin]: Kotlin version of the Spring PetClinic Sample Application
+* https://github.com.spring.mvc.controller.DemoController/sdeleuze/spring-kotlin-deepdive[spring-kotlin-deepdive]: A step-by-step migration guide for Boot 1.0 and Java to Boot 2.0 and Kotlin
+* https://github.com.spring.mvc.controller.DemoController/spring-cloud/spring-cloud-gcp/tree/master/spring-cloud-gcp-kotlin-samples/spring-cloud-gcp-kotlin-app-sample[spring-cloud-gcp-kotlin-app-sample]: Spring Boot with Google Cloud Platform Integrations
 
 
 
@@ -795,18 +795,18 @@ The following Github projects offer examples that you can learn from and possibl
 The following list categorizes the pending issues related to Spring and Kotlin support:
 
 * Spring Framework
-** https://github.com/spring-projects/spring-framework/issues/20606[Unable to use WebTestClient with mock server in Kotlin]
-** https://github.com/spring-projects/spring-framework/issues/20496[Support null-safety at generics, varargs and array elements level]
-** https://github.com/spring-projects/spring-framework/issues/19975[Add support for Kotlin coroutines]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/issues/20606[Unable to use WebTestClient with mock server in Kotlin]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/issues/20496[Support null-safety at generics, varargs and array elements level]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/issues/19975[Add support for Kotlin coroutines]
 * Spring Boot
-** https://github.com/spring-projects/spring-boot/issues/8762[Allow `@ConfigurationProperties` binding for immutable POJOs]
-** https://github.com/spring-projects/spring-boot/issues/8115[Expose the functional bean registration API via `SpringApplication`]
-** https://github.com/spring-projects/spring-boot/issues/10712[Add null-safety annotations on Spring Boot APIs]
-** https://github.com/spring-projects/spring-boot/issues/9486[Use Kotlin's bom to provide dependency management for Kotlin]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/8762[Allow `@ConfigurationProperties` binding for immutable POJOs]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/8115[Expose the functional bean registration API via `SpringApplication`]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/10712[Add null-safety annotations on Spring Boot APIs]
+** https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-boot/issues/9486[Use Kotlin's bom to provide dependency management for Kotlin]
 * Kotlin
-** https://youtrack.jetbrains.com/issue/KT-6380[Parent issue for Spring Framework support]
-** https://youtrack.jetbrains.com/issue/KT-5464[Kotlin requires type inference where Java doesn't]
-** https://youtrack.jetbrains.com/issue/KT-20283[Smart cast regression with open classes]
-** https://youtrack.jetbrains.com/issue/KT-14984[Impossible to pass not all SAM argument as function]
-** https://youtrack.jetbrains.com/issue/KT-15125[Support JSR 223 bindings directly via script variables]
-** https://youtrack.jetbrains.com/issue/KT-6653[Kotlin properties do not override Java-style getters and setters]
+** https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-6380[Parent issue for Spring Framework support]
+** https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-5464[Kotlin requires type inference where Java doesn't]
+** https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-20283[Smart cast regression with open classes]
+** https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-14984[Impossible to pass not all SAM argument as function]
+** https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-15125[Support JSR 223 bindings directly via script variables]
+** https://youtrack.jetbrains.com.spring.mvc.controller.DemoController/issue/KT-6653[Kotlin properties do not override Java-style getters and setters]

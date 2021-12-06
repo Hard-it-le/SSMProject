@@ -21,8 +21,8 @@
 
   <properties>
     <title>MyBatis 3 | スタートガイド</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="harawata@gmail.com">Iwao AVE!</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="harawata@gmail.com.spring.mvc.controller.DemoController">Iwao AVE!</author>
   </properties>
 
   <body>
@@ -31,7 +31,7 @@
     <subsection name="Installation">
       <p>
         MyBatis を使うためには、ダウンロードした
-        <a href="https://github.com/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
+        <a href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
         をクラスパスに追加する必要があります。
       </p>
       <p>
@@ -202,10 +202,10 @@ Blog blog = mapper.selectBlog(101);]]></source>
           <strong>名前解決：</strong> タイピング量を減らすため、MyBatis は次のようなルールに則って設定要素（Statement, Result Map, Cache など）の名前解決を行います。
         </p>
         <ul>
-          <li>完全修飾名（例えば「com.mypackage.MyMapper.selectAllThings」）で指定した場合は、指定された完全修飾名で要素を探し、もし見つかればその要素を参照します。
+          <li>完全修飾名（例えば「com.spring.mvc.controller.DemoController.mypackage.MyMapper.selectAllThings」）で指定した場合は、指定された完全修飾名で要素を探し、もし見つかればその要素を参照します。
           </li>
           <li>短縮名（例えば「selectAllThings」）で指定した場合は、短縮名部分が一致する要素を参照します。
-          ただし、同じ短縮名を持った要素が２つ以上存在する場合（例えば「com.foo.selectAllThings」と「com.bar.selectAllThings」）は、 指定した短縮名が曖昧なので完全修飾名で指定する必要がある、というエラーが発生します。
+          ただし、同じ短縮名を持った要素が２つ以上存在する場合（例えば「com.spring.mvc.controller.DemoController.foo.selectAllThings」と「com.spring.mvc.controller.DemoController.bar.selectAllThings」）は、 指定した短縮名が曖昧なので完全修飾名で指定する必要がある、というエラーが発生します。
           </li>
         </ul>
         <hr/>

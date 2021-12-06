@@ -5,7 +5,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="com.atguigu.mvc.handler"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.atguigu.mvc.handler"/>
 
     <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="order" value="1"/>
@@ -38,7 +38,7 @@
         <!-- 在 converters 属性中指定自定义类型转换器 -->
         <property name="converters">
             <set>
-                <bean class="com.yjl.mvc.converter.AddressConverter"/>
+                <bean class="com.spring.mvc.controller.DemoController.yjl.mvc.converter.AddressConverter"/>
             </set>
         </property>
 

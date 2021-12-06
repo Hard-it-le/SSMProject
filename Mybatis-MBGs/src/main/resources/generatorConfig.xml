@@ -10,22 +10,22 @@
      -->
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!-- 数据库的连接信息 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        <jdbcConnection driverClass="com.spring.mvc.controller.DemoController.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/mybatis-demo01?useUnicode=true&amp;useSSL=false&amp;characterEncoding=utf8&amp;allowMultiQueries=true&amp;serverTimezone=Asia/Shanghai"
                         userId="root"
                         password="rootroot">
         </jdbcConnection>
         <!-- javaBean的生成策略-->
-        <javaModelGenerator targetPackage="com.yjl.mybatis.entity" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.spring.mvc.controller.DemoController.yjl.mybatis.entity" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- SQL映射文件的生成策略 -->
-        <sqlMapGenerator targetPackage="com.yjl.mybatis.mapper"  targetProject="./src/main/java">
+        <sqlMapGenerator targetPackage="com.spring.mvc.controller.DemoController.yjl.mybatis.mapper"  targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- Mapper接口的生成策略 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yjl.mybatis.mapper"  targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.spring.mvc.controller.DemoController.yjl.mybatis.mapper"  targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 逆向分析的表 -->

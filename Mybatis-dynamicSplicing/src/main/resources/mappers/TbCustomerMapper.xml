@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yjl.mybatis.mapper.TbCustomerMapper">
+<mapper namespace="com.spring.mvc.controller.DemoController.yjl.mybatis.mapper.TbCustomerMapper">
 
-    <select id="selectCustomerWithOrderList" resultType="com.yjl.mybatis.entity.TbCustomer">
+    <select id="selectCustomerWithOrderList" resultType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.TbCustomer">
 
     </select>
 

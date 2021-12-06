@@ -21,8 +21,8 @@
 
 	<properties>
 		<title>MyBatis 3 | Primeros pasos</title>
-		<author email="clinton.begin@gmail.com">Clinton Begin</author>
-		<author email="eduardo.macarron@gmail.com">Eduardo Macarron</author>
+		<author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+		<author email="eduardo.macarron@gmail.com.spring.mvc.controller.DemoController">Eduardo Macarron</author>
 	</properties>
 
 	<body>
@@ -32,7 +32,7 @@
     <subsection name="Instalación">
       <p>
         Para usar MyBatis sólo tienes que incluir el fichero
-        <a href="https://github.com/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
+        <a href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
         en el classpath.
       </p>
       <p>
@@ -274,12 +274,12 @@ Blog blog = mapper.selectBlog(101);]]></source>
 				<ul>
 					<li>Primeramente se buscan directamente los nombres completamente
 						cualificados (fully qualified names) (ej.
-						“com.mypackage.MyMapper.selectAllThings”).
+						“com.spring.mvc.controller.DemoController.mypackage.MyMapper.selectAllThings”).
 					</li>
 					<li>Pueden usarse los nombres cortos (ej. “selectAllThings”)
 						siempre que no haya ambigüedad. Sin embargo, si hubiera dos o más
-						elementos (ej. “com.foo.selectAllThings" y
-						"com.bar.selectAllThings”), entonces obtendrás un error indicando
+						elementos (ej. “com.spring.mvc.controller.DemoController.foo.selectAllThings" y
+						"com.spring.mvc.controller.DemoController.bar.selectAllThings”), entonces obtendrás un error indicando
 						que el nombre es ambiguo y que debe ser “fully qualified”.
 					</li>
 				</ul>

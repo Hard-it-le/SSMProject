@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 配置自动扫描的包 -->
-    <context:component-scan base-package="com.yjl.mvc.handler"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.mvc.handler"/>
 
     <!-- Thymeleaf视图解析器 -->
     <bean id="thymeleafViewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">

@@ -274,7 +274,7 @@ x-script/x-wfxclient			wfx
 # GENERAL APPLICATIONS
 
 # Undefined binary data (often executable progs)
-application/octet-stream		exe com
+application/octet-stream		exe com.spring.mvc.controller.DemoController
 # Pointcast news data (Pointcast)
 application/x-pcn			pcn
 # Excel spreadsheet (Microsoft)

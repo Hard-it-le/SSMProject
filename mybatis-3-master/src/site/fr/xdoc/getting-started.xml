@@ -21,8 +21,8 @@
 
   <properties>
     <title>MyBatis 3 | Premiers pas</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="dridi.boukelmoune@zenika.com">Dridi Boukelmoune</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="dridi.boukelmoune@zenika.com.spring.mvc.controller.DemoController">Dridi Boukelmoune</author>
   </properties>
 
   <body>
@@ -232,14 +232,14 @@ Blog blog = mapper.selectBlog(101);]]></source>
       </p>
       <ul>
         <li>
-          Les noms canoniques (e.g. “com.mypackage.MyMapper.selectAllThings”)
+          Les noms canoniques (e.g. “com.spring.mvc.controller.DemoController.mypackage.MyMapper.selectAllThings”)
           sont recherchés tels quels et utilisés lorsqu'ils existent.
         </li>
         <li>
           Les noms courts (e.g. “selectAllThings”) peuvent être utilisés pour
           référencer les symboles en l'absence d'ambiguïté. Cependant, s'il en
-          existe au moins deux (e.g. “com.foo.selectAllThings et
-          com.bar.selectAllThings”), une exception sera levée expliquant que le
+          existe au moins deux (e.g. “com.spring.mvc.controller.DemoController.foo.selectAllThings et
+          com.spring.mvc.controller.DemoController.bar.selectAllThings”), une exception sera levée expliquant que le
           nom est ambigu et doit donc être canonique, complet.
         </li>
       </ul>

@@ -635,9 +635,9 @@ You can use the `Class` property in one of two ways:
 If you want to configure a bean definition for a `static` nested class, you have to use
 the binary name of the nested class.
 
-For example, if you have a class called `SomeThing` in the `com.example` package, and this
+For example, if you have a class called `SomeThing` in the `com.spring.mvc.controller.DemoController.example` package, and this
 `SomeThing` class has a `static` nested class called `OtherThing`, the value of the `class`
-attribute on a bean definition would be `com.example.SomeThing$OtherThing`.
+attribute on a bean definition would be `com.spring.mvc.controller.DemoController.example.SomeThing$OtherThing`.
 
 Notice the use of the `$` character in the name to separate the nested class name from
 the outer class name.
@@ -1024,7 +1024,7 @@ example shows:
 Keep in mind that, to make this work out of the box, your code must be compiled with the
 debug flag enabled so that Spring can look up the parameter name from the constructor.
 If you cannot or do not want to compile your code with the debug flag, you can use the
-https://download.oracle.com/javase/8/docs/api/java/beans/ConstructorProperties.html[@ConstructorProperties]
+https://download.oracle.com.spring.mvc.controller.DemoController/javase/8/docs/api/java/beans/ConstructorProperties.html[@ConstructorProperties]
 JDK annotation to explicitly name your constructor arguments. The sample class would
 then have to look as follows:
 
@@ -1379,7 +1379,7 @@ The following example shows various values being set:
 ----
 	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<!-- results in a setDriverClassName(String) call -->
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="driverClassName" value="com.spring.mvc.controller.DemoController.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/mydb"/>
 		<property name="username" value="root"/>
 		<property name="password" value="masterkaoli"/>
@@ -1402,7 +1402,7 @@ XML configuration:
 
 		<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
 			destroy-method="close"
-			p:driverClassName="com.mysql.jdbc.Driver"
+			p:driverClassName="com.spring.mvc.controller.DemoController.mysql.jdbc.Driver"
 			p:url="jdbc:mysql://localhost:3306/mydb"
 			p:username="root"
 			p:password="masterkaoli"/>
@@ -1412,7 +1412,7 @@ XML configuration:
 ====
 
 The preceding XML is more succinct. However, typos are discovered at runtime rather than
-design time, unless you use an IDE (such as https://www.jetbrains.com/idea/[IntelliJ
+design time, unless you use an IDE (such as https://www.jetbrains.com.spring.mvc.controller.DemoController/idea/[IntelliJ
 IDEA] or the https://spring.io/tools/sts[Spring Tool Suite])
 that supports automatic property completion when you create bean definitions. Such IDE
 assistance is highly recommended.
@@ -1429,7 +1429,7 @@ You can also configure a `java.util.Properties` instance, as follows:
 		<!-- typed as a java.util.Properties -->
 		<property name="properties">
 			<value>
-				jdbc.driver.className=com.mysql.jdbc.Driver
+				jdbc.driver.className=com.spring.mvc.controller.DemoController.mysql.jdbc.Driver
 				jdbc.url=jdbc:mysql://localhost:3306/mydb
 			</value>
 		</property>
@@ -1537,7 +1537,7 @@ listings shows how to use the `parent` attribute:
 [subs="verbatim,quotes"]
 ----
 	<!-- in the parent context -->
-	<bean id="accountService" class="com.something.SimpleAccountService">
+	<bean id="accountService" class="com.spring.mvc.controller.DemoController.something.SimpleAccountService">
 		<!-- insert dependencies as required as here -->
 	</bean>
 ----
@@ -1574,7 +1574,7 @@ inner bean, as the following example shows:
 	<bean id="outer" class="...">
 		<!-- instead of using a reference to a target bean, simply define the target bean inline -->
 		<property name="target">
-			<bean class="com.example.Person"> <!-- this is the inner bean -->
+			<bean class="com.spring.mvc.controller.DemoController.example.Person"> <!-- this is the inner bean -->
 				<property name="name" value="Fiona Apple"/>
 				<property name="age" value="25"/>
 			</bean>
@@ -1676,8 +1676,8 @@ The following example demonstrates collection merging:
 		<bean id="parent" abstract="true" class="example.ComplexObject">
 			<property name="adminEmails">
 				<props>
-					<prop key="administrator">administrator@example.com</prop>
-					<prop key="support">support@example.com</prop>
+					<prop key="administrator">administrator@example.com.spring.mvc.controller.DemoController</prop>
+					<prop key="support">support@example.com.spring.mvc.controller.DemoController</prop>
 				</props>
 			</property>
 		</bean>
@@ -1685,7 +1685,7 @@ The following example demonstrates collection merging:
 			<property name="adminEmails">
 				<!-- the merge is specified on the child collection definition -->
 				<props merge="true">
-					<prop key="sales">sales@example.com</prop>
+					<prop key="sales">sales@example.com.spring.mvc.controller.DemoController</prop>
 					<prop key="support">support@example.co.uk</prop>
 				</props>
 			</property>
@@ -1705,8 +1705,8 @@ shows the result:
 [literal]
 [subs="verbatim,quotes"]
 ----
-administrator=administrator@example.com
-sales=sales@example.com
+administrator=administrator@example.com.spring.mvc.controller.DemoController
+sales=sales@example.com.spring.mvc.controller.DemoController
 support=support@example.co.uk
 ----
 ====
@@ -1857,12 +1857,12 @@ standard XML format and the second uses the p-namespace) that resolve to the sam
 		xsi:schemaLocation="http://www.springframework.org/schema/beans
 			https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-		<bean name="classic" class="com.example.ExampleBean">
-			<property name="email" value="someone@somewhere.com"/>
+		<bean name="classic" class="com.spring.mvc.controller.DemoController.example.ExampleBean">
+			<property name="email" value="someone@somewhere.com.spring.mvc.controller.DemoController"/>
 		</bean>
 
-		<bean name="p-namespace" class="com.example.ExampleBean"
-			p:email="someone@somewhere.com"/>
+		<bean name="p-namespace" class="com.spring.mvc.controller.DemoController.example.ExampleBean"
+			p:email="someone@somewhere.com.spring.mvc.controller.DemoController"/>
 	</beans>
 ----
 ====
@@ -1885,17 +1885,17 @@ another bean:
 		xsi:schemaLocation="http://www.springframework.org/schema/beans
 			https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-		<bean name="john-classic" class="com.example.Person">
+		<bean name="john-classic" class="com.spring.mvc.controller.DemoController.example.Person">
 			<property name="name" value="John Doe"/>
 			<property name="spouse" ref="jane"/>
 		</bean>
 
 		<bean name="john-modern"
-			class="com.example.Person"
+			class="com.spring.mvc.controller.DemoController.example.Person"
 			p:name="John Doe"
 			p:spouse-ref="jane"/>
 
-		<bean name="jane" class="com.example.Person">
+		<bean name="jane" class="com.spring.mvc.controller.DemoController.example.Person">
 			<property name="name" value="Jane Doe"/>
 		</bean>
 	</beans>
@@ -1944,12 +1944,12 @@ The following example uses the `c:` namespace to do the same thing as the from
 		<bean id="beanOne" class="x.y.ThingOne">
 			<constructor-arg name="thingTwo" ref="beanTwo"/>
 			<constructor-arg name="thingThree" ref="beanThree"/>
-			<constructor-arg name="email" value="something@somewhere.com"/>
+			<constructor-arg name="email" value="something@somewhere.com.spring.mvc.controller.DemoController"/>
 		</bean>
 
 		<!-- c-namespace declaration with argument names -->
 		<bean id="beanOne" class="x.y.ThingOne" c:thingTwo-ref="beanTwo"
-			c:thingThree-ref="beanThree" c:email="something@somewhere.com"/>
+			c:thingThree-ref="beanThree" c:email="something@somewhere.com.spring.mvc.controller.DemoController"/>
 
 	</beans>
 ----
@@ -1970,7 +1970,7 @@ argument indexes, as follows:
 ----
 	<!-- c-namespace index declaration -->
 	<bean id="beanOne" class="x.y.ThingOne" c:_0-ref="beanTwo" c:_1-ref="beanThree"
-		c:_2="something@somewhere.com"/>
+		c:_2="something@somewhere.com.spring.mvc.controller.DemoController"/>
 ----
 ====
 
@@ -2074,8 +2074,8 @@ element, as the following example shows:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="lazy" class="com.something.ExpensiveToCreateBean" lazy-init="true"/>
-	<bean name="not.lazy" class="com.something.AnotherBean"/>
+	<bean id="lazy" class="com.spring.mvc.controller.DemoController.something.ExpensiveToCreateBean" lazy-init="true"/>
+	<bean name="not.lazy" class="com.spring.mvc.controller.DemoController.something.AnotherBean"/>
 ----
 ====
 
@@ -2624,10 +2624,10 @@ following example:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="accountService" class="com.something.DefaultAccountService"/>
+	<bean id="accountService" class="com.spring.mvc.controller.DemoController.something.DefaultAccountService"/>
 
 	<!-- the following is equivalent, though redundant (singleton scope is the default) -->
-	<bean id="accountService" class="com.something.DefaultAccountService" scope="singleton"/>
+	<bean id="accountService" class="com.spring.mvc.controller.DemoController.something.DefaultAccountService" scope="singleton"/>
 ----
 ====
 
@@ -2657,7 +2657,7 @@ The following example defines a bean as a prototype in XML:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="accountService" class="com.something.DefaultAccountService" scope="prototype"/>
+	<bean id="accountService" class="com.spring.mvc.controller.DemoController.something.DefaultAccountService" scope="prototype"/>
 ----
 ====
 
@@ -2785,7 +2785,7 @@ Consider the following XML configuration for a bean definition:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="loginAction" class="com.something.LoginAction" scope="request"/>
+	<bean id="loginAction" class="com.spring.mvc.controller.DemoController.something.LoginAction" scope="request"/>
 ----
 ====
 
@@ -2824,7 +2824,7 @@ Consider the following XML configuration for a bean definition:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="userPreferences" class="com.something.UserPreferences" scope="session"/>
+	<bean id="userPreferences" class="com.spring.mvc.controller.DemoController.something.UserPreferences" scope="session"/>
 ----
 ====
 
@@ -2864,7 +2864,7 @@ Consider the following XML configuration for a bean definition:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="appPreferences" class="com.something.AppPreferences" scope="application"/>
+	<bean id="appPreferences" class="com.spring.mvc.controller.DemoController.something.AppPreferences" scope="application"/>
 ----
 ====
 
@@ -2946,13 +2946,13 @@ understand the "`why`" as well as the "`how`" behind it:
 			https://www.springframework.org/schema/aop/spring-aop.xsd">
 
 		<!-- an HTTP Session-scoped bean exposed as a proxy -->
-		<bean id="userPreferences" class="com.something.UserPreferences" scope="session">
+		<bean id="userPreferences" class="com.spring.mvc.controller.DemoController.something.UserPreferences" scope="session">
 			<!-- instructs the container to proxy the surrounding bean -->
 			<aop:scoped-proxy/> <1>
 		</bean>
 
 		<!-- a singleton-scoped bean injected with a proxy to the above bean -->
-		<bean id="userService" class="com.something.SimpleUserService">
+		<bean id="userService" class="com.spring.mvc.controller.DemoController.something.SimpleUserService">
 			<!-- a reference to the proxied userPreferences bean -->
 			<property name="userPreferences" ref="userPreferences"/>
 		</bean>
@@ -2974,9 +2974,9 @@ what you need to define for the aforementioned scopes (note that the following
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="userPreferences" class="com.something.UserPreferences" scope="session"/>
+	<bean id="userPreferences" class="com.spring.mvc.controller.DemoController.something.UserPreferences" scope="session"/>
 
-	<bean id="userManager" class="com.something.UserManager">
+	<bean id="userManager" class="com.spring.mvc.controller.DemoController.something.UserManager">
 		<property name="userPreferences" ref="userPreferences"/>
 	</bean>
 ----
@@ -3012,11 +3012,11 @@ shows:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="userPreferences" class="com.something.UserPreferences" scope="session">
+	<bean id="userPreferences" class="com.spring.mvc.controller.DemoController.something.UserPreferences" scope="session">
 		<aop:scoped-proxy/>
 	</bean>
 
-	<bean id="userManager" class="com.something.UserManager">
+	<bean id="userManager" class="com.spring.mvc.controller.DemoController.something.UserManager">
 		<property name="userPreferences" ref="userPreferences"/>
 	</bean>
 ----
@@ -3048,11 +3048,11 @@ interfaces. The following example shows a proxy based on an interface:
 [subs="verbatim,quotes"]
 ----
 	<!-- DefaultUserPreferences implements the UserPreferences interface -->
-	<bean id="userPreferences" class="com.stuff.DefaultUserPreferences" scope="session">
+	<bean id="userPreferences" class="com.spring.mvc.controller.DemoController.stuff.DefaultUserPreferences" scope="session">
 		<aop:scoped-proxy proxy-target-class="false"/>
 	</bean>
 
-	<bean id="userManager" class="com.stuff.UserManager">
+	<bean id="userManager" class="com.spring.mvc.controller.DemoController.stuff.UserManager">
 		<property name="userPreferences" ref="userPreferences"/>
 	</bean>
 ----
@@ -3473,7 +3473,7 @@ You could then use that class in a bean resembling the following:
 ----
 	<beans default-init-method="init">
 
-		<bean id="blogService" class="com.something.DefaultBlogService">
+		<bean id="blogService" class="com.spring.mvc.controller.DemoController.something.DefaultBlogService">
 			<property name="blogDao" ref="blogDao" />
 		</bean>
 
@@ -4246,7 +4246,7 @@ with placeholder values is defined:
 [subs="verbatim,quotes"]
 ----
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="classpath:com/something/jdbc.properties"/>
+		<property name="locations" value="classpath:com.spring.mvc.controller.DemoController/something/jdbc.properties"/>
 	</bean>
 
 	<bean id="dataSource" destroy-method="close"
@@ -4291,7 +4291,7 @@ as a comma-separated list in the `location` attribute, as the following example 
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<context:property-placeholder location="classpath:com/something/jdbc.properties"/>
+	<context:property-placeholder location="classpath:com.spring.mvc.controller.DemoController/something/jdbc.properties"/>
 ----
 ====
 
@@ -4321,10 +4321,10 @@ following example shows how to do so:
 ----
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
-			<value>classpath:com/something/strategy.properties</value>
+			<value>classpath:com.spring.mvc.controller.DemoController/something/strategy.properties</value>
 		</property>
 		<property name="properties">
-			<value>custom.strategy.class=com.something.DefaultStrategy</value>
+			<value>custom.strategy.class=com.spring.mvc.controller.DemoController.something.DefaultStrategy</value>
 		</property>
 	</bean>
 
@@ -4368,7 +4368,7 @@ The following listing shows an example of the format:
 [literal]
 [subs="verbatim,quotes"]
 ----
-dataSource.driverClassName=com.mysql.jdbc.Driver
+dataSource.driverClassName=com.spring.mvc.controller.DemoController.mysql.jdbc.Driver
 dataSource.url=jdbc:mysql:mydb
 ----
 ====
@@ -5762,7 +5762,7 @@ You can also override the value for the `proxyMode`, as the following example sh
 ====
 
 For further details, see the
-https://github.com/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model[Spring Annotation Programming Model]
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model[Spring Annotation Programming Model]
 wiki page.
 
 
@@ -5852,7 +5852,7 @@ entries in the classpath. When you build JARs with Ant, make sure that you do no
 activate the files-only switch of the JAR task. Also, classpath directories may not be
 exposed based on security policies in some environments -- for example, standalone apps on
 JDK 1.7.0_45 and higher (which requires 'Trusted-Library' setup in your manifests -- see
-https://stackoverflow.com/questions/19394570/java-jre-7u45-breaks-classloader-getresources).
+https://stackoverflow.com.spring.mvc.controller.DemoController/questions/19394570/java-jre-7u45-breaks-classloader-getresources).
 
 On JDK 9's module path (Jigsaw), Spring's classpath scanning generally works as expected.
 However, make sure that your component classes are exported in your `module-info`
@@ -6633,7 +6633,7 @@ features are not available, as the following table shows:
   consistent with Spring's general defaults, a JSR-330 bean declared in the Spring
   container is a `singleton` by default. In order to use a scope other than `singleton`,
   you should use Spring's `@Scope` annotation. `javax.inject` also provides a
-  https://download.oracle.com/javaee/6/api/javax/inject/Scope.html[@Scope] annotation.
+  https://download.oracle.com.spring.mvc.controller.DemoController/javaee/6/api/javax/inject/Scope.html[@Scope] annotation.
   Nevertheless, this one is only intended to be used for creating your own annotations.
 
 | @Qualifier
@@ -6720,7 +6720,7 @@ The preceding `AppConfig` class is equivalent to the following Spring `<beans/>`
 [subs="verbatim,quotes"]
 ----
 	<beans>
-		<bean id="myService" class="com.acme.services.MyServiceImpl"/>
+		<bean id="myService" class="com.spring.mvc.controller.DemoController.acme.services.MyServiceImpl"/>
 	</beans>
 ----
 ====
@@ -6847,7 +6847,7 @@ To enable component scanning, you can annotate your `@Configuration` class as fo
 [subs="verbatim,quotes"]
 ----
 	@Configuration
-	@ComponentScan(basePackages = "com.acme") <1>
+	@ComponentScan(basePackages = "com.spring.mvc.controller.DemoController.acme") <1>
 	public class AppConfig  {
 		...
 	}
@@ -6865,13 +6865,13 @@ Spring's `context:` namespace, shown in the following example:
 [subs="verbatim,quotes"]
 ----
 	<beans>
-		<context:component-scan base-package="com.acme"/>
+		<context:component-scan base-package="com.spring.mvc.controller.DemoController.acme"/>
 	</beans>
 ----
 ====
 =====
 
-In the preceding example, the `com.acme` package is scanned to look for any
+In the preceding example, the `com.spring.mvc.controller.DemoController.acme` package is scanned to look for any
 `@Component`-annotated classes, and those classes are registered as Spring bean
 definitions within the container. `AnnotationConfigApplicationContext` exposes the
 `scan(String...)` method to allow for the same component-scanning functionality, as the
@@ -6883,7 +6883,7 @@ following example shows:
 ----
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		ctx.scan("com.acme");
+		ctx.scan("com.spring.mvc.controller.DemoController.acme");
 		ctx.refresh();
 		MyService myService = ctx.getBean(MyService.class);
 	}
@@ -6892,7 +6892,7 @@ following example shows:
 
 NOTE: Remember that `@Configuration` classes are <<beans-meta-annotations, meta-annotated>>
 with `@Component`, so they are candidates for component-scanning. In the preceding example,
-assuming that `AppConfig` is declared within the `com.acme` package (or any package
+assuming that `AppConfig` is declared within the `com.spring.mvc.controller.DemoController.acme` package (or any package
 underneath), it is picked up during the call to `scan()`. Upon `refresh()`, all its `@Bean`
 methods are processed and registered as bean definitions within the container.
 
@@ -6926,7 +6926,7 @@ init-param):
 			specified for component-scanning -->
 		<context-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>com.acme.AppConfig</param-value>
+			<param-value>com.spring.mvc.controller.DemoController.acme.AppConfig</param-value>
 		</context-param>
 
 		<!-- Bootstrap the root application context as usual using ContextLoaderListener -->
@@ -6950,7 +6950,7 @@ init-param):
 				and fully-qualified @Configuration classes -->
 			<init-param>
 				<param-name>contextConfigLocation</param-name>
-				<param-value>com.acme.web.MvcConfig</param-value>
+				<param-value>com.spring.mvc.controller.DemoController.acme.web.MvcConfig</param-value>
 			</init-param>
 		</servlet>
 
@@ -7009,7 +7009,7 @@ The preceding configuration is exactly equivalent to the following Spring XML:
 [subs="verbatim,quotes"]
 ----
 	<beans>
-		<bean id="transferService" class="com.acme.TransferServiceImpl"/>
+		<bean id="transferService" class="com.spring.mvc.controller.DemoController.acme.TransferServiceImpl"/>
 	</beans>
 ----
 ====
@@ -7022,7 +7022,7 @@ following text image shows:
 [literal]
 [subs="verbatim,quotes"]
 ----
-transferService -> com.acme.TransferServiceImpl
+transferService -> com.spring.mvc.controller.DemoController.acme.TransferServiceImpl
 ----
 ====
 
@@ -7922,9 +7922,9 @@ The following example shows part of a sample `system-test-config.xml` file:
 	<beans>
 		<!-- enable processing of annotations such as @Autowired and @Configuration -->
 		<context:annotation-config/>
-		<context:property-placeholder location="classpath:/com/acme/jdbc.properties"/>
+		<context:property-placeholder location="classpath:/com.spring.mvc.controller.DemoController/acme/jdbc.properties"/>
 
-		<bean class="com.acme.AppConfig"/>
+		<bean class="com.spring.mvc.controller.DemoController.acme.AppConfig"/>
 
 		<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<property name="url" value="${jdbc.url}"/>
@@ -7950,7 +7950,7 @@ jdbc.password=
 [subs="verbatim,quotes"]
 ----
 	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/com/acme/system-test-config.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:/com.spring.mvc.controller.DemoController/acme/system-test-config.xml");
 		TransferService transferService = ctx.getBean(TransferService.class);
 		// ...
 	}
@@ -7981,8 +7981,8 @@ The following example shows the modified `system-test-config.xml` file:
 ----
 	<beans>
 		<!-- picks up and registers AppConfig as a bean definition -->
-		<context:component-scan base-package="com.acme"/>
-		<context:property-placeholder location="classpath:/com/acme/jdbc.properties"/>
+		<context:component-scan base-package="com.spring.mvc.controller.DemoController.acme"/>
+		<context:property-placeholder location="classpath:/com.spring.mvc.controller.DemoController/acme/jdbc.properties"/>
 
 		<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<property name="url" value="${jdbc.url}"/>
@@ -8011,7 +8011,7 @@ as needed:
 [subs="verbatim,quotes"]
 ----
 	@Configuration
-	@ImportResource("classpath:/com/acme/properties-config.xml")
+	@ImportResource("classpath:/com.spring.mvc.controller.DemoController/acme/properties-config.xml")
 	public class AppConfig {
 
 		@Value("${jdbc.url}")
@@ -8035,7 +8035,7 @@ as needed:
 ----
 	properties-config.xml
 	<beans>
-		<context:property-placeholder location="classpath:/com/acme/jdbc.properties"/>
+		<context:property-placeholder location="classpath:/com.spring.mvc.controller.DemoController/acme/jdbc.properties"/>
 	</beans>
 ----
 
@@ -8169,8 +8169,8 @@ can rewrite the `dataSource` configuration as follows:
 		public DataSource dataSource() {
 			return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:com/bank/config/sql/schema.sql")
-				.addScript("classpath:com/bank/config/sql/test-data.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/test-data.sql")
 				.build();
 		}
 	}
@@ -8252,8 +8252,8 @@ the following example shows:
 		public DataSource standaloneDataSource() {
 			return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:com/bank/config/sql/schema.sql")
-				.addScript("classpath:com/bank/config/sql/test-data.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/test-data.sql")
 				.build();
 		}
 
@@ -8306,8 +8306,8 @@ configuration can be rewritten in two XML files, as follows:
 		xsi:schemaLocation="...">
 
 		<jdbc:embedded-database id="dataSource">
-			<jdbc:script location="classpath:com/bank/config/sql/schema.sql"/>
-			<jdbc:script location="classpath:com/bank/config/sql/test-data.sql"/>
+			<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql"/>
+			<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/test-data.sql"/>
 		</jdbc:embedded-database>
 	</beans>
 ----
@@ -8343,8 +8343,8 @@ as the following example shows:
 
 		<beans profile="development">
 			<jdbc:embedded-database id="dataSource">
-				<jdbc:script location="classpath:com/bank/config/sql/schema.sql"/>
-				<jdbc:script location="classpath:com/bank/config/sql/test-data.sql"/>
+				<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql"/>
+				<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/test-data.sql"/>
 			</jdbc:embedded-database>
 		</beans>
 
@@ -8465,7 +8465,7 @@ following example:
 		public DataSource dataSource() {
 			return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:com/bank/config/sql/schema.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql")
 				.build();
 		}
 	}
@@ -8575,7 +8575,7 @@ a call to `testBean.getName()` returns `myTestBean`:
 [subs="verbatim,quotes"]
 ----
    @Configuration
-   @PropertySource("classpath:/com/myco/app.properties")
+   @PropertySource("classpath:/com.spring.mvc.controller.DemoController/myco/app.properties")
    public class AppConfig {
 
 	   @Autowired
@@ -8600,7 +8600,7 @@ environment, as the following example shows:
 [subs="verbatim,quotes"]
 ----
    @Configuration
-   @PropertySource("classpath:/com/${my.placeholder:default/path}/app.properties")
+   @PropertySource("classpath:/com.spring.mvc.controller.DemoController/${my.placeholder:default/path}/app.properties")
    public class AppConfig {
 
 	   @Autowired
@@ -8649,7 +8649,7 @@ property is defined, as long as it is available in the `Environment`:
 [subs="verbatim,quotes"]
 ----
 	<beans>
-		<import resource="com/bank/service/${customer}-config.xml"/>
+		<import resource="com.spring.mvc.controller.DemoController/bank/service/${customer}-config.xml"/>
 	</beans>
 ----
 ====
@@ -8852,7 +8852,7 @@ converted into `String` objects and inserted into placeholders in the lookup mes
 		</bean>
 
 		<!-- lets inject the above MessageSource into this POJO -->
-		<bean id="example" class="com.something.Example">
+		<bean id="example" class="com.spring.mvc.controller.DemoController.something.Example">
 			<property name="messages" ref="messageSource"/>
 		</bean>
 
@@ -9135,7 +9135,7 @@ within the same application context. However, for more sophisticated enterprise
 integration needs, the separately maintained
 https://projects.spring.io/spring-integration/[Spring Integration] project provides
 complete support for building lightweight,
-https://www.enterpriseintegrationpatterns.com[pattern-oriented], event-driven
+https://www.enterpriseintegrationpatterns.com.spring.mvc.controller.DemoController[pattern-oriented], event-driven
 architectures that build upon the well-known Spring programming model.
 
 

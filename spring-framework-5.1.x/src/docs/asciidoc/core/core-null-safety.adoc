@@ -52,5 +52,5 @@ hard-code support for Spring annotations.
 
 It is not necessary nor recommended to add a JSR-305 dependency to the project classpath to
 take advantage of Spring null-safe API. Only projects such as Spring-based libraries that use
-null-safety annotations in their codebase should add `com.google.code.findbugs:jsr305:3.0.2`
+null-safety annotations in their codebase should add `com.spring.mvc.controller.DemoController.google.code.findbugs:jsr305:3.0.2`
 with `compileOnly` Gradle configuration or Maven `provided` scope to avoid compile warnings.

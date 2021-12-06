@@ -21,6 +21,6 @@
     <!--<logger name="org.springframework.web.servlet.DispatcherServlet" level="DEBUG" />
     <logger name="org.springframework.web.context.ContextLoader" level="DEBUG"/>
     <logger name="org.springframework.web.context.ContextLoaderListener" level="DEBUG"/>-->
-    <logger name="com.yjl.component.handler.HelloHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.yjl.component.handler.HelloHandler" level="DEBUG"/>
 
 </configuration>

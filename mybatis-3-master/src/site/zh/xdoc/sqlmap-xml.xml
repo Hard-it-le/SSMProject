@@ -21,9 +21,9 @@
 
   <properties>
     <title>MyBatis 3 | XML 映射文件</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="nanlei1987@gmail.com">Nan Lei</author>
-    <author email="echowdx@gmail.com">Dongxu Wang</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="nanlei1987@gmail.com.spring.mvc.controller.DemoController">Nan Lei</author>
+    <author email="echowdx@gmail.com.spring.mvc.controller.DemoController">Dongxu Wang</author>
   </properties>
 
   <body>
@@ -639,7 +639,7 @@ ps.setInt(1,id);]]></source>
         <p>
 		      上述语句只是简单地将所有的列映射到 <code>HashMap</code> 的键上，这由 <code>resultType</code> 属性指定。虽然在大部分情况下都够用，但是 HashMap 不是一个很好的领域模型。你的程序更可能会使用 JavaBean 或 POJO（Plain Old Java Objects，普通老式 Java 对象）作为领域模型。MyBatis 对两者都提供了支持。看看下面这个 JavaBean：
         </p>
-        <source><![CDATA[package com.someapp.model;
+        <source><![CDATA[package com.spring.mvc.controller.DemoController.someapp.model;
 public class User {
   private int id;
   private String username;
@@ -675,7 +675,7 @@ public class User {
           <code>HashMap</code> 一样简单。
         </p>
 
-        <source><![CDATA[<select id="selectUsers" resultType="com.someapp.model.User">
+        <source><![CDATA[<select id="selectUsers" resultType="com.spring.mvc.controller.DemoController.someapp.model.User">
   select id, username, hashedPassword
   from some_table
   where id = #{id}
@@ -686,7 +686,7 @@ public class User {
         </p>
 
         <source><![CDATA[<!-- mybatis-config.xml 中 -->
-<typeAlias type="com.someapp.model.User" alias="User"/>
+<typeAlias type="com.spring.mvc.controller.DemoController.someapp.model.User" alias="User"/>
 
 <!-- SQL 映射 XML 中 -->
 <select id="selectUsers" resultType="User">
@@ -2003,7 +2003,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
           除了上述自定义缓存的方式，你也可以通过实现你自己的缓存，或为其他第三方缓存方案创建适配器，来完全覆盖缓存行为。
         </p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache"/>]]></source>
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache"/>]]></source>
 
         <p>
           这个示例展示了如何使用一个自定义的缓存实现。type 属性指定的类必须实现
@@ -2027,7 +2027,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
           <code>setCacheFile(String file)</code> 的方法：
         </p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache">
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache">
   <property name="cacheFile" value="/tmp/my-custom-cache.tmp"/>
 </cache>]]></source>
 
@@ -2073,7 +2073,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
           cache-ref 元素来引用另一个缓存。
         </p>
 
-        <source><![CDATA[<cache-ref namespace="com.someone.application.data.SomeMapper"/>]]></source>
+        <source><![CDATA[<cache-ref namespace="com.spring.mvc.controller.DemoController.someone.application.data.SomeMapper"/>]]></source>
       </subsection>
     </section>
   </body>

@@ -14,7 +14,7 @@
 
     <!-- 指定实体类别名 -->
     <typeAliases>
-        <package name="com.yjl.ssm.entity"/>
+        <package name="com.spring.mvc.controller.DemoController.yjl.ssm.entity"/>
     </typeAliases>
 
 </configuration>

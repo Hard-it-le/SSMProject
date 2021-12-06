@@ -21,8 +21,8 @@
 
   <properties>
     <title>마이바티스 3 | 매퍼 XML 파일</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="fromm0@gmail.com">이동국(한국어 번역)</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="fromm0@gmail.com.spring.mvc.controller.DemoController">이동국(한국어 번역)</author>
   </properties>
 
   <body>
@@ -538,7 +538,7 @@ ps.setInt(1,id);]]></source>
 		마이바티스는 둘다 지원한다. 
 		자바빈의 경우를 보자.</p>
 
-        <source><![CDATA[package com.someapp.model;
+        <source><![CDATA[package com.spring.mvc.controller.DemoController.someapp.model;
 public class User {
   private int id;
   private String username;
@@ -569,7 +569,7 @@ public class User {
 
         <p>그래서 자바빈은 HashMap과 마찬가지로 매우 쉽게 ResultSet에 매핑될 수 있다.</p>
 
-        <source><![CDATA[<select id="selectUsers" resultType="com.someapp.model.User">
+        <source><![CDATA[<select id="selectUsers" resultType="com.spring.mvc.controller.DemoController.someapp.model.User">
   select id, username, hashedPassword
   from some_table
   where id = #{id}
@@ -580,7 +580,7 @@ public class User {
 		예를들면,</p>
 
         <source><![CDATA[<!-- XML설정파일에서 -->
-<typeAlias type="com.someapp.model.User" alias="User"/>
+<typeAlias type="com.spring.mvc.controller.DemoController.someapp.model.User" alias="User"/>
 
 <!-- SQL매핑 XML파일에서 -->
 <select id="selectUsers" resultType="User">
@@ -1649,7 +1649,7 @@ public class User {
 
         <p>앞서 본 다양한 설정방법에 더해 자체적으로 개발하거나 써드파티 캐시 솔루션을 사용하여 캐시 처리를 할 수 있다.</p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache"/>]]></source>
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache"/>]]></source>
 
         <p>이 예제는 사용자 지정 캐시 구현체를 사용하는 방법을 보여준다. 
 		type속성에 명시된 클래스는 org.mybatis.cache.Cache인터페이스를 반드시 구현해야 한다. 
@@ -1669,7 +1669,7 @@ public class User {
         <p>캐시를 설정하기 위해 캐시 구현체에 public 자바빈 프로퍼티를 추가하고 cache 엘리먼트를 통해 프로퍼티를 전달한다. 
 		예를들어 다음 예제는 캐시 구현체에서 “setCacheFile(String file)” 를 호출하여 메소드를 호출할 것이다.</p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache">
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache">
   <property name="cacheFile" value="/tmp/my-custom-cache.tmp"/>
 </cache>]]></source>
 
@@ -1707,7 +1707,7 @@ public class User {
 		네임스페이스간의 캐시 설정과 인스턴스를 공유하고자 할때가 있을 것이다. 
 		이 경우 cache-ref 엘리먼트를 사용해서 다른 캐시를 참조할 수 있다.</p>
 
-        <source><![CDATA[<cache-ref namespace="com.someone.application.data.SomeMapper"/>]]></source>
+        <source><![CDATA[<cache-ref namespace="com.spring.mvc.controller.DemoController.someone.application.data.SomeMapper"/>]]></source>
       </subsection>
     </section>
   </body>

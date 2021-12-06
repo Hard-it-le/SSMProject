@@ -238,7 +238,7 @@
 				<xsd:documentation><![CDATA[
 	The pointcut expression.
 
-	For example : 'execution(* com.xyz.myapp.service.*.*(..))'
+	For example : 'execution(* com.spring.mvc.controller.DemoController.xyz.myapp.service.*.*(..))'
 				]]></xsd:documentation>
 			</xsd:annotation>
 		</xsd:attribute>

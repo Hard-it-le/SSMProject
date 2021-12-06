@@ -4,10 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 配置目标类的bean -->
-    <bean id="calculatorPure" class="com.yjl.xml.service.Impl.CalculationPureServiceImpl"/>
+    <bean id="calculatorPure" class="com.spring.mvc.controller.DemoController.yjl.xml.service.Impl.CalculationPureServiceImpl"/>
 
     <!-- 配置切面类的bean -->
-    <bean id="logAspect" class="com.yjl.xml.aspect.LogAspect"/>
+    <bean id="logAspect" class="com.spring.mvc.controller.DemoController.yjl.xml.aspect.LogAspect"/>
 
     <!-- 配置AOP -->
     <aop:config>

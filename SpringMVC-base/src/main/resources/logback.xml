@@ -19,11 +19,11 @@
 
     <!-- 根据特殊需求指定局部日志级别 -->
     <logger name="org.springframework.web.servlet.DispatcherServlet" level="DEBUG" />
-    <logger name="com.atguigu.mvc.handler.Demo01HelloHandler" level="DEBUG"/>
-    <logger name="com.atguigu.mvc.handler.Demo02MappingHandler" level="DEBUG"/>
-    <logger name="com.atguigu.mvc.handler.Demo03MappingMethodHandler" level="DEBUG"/>
-    <logger name="com.atguigu.mvc.handler.Demo04ParamHandler" level="DEBUG"/>
-    <logger name="com.atguigu.mvc.handler.Demo05HeaderAndCookieHandler" level="DEBUG"/>
-    <logger name="com.atguigu.mvc.handler.Demo06DispatchHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.atguigu.mvc.handler.Demo01HelloHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.atguigu.mvc.handler.Demo02MappingHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.atguigu.mvc.handler.Demo03MappingMethodHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.atguigu.mvc.handler.Demo04ParamHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.atguigu.mvc.handler.Demo05HeaderAndCookieHandler" level="DEBUG"/>
+    <logger name="com.spring.mvc.controller.DemoController.atguigu.mvc.handler.Demo06DispatchHandler" level="DEBUG"/>
 
 </configuration>

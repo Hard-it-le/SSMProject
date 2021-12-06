@@ -216,7 +216,7 @@ Undertow (and WildFly).
 
 NOTE: A request to overcome the preceding limitation in the Java WebSocket API has been
 created and can be followed at
-https://github.com/eclipse-ee4j/websocket-api/issues/211[eclipse-ee4j/websocket-api#211].
+https://github.com.spring.mvc.controller.DemoController/eclipse-ee4j/websocket-api/issues/211[eclipse-ee4j/websocket-api#211].
 Tomcat, Undertow, and WebSphere provide their own API alternatives that
 make it possible to do this, and it is also possible with Jetty. We are hopeful
 that more servers will do the same.
@@ -232,11 +232,11 @@ through the use of the `<absolute-ordering />` element in `web.xml`, as the foll
 [source,xml,indent=0]
 [subs="verbatim,quotes,attributes"]
 ----
-	<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	<web-app xmlns="http://java.sun.com.spring.mvc.controller.DemoController/xml/ns/javaee"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="
-			http://java.sun.com/xml/ns/javaee
-			https://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+			http://java.sun.com.spring.mvc.controller.DemoController/xml/ns/javaee
+			https://java.sun.com.spring.mvc.controller.DemoController/xml/ns/javaee/web-app_3_0.xsd"
 		version="3.0">
 
 		<absolute-ordering/>
@@ -253,11 +253,11 @@ Java initialization API. The following example shows how to do so:
 [source,xml,indent=0]
 [subs="verbatim,quotes,attributes"]
 ----
-	<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	<web-app xmlns="http://java.sun.com.spring.mvc.controller.DemoController/xml/ns/javaee"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="
-			http://java.sun.com/xml/ns/javaee
-			https://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+			http://java.sun.com.spring.mvc.controller.DemoController/xml/ns/javaee
+			https://java.sun.com.spring.mvc.controller.DemoController/xml/ns/javaee/web-app_3_0.xsd"
 		version="3.0">
 
 		<absolute-ordering>
@@ -444,7 +444,7 @@ You can configure WebSocket and SockJS allowed origins, as the following example
 
 		@Override
 		public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-			registry.addHandler(myHandler(), "/myHandler").setAllowedOrigins("https://mydomain.com");
+			registry.addHandler(myHandler(), "/myHandler").setAllowedOrigins("https://mydomain.com.spring.mvc.controller.DemoController");
 		}
 
 		@Bean
@@ -471,7 +471,7 @@ The following example shows the XML configuration equivalent of the preceding ex
 			http://www.springframework.org/schema/websocket
 			https://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
-		<websocket:handlers allowed-origins="https://mydomain.com">
+		<websocket:handlers allowed-origins="https://mydomain.com.spring.mvc.controller.DemoController">
 			<websocket:mapping path="/myHandler" handler="myHandler" />
 		</websocket:handlers>
 
@@ -509,17 +509,17 @@ change application code.
 
 SockJS consists of:
 
-* The https://github.com/sockjs/sockjs-protocol[SockJS protocol]
+* The https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-protocol[SockJS protocol]
 defined in the form of executable
 https://sockjs.github.io/sockjs-protocol/sockjs-protocol-0.3.3.html[narrated tests].
-* The https://github.com/sockjs/sockjs-client/[SockJS JavaScript client] -- a client library for use in browsers.
+* The https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client/[SockJS JavaScript client] -- a client library for use in browsers.
 * SockJS server implementations, including one in the Spring Framework `spring-websocket` module.
 * A SockJS Java client in the `spring-websocket` module (since version 4.1).
 
 SockJS is designed for use in browsers. It uses a variety of techniques
 to support a wide range of browser versions.
 For the full list of SockJS transport types and browsers, see the
-https://github.com/sockjs/sockjs-client/[SockJS client] page. Transports
+https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client/[SockJS client] page. Transports
 fall in three general categories: WebSocket, HTTP Streaming, and HTTP Long Polling.
 For an overview of these categories, see
 https://spring.io/blog/2012/05/08/spring-mvc-3-2-preview-techniques-for-real-time-updates/[this blog post].
@@ -627,10 +627,10 @@ integrate into other HTTP serving environments with the help of
 {api-spring-framework}/web/socket/sockjs/support/SockJsHttpRequestHandler.html[`SockJsHttpRequestHandler`].
 
 On the browser side, applications can use the
-https://github.com/sockjs/sockjs-client/[`sockjs-client`] (version 1.0.x). It
+https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client/[`sockjs-client`] (version 1.0.x). It
 emulates the W3C WebSocket API and communicates with the server to select the best
 transport option, depending on the browser in which it runs. See the
-https://github.com/sockjs/sockjs-client/[sockjs-client] page and the list of
+https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client/[sockjs-client] page and the list of
 transport types supported by browser. The client also provides several
 configuration options -- for example, to specify which transports to include.
 
@@ -644,7 +644,7 @@ a key reason for having SockJS. This section covers important
 considerations about running in those browsers.
 
 The SockJS client supports Ajax/XHR streaming in IE 8 and 9 by using Microsoft's
-https://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx[`XDomainRequest`].
+https://blogs.msdn.com.spring.mvc.controller.DemoController/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx[`XDomainRequest`].
 That works across domains but does not support sending cookies.
 Cookies are often essential for Java applications.
 However, since the SockJS client can be used with many server
@@ -715,7 +715,7 @@ The XML namespace provides a similar option through the `<websocket:sockjs>` ele
 NOTE: During initial development, do enable the SockJS client `devel` mode that prevents
 the browser from caching SockJS requests (like the iframe) that would otherwise
 be cached. For details on how to enable it see the
-https://github.com/sockjs/sockjs-client/[SockJS client] page.
+https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client/[SockJS client] page.
 
 
 
@@ -751,7 +751,7 @@ allows exiting the Servlet container thread, processing a request, and continuin
 to write to the response from another thread.
 
 A specific issue is that the Servlet API does not provide notifications for a client
-that has gone away. See https://github.com/eclipse-ee4j/servlet-api/issues/44[eclipse-ee4j/servlet-api#44].
+that has gone away. See https://github.com.spring.mvc.controller.DemoController/eclipse-ee4j/servlet-api/issues/44[eclipse-ee4j/servlet-api#44].
 However, Servlet containers raise an exception on subsequent attempts to write
 to the response. Since Spring's SockJS Service supports server-sent heartbeats (every
 25 seconds by default), that means a client disconnect is usually detected within that
@@ -830,7 +830,7 @@ The following example shows how to create a SockJS client and connect to a SockJ
   transports.add(new RestTemplateXhrTransport());
 
   SockJsClient sockJsClient = new SockJsClient(transports);
-  sockJsClient.doHandshake(new MyWebSocketHandler(), "ws://example.com:8080/sockjs");
+  sockJsClient.doHandshake(new MyWebSocketHandler(), "ws://example.com.spring.mvc.controller.DemoController:8080/sockjs");
 ----
 ====
 
@@ -1091,11 +1091,11 @@ check the STOMP page of the broker to understand what kind of STOMP destinations
 prefixes it supports.
 
 To connect from a browser, for SockJS, you can use the
-https://github.com/sockjs/sockjs-client[`sockjs-client`]. For STOMP, many applications have
-used the https://github.com/jmesnil/stomp-websocket[jmesnil/stomp-websocket] library
+https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client[`sockjs-client`]. For STOMP, many applications have
+used the https://github.com.spring.mvc.controller.DemoController/jmesnil/stomp-websocket[jmesnil/stomp-websocket] library
 (also known as stomp.js), which is feature-complete and has been used in production for
 years but is no longer maintained. At present the
-https://github.com/JSteunou/webstomp-client[JSteunou/webstomp-client] is the most
+https://github.com.spring.mvc.controller.DemoController/JSteunou/webstomp-client[JSteunou/webstomp-client] is the most
 actively maintained and evolving successor of that library. The following example code
 is based on it:
 
@@ -1134,7 +1134,7 @@ For more example code see:
 
 * https://spring.io/guides/gs/messaging-stomp-websocket/[Using WebSocket to build an
 interactive web application] -- a getting started guide.
-* https://github.com/rstoyanchev/spring-websocket-portfolio[Stock Portfolio] -- a sample
+* https://github.com.spring.mvc.controller.DemoController/rstoyanchev/spring-websocket-portfolio[Stock Portfolio] -- a sample
 application.
 
 
@@ -1575,7 +1575,7 @@ As an alternative, you can upgrade your applications to use a full-featured
 message broker.
 
 See the STOMP documentation for your message broker of choice (such as
-https://www.rabbitmq.com/stomp.html[RabbitMQ],
+https://www.rabbitmq.com.spring.mvc.controller.DemoController/stomp.html[RabbitMQ],
 https://activemq.apache.org/stomp.html[ActiveMQ], and others), install the broker,
 and run it with STOMP support enabled. Then you can enable the STOMP broker relay
 (instead of the simple broker) in the Spring configuration.
@@ -1855,7 +1855,7 @@ that ensures the user HTTP session does not expire when the WebSocket session is
 [[websocket-stomp-authentication-token-based]]
 === Token Authentication
 
-https://github.com/spring-projects/spring-security-oauth[Spring Security OAuth]
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-security-oauth[Spring Security OAuth]
 provides support for token based security, including JSON Web Token (JWT).
 You can use this as the authentication mechanism in Web applications,
 including STOMP over WebSocket interactions, as described in the previous
@@ -1871,7 +1871,7 @@ the WebSocket handshake.`" In practice, however, browser clients can use only st
 authentication headers (that is, basic HTTP authentication) or cookies and cannot (for example)
 provide custom headers. Likewise, the SockJS JavaScript client does not provide
 a way to send HTTP headers with SockJS transport requests. See
-https://github.com/sockjs/sockjs-client/issues/196[sockjs-client issue 196].
+https://github.com.spring.mvc.controller.DemoController/sockjs/sockjs-client/issues/196[sockjs-client issue 196].
 Instead, it does allow sending query parameters that you can use to send a token,
 but that has its own drawbacks (for example, the token may be inadvertently
 logged with the URL in server logs).
@@ -2508,7 +2508,7 @@ You can also use the WebSocket transport configuration shown earlier to configur
 maximum allowed size for incoming STOMP messages. In theory, a WebSocket
 message can be almost unlimited in size. In practice, WebSocket servers impose
 limits -- for example, 8K on Tomcat and 64K on Jetty. For this reason, STOMP clients
-(such as the JavaScript https://github.com/JSteunou/webstomp-client[webstomp-client]
+(such as the JavaScript https://github.com.spring.mvc.controller.DemoController/JSteunou/webstomp-client[webstomp-client]
 and others) split larger STOMP messages at 16K boundaries and send them as multiple
 WebSocket  messages, which requires the server to buffer and re-assemble.
 
@@ -2663,12 +2663,12 @@ controllers (namely the `SimpAnnotationMethodMessageHandler`) and pass messages 
 controllers directly to it.
 
 Both of these setup scenarios are demonstrated in the
-https://github.com/rstoyanchev/spring-websocket-portfolio/tree/master/src/test/java/org/springframework/samples/portfolio/web[tests for the stock portfolio]
+https://github.com.spring.mvc.controller.DemoController/rstoyanchev/spring-websocket-portfolio/tree/master/src/test/java/org/springframework/samples/portfolio/web[tests for the stock portfolio]
 sample application.
 
 The second approach is to create end-to-end integration tests. For that, you need
 to run a WebSocket server in embedded mode and connect to it as a WebSocket client
 that sends WebSocket messages containing STOMP frames.
-The https://github.com/rstoyanchev/spring-websocket-portfolio/tree/master/src/test/java/org/springframework/samples/portfolio/web[tests for the stock portfolio]
+The https://github.com.spring.mvc.controller.DemoController/rstoyanchev/spring-websocket-portfolio/tree/master/src/test/java/org/springframework/samples/portfolio/web[tests for the stock portfolio]
 sample application also demonstrate this approach by using Tomcat as the embedded
 WebSocket server and a simple STOMP client for test purposes.

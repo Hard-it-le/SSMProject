@@ -6,13 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
     <!-- 配置自动扫描的包 -->
-    <context:component-scan base-package="com.yjl.ssm.service"/>
+    <context:component-scan base-package="com.spring.mvc.controller.DemoController.yjl.ssm.service"/>
 
     <!-- 加载外部属性文件 -->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!-- 配置数据源 -->
-    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <bean id="druidDataSource" class="com.spring.mvc.controller.DemoController.alibaba.druid.pool.DruidDataSource">
         <property name="username" value="${dev.username}"/>
         <property name="password" value="${dev.password}"/>
         <property name="driverClassName" value="${dev.driver}"/>
@@ -33,7 +33,7 @@
         </property>
 
         <!-- 舍弃 Mybatis 全局配置文件，使用 typeAliasesPackage 属性配置实体类所在包 -->
-        <property name="typeAliasesPackage" value="com.yjl.ssm.entity"/>
+        <property name="typeAliasesPackage" value="com.spring.mvc.controller.DemoController.yjl.ssm.entity"/>
 
         <!-- 指定 Mapper 配置文件位置 -->
         <property name="mapperLocations" value="classpath:mappers/*Mapper.xml"/>
@@ -44,7 +44,7 @@
         <!-- 在 plugins 属性中配置 Mybatis 插件 -->
         <property name="plugins">
             <array>
-                <bean class="com.github.pagehelper.PageInterceptor">
+                <bean class="com.spring.mvc.controller.DemoController.github.pagehelper.PageInterceptor">
                     <property name="properties">
                         <props>
                             <!-- 设置 reasonable 为 true 表示将页码进行合理化修正。页码的有效范围：1~总页数 -->
@@ -64,11 +64,11 @@
     <!-- 配置 Mapper 接口类型的bean的扫描器 -->
     <!-- 扫描器方式 -->
     <!--<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.atguigu.ssm.mapper"/>
+        <property name="basePackage" value="com.spring.mvc.controller.DemoController.atguigu.ssm.mapper"/>
     </bean>-->
 
     <!-- 名称空间方式 -->
-    <mybatis-spring:scan base-package="com.yjl.ssm.mapper"/>
+    <mybatis-spring:scan base-package="com.spring.mvc.controller.DemoController.yjl.ssm.mapper"/>
 
     <!-- 配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

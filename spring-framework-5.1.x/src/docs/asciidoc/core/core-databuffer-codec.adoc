@@ -56,7 +56,7 @@ alternate between read and write.
 == `PooledDataBuffer`
 
 As explained in the Javadoc for
-https://docs.oracle.com/javase/8/docs/api/java/nio/ByteBuffer.html[ByteBuffer],
+https://docs.oracle.com.spring.mvc.controller.DemoController/javase/8/docs/api/java/nio/ByteBuffer.html[ByteBuffer],
 byte buffers can be direct or non-direct. Direct buffers may reside outside the Java heap
 which eliminates the need for copying for native I/O operations. That makes direct buffers
 particularly useful for receiving and sending data over a socket, but they're also more
@@ -165,4 +165,4 @@ response, or to the client HTTP request, in which case releasing the data buffer
 responsibility of the code writing to the server response, or to the client request.
 
 Note that when running on Netty, there are debugging options for
-https://github.com/netty/netty/wiki/Reference-counted-objects#troubleshooting-buffer-leaks[troubleshooting buffer leaks].
+https://github.com.spring.mvc.controller.DemoController/netty/netty/wiki/Reference-counted-objects#troubleshooting-buffer-leaks[troubleshooting buffer leaks].

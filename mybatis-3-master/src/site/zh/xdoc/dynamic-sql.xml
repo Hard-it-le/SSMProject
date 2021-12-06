@@ -21,10 +21,10 @@
 
   <properties>
     <title>MyBatis 3 | 动态 SQL</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="nanlei1987@gmail.com">Nan Lei</author>
-    <author email="echowdx@gmail.com">Dongxu Wang</author>
-    <author email="lu_picc@outlook.com">ZeShen Lu</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="nanlei1987@gmail.com.spring.mvc.controller.DemoController">Nan Lei</author>
+    <author email="echowdx@gmail.com.spring.mvc.controller.DemoController">Dongxu Wang</author>
+    <author email="lu_picc@outlook.com.spring.mvc.controller.DemoController">ZeShen Lu</author>
   </properties>
 
   <body>

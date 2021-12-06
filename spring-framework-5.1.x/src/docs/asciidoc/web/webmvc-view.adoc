@@ -578,13 +578,13 @@ templating libraries on different script engines:
 [%header]
 |===
 |Scripting Library |Scripting Engine
-|https://handlebarsjs.com/[Handlebars] |https://openjdk.java.net/projects/nashorn/[Nashorn]
+|https://handlebarsjs.com.spring.mvc.controller.DemoController/[Handlebars] |https://openjdk.java.net/projects/nashorn/[Nashorn]
 |https://mustache.github.io/[Mustache] |https://openjdk.java.net/projects/nashorn/[Nashorn]
 |https://facebook.github.io/react/[React] |https://openjdk.java.net/projects/nashorn/[Nashorn]
-|https://www.embeddedjs.com/[EJS] |https://openjdk.java.net/projects/nashorn/[Nashorn]
+|https://www.embeddedjs.com.spring.mvc.controller.DemoController/[EJS] |https://openjdk.java.net/projects/nashorn/[Nashorn]
 |https://www.stuartellis.name/articles/erb/[ERB] |https://www.jruby.org[JRuby]
 |https://docs.python.org/2/library/string.html#template-strings[String templates] |https://www.jython.org/[Jython]
-|https://github.com/sdeleuze/kotlin-script-templating[Kotlin Script templating] |https://kotlinlang.org/[Kotlin]
+|https://github.com.spring.mvc.controller.DemoController/sdeleuze/kotlin-script-templating[Kotlin Script templating] |https://kotlinlang.org/[Kotlin]
 |===
 
 TIP: The basic rule for integrating any other script engine is that it must implement the
@@ -605,7 +605,7 @@ Java 8+. Using the latest update release available is highly recommended.
 * `org.jetbrains.kotlin:kotlin-script-util` dependency and a `META-INF/services/javax.script.ScriptEngineFactory`
  file containing a `org.jetbrains.kotlin.script.jsr223.KotlinJsr223JvmLocalScriptEngineFactory`
  line should be added for Kotlin script support. See
- https://github.com/sdeleuze/kotlin-script-templating[this example] for more details.
+ https://github.com.spring.mvc.controller.DemoController/sdeleuze/kotlin-script-templating[this example] for more details.
 
 You need to have the script templating library. One way to do that for Javascript is
 through https://www.webjars.org/[WebJars].
@@ -712,7 +712,7 @@ The render function is called with the following parameters:
 `Mustache.render()` is natively compatible with this signature, so you can call it directly.
 
 If your templating technology requires some customization, you can provide a script that
-implements a custom render function. For example, https://handlebarsjs.com[Handlerbars]
+implements a custom render function. For example, https://handlebarsjs.com.spring.mvc.controller.DemoController[Handlerbars]
 needs to compile templates before using them and requires a
 https://en.wikipedia.org/wiki/Polyfill[polyfill] to emulate some
 browser facilities that are not available in the server-side script engine.
@@ -777,8 +777,8 @@ template engine configuration, for example). The following example shows how to 
 ====
 
 Check out the Spring Framework unit tests,
-https://github.com/spring-projects/spring-framework/tree/master/spring-webmvc/src/test/java/org/springframework/web/servlet/view/script[Java], and
-https://github.com/spring-projects/spring-framework/tree/master/spring-webmvc/src/test/resources/org/springframework/web/servlet/view/script[resources],
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-webmvc/src/test/java/org/springframework/web/servlet/view/script[Java], and
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-webmvc/src/test/resources/org/springframework/web/servlet/view/script[resources],
 for more configuration examples.
 
 
@@ -2042,7 +2042,7 @@ serializers and deserializers for specific types.
 [.small]#<<web-reactive.adoc#webflux-view-httpmessagewriter, Same as in Spring WebFlux>>#
 
 `MappingJackson2XmlView` uses the
-https://github.com/FasterXML/jackson-dataformat-xml[Jackson XML extension's] `XmlMapper`
+https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-dataformat-xml[Jackson XML extension's] `XmlMapper`
 to render the response content as XML. If the model contains multiple entries, you should
 explicitly set the object to be serialized by using the `modelKey` bean property. If the
 model contains a single entry, it is serialized automatically.

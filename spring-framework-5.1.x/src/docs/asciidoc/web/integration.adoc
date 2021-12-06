@@ -210,6 +210,6 @@ https://tapestry.apache.org/integrating-with-spring-framework.html[integration m
 The following links go to further resources about the various web frameworks described in
 this chapter.
 
-* The https://www.oracle.com/technetwork/java/javaee/javaserverfaces-139869.html[JSF] homepage
+* The https://www.oracle.com.spring.mvc.controller.DemoController/technetwork/java/javaee/javaserverfaces-139869.html[JSF] homepage
 * The https://struts.apache.org/[Struts] homepage
 * The https://tapestry.apache.org/[Tapestry] homepage

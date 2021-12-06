@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.yjl</groupId>
+  <groupId>com.spring.mvc.controller.DemoController.yjl</groupId>
   <artifactId>Maven-Web</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -25,7 +25,7 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <!-- https://mvnrepository.com.spring.mvc.controller.DemoController/artifact/javax.servlet/javax.servlet-api -->
     <!-- javax.servlet:javax.servlet-api:jar:3.1.0:provided -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -37,7 +37,7 @@
     <!-- 这里通过一个具体的dependency标签配置对Java工程的依赖 -->
     <dependency>
       <!-- 通过指定被依赖工程的坐标，进行依赖 -->
-      <groupId>com.yjl</groupId>
+      <groupId>com.spring.mvc.controller.DemoController.yjl</groupId>
       <artifactId>Maven-java01</artifactId>
       <version>1.0-SNAPSHOT</version>
 

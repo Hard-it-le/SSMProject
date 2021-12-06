@@ -3,7 +3,7 @@
                            ------------
 
                            Matthew Doar
-                          mdoar@pobox.com
+                          mdoar@pobox.com.spring.mvc.controller.DemoController
 
 
 The JDiff doclet is used to generate a report describing the
@@ -19,7 +19,7 @@ be seen at http://www.jdiff.org
 
 For an example with the source distribution, run "ant" and
 look at the HTML output in ./build/reports/example/changes.html 
-The page at ./build/reports/example/changes/com.acme.sp.SPImpl.html
+The page at ./build/reports/example/changes/com.spring.mvc.controller.DemoController.acme.sp.SPImpl.html
 shows what a typical page of changes looks like. 
 
 System Requirements
@@ -56,4 +56,4 @@ much of this work.
 Footnote:
 
 If you are looking for a generalized diff tool for XML, try diffmk from
-https://wwws.sun.com/software/xml/developers/diffmk/
+https://wwws.sun.com.spring.mvc.controller.DemoController/software/xml/developers/diffmk/

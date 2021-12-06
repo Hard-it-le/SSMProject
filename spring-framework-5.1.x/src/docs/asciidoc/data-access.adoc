@@ -133,7 +133,7 @@ Typically, you need an application server's JTA capability only if your applicat
 to handle transactions across multiple resources, which is not a requirement for many
 applications. Many high-end applications use a single, highly scalable database (such as
 Oracle RAC) instead. Stand-alone transaction managers (such as
-https://www.atomikos.com/[Atomikos Transactions] and http://jotm.objectweb.org/[JOTM])
+https://www.atomikos.com.spring.mvc.controller.DemoController/[Atomikos Transactions] and http://jotm.objectweb.org/[JOTM])
 are other options. Of course, you may need other application server capabilities, such as
 Java Message Service (JMS) and Java EE Connector Architecture (JCA).
 
@@ -1046,13 +1046,13 @@ that are nested within `<tx:advice/>` and `<tx:attributes/>` tags:
 | No
 |
 | Comma-delimited list of `Exception` instances that trigger rollback. For example,
-  `com.foo.MyBusinessException,ServletException.`
+  `com.spring.mvc.controller.DemoController.foo.MyBusinessException,ServletException.`
 
 | `no-rollback-for`
 | No
 |
 | Comma-delimited list of `Exception` instances that do not trigger rollback. For example,
-  `com.foo.MyBusinessException,ServletException.`
+  `com.spring.mvc.controller.DemoController.foo.MyBusinessException,ServletException.`
 |===
 
 
@@ -1339,7 +1339,7 @@ means the transaction name that appears in a transaction monitor, if applicable
 transactions, the transaction name is always the fully-qualified class name + `.`
 + the method name of the transactionally advised class. For example, if the
 `handlePayment(..)` method of the `BusinessService` class started a transaction, the
-name of the transaction would be: `com.example.BusinessService.handlePayment`.
+name of the transaction would be: `com.spring.mvc.controller.DemoController.example.BusinessService.handlePayment`.
 
 [[tx-multiple-tx-mgrs-with-attransactional]]
 ===== Multiple Transaction Managers with `@Transactional`
@@ -2075,12 +2075,12 @@ treats them as errors.
 
 For more information about the Spring Framework's transaction support, see:
 
-* https://www.javaworld.com/javaworld/jw-01-2009/jw-01-spring-transactions.html[Distributed
+* https://www.javaworld.com.spring.mvc.controller.DemoController/javaworld/jw-01-2009/jw-01-spring-transactions.html[Distributed
   transactions in Spring, with and without XA] is a JavaWorld presentation in which
   Spring's David Syer guides you through seven patterns for distributed
   transactions in Spring applications, three of them with XA and four without.
-* https://www.infoq.com/minibooks/JTDS[_Java Transaction Design Strategies_] is a book
-  available from https://www.infoq.com/[InfoQ] that provides a well-paced introduction
+* https://www.infoq.com.spring.mvc.controller.DemoController/minibooks/JTDS[_Java Transaction Design Strategies_] is a book
+  available from https://www.infoq.com.spring.mvc.controller.DemoController/[InfoQ] that provides a well-paced introduction
   to transactions in Java. It also includes side-by-side examples of how to configure
   and use transactions with both the Spring Framework and EJB3.
 
@@ -2630,7 +2630,7 @@ The following example shows the corresponding XML configuration:
 			http://www.springframework.org/schema/context
 			https://www.springframework.org/schema/context/spring-context.xsd">
 
-		<bean id="corporateEventDao" class="com.example.JdbcCorporateEventDao">
+		<bean id="corporateEventDao" class="com.spring.mvc.controller.DemoController.example.JdbcCorporateEventDao">
 			<property name="dataSource" ref="dataSource"/>
 		</bean>
 
@@ -2795,7 +2795,7 @@ are the parameter names and the values are the parameter values.
 
 Another `SqlParameterSource` implementation is the `BeanPropertySqlParameterSource`
 class. This class wraps an arbitrary JavaBean (that is, an instance of a class that
-adheres to https://www.oracle.com/technetwork/java/javase/documentation/spec-136004.html[the
+adheres to https://www.oracle.com.spring.mvc.controller.DemoController/technetwork/java/javase/documentation/spec-136004.html[the
 JavaBean conventions]) and uses the properties of the wrapped JavaBean as the source
 of named parameter values.
 
@@ -3234,7 +3234,7 @@ The following example shows C3P0 configuration:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.spring.mvc.controller.DemoController.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}"/>
 		<property name="jdbcUrl" value="${jdbc.url}"/>
 		<property name="user" value="${jdbc.username}"/>
@@ -4430,7 +4430,7 @@ the supplied `ResultSet`, as follows:
 ----
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
-	import com.foo.domain.Title;
+	import com.spring.mvc.controller.DemoController.foo.domain.Title;
 	import org.springframework.jdbc.core.RowMapper;
 
 	public final class TitleMapper implements RowMapper<Title> {
@@ -4454,7 +4454,7 @@ the supplied `ResultSet`, as follows:
 ----
 	import java.sql.ResultSet;
 	import java.sql.SQLException;
-	import com.foo.domain.Genre;
+	import com.spring.mvc.controller.DemoController.foo.domain.Genre;
 	import org.springframework.jdbc.core.RowMapper;
 
 	public final class GenreMapper implements RowMapper<Genre> {
@@ -4763,7 +4763,7 @@ it with values from the Java `ARRAY`, as the following example shows:
 
 The `org.springframework.jdbc.datasource.embedded` package provides support for embedded
 Java database engines. Support for http://www.hsqldb.org[HSQL],
-https://www.h2database.com[H2], and https://db.apache.org/derby[Derby] is provided
+https://www.h2database.com.spring.mvc.controller.DemoController[H2], and https://db.apache.org/derby[Derby] is provided
 natively. You can also use an extensible API to plug in new embedded database types and
 `DataSource` implementations.
 
@@ -4975,7 +4975,7 @@ You can extend Spring JDBC embedded database support in two ways:
   connection pool to manage embedded database connections.
 
 We encourage you to contribute extensions to the Spring community at
-https://github.com/spring-projects/spring-framework/issues[GitHub Issues].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/issues[GitHub Issues].
 
 
 
@@ -4999,8 +4999,8 @@ bean, you can use the `initialize-database` tag in the `spring-jdbc` namespace:
 [subs="verbatim,quotes"]
 ----
 	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="classpath:com/foo/sql/db-schema.sql"/>
-		<jdbc:script location="classpath:com/foo/sql/db-test-data.sql"/>
+		<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/foo/sql/db-schema.sql"/>
+		<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/foo/sql/db-test-data.sql"/>
 	</jdbc:initialize-database>
 ----
 ====
@@ -5009,7 +5009,7 @@ The preceding example runs the two specified scripts against the database. The f
 script creates a schema, and the second populates tables with a test data set. The script
 locations can also be patterns with wildcards in the usual Ant style used for resources
 in Spring (for example,
-`classpath{asterisk}:/com/foo/{asterisk}{asterisk}/sql/{asterisk}-data.sql`). If you use a
+`classpath{asterisk}:/com.spring.mvc.controller.DemoController/foo/{asterisk}{asterisk}/sql/{asterisk}-data.sql`). If you use a
 pattern, the scripts are run in the lexical order of their URL or filename.
 
 The default behavior of the database initializer is to unconditionally run the provided
@@ -5070,9 +5070,9 @@ following example shows:
 [subs="verbatim,quotes"]
 ----
 	<jdbc:initialize-database data-source="dataSource" separator="@@"> <1>
-		<jdbc:script location="classpath:com/myapp/sql/db-schema.sql" separator=";"/> <2>
-		<jdbc:script location="classpath:com/myapp/sql/db-test-data-1.sql"/>
-		<jdbc:script location="classpath:com/myapp/sql/db-test-data-2.sql"/>
+		<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/myapp/sql/db-schema.sql" separator=";"/> <2>
+		<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/myapp/sql/db-test-data-1.sql"/>
+		<jdbc:script location="classpath:com.spring.mvc.controller.DemoController/myapp/sql/db-test-data-2.sql"/>
 	</jdbc:initialize-database>
 ----
 <1> Set the separator scripts to `@@`.
@@ -5795,7 +5795,7 @@ following events occur when a JTA transaction commits:
 
 The Spring JPA, available under the `org.springframework.orm.jpa` package, offers
 comprehensive support for the
-https://www.oracle.com/technetwork/articles/javaee/jpa-137156.html[Java Persistence
+https://www.oracle.com.spring.mvc.controller.DemoController/technetwork/articles/javaee/jpa-137156.html[Java Persistence
 API] in a manner similar to the integration with Hibernate while being aware of
 the underlying implementation in order to provide additional features.
 
@@ -5922,7 +5922,7 @@ The following example shows a typical `persistence.xml` file:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence xmlns="http://java.sun.com.spring.mvc.controller.DemoController/xml/ns/persistence" version="1.0">
 		<persistence-unit name="myUnit" transaction-type="RESOURCE_LOCAL">
 			<mapping-file>META-INF/orm.xml</mapping-file>
 			<exclude-unlisted-classes/>
@@ -5967,7 +5967,7 @@ The `LoadTimeWeaver` interface is a Spring-provided class that lets JPA
 `ClassTransformer` instances be plugged in a specific manner, depending on whether the
 environment is a web container or application server. Hooking `ClassTransformers`
 through an
-https://docs.oracle.com/javase/6/docs/api/java/lang/instrument/package-summary.html[agent]
+https://docs.oracle.com.spring.mvc.controller.DemoController/javase/6/docs/api/java/lang/instrument/package-summary.html[agent]
 is typically not efficient. The agents work against the entire virtual machine and
 inspect every class that is loaded, which is usually undesirable in a production
 server environment.
@@ -7022,7 +7022,7 @@ set the `supportedClasses` property on the `XStreamMarshaller`, as the following
 Doing so ensures that only the registered classes are eligible for unmarshalling.
 
 Additionally, you can register
-{api-spring-framework}/oxm/xstream/XStreamMarshaller.html#setConverters(com.thoughtworks.xstream.converters.ConverterMatcher...)[custom
+{api-spring-framework}/oxm/xstream/XStreamMarshaller.html#setConverters(com.spring.mvc.controller.DemoController.thoughtworks.xstream.converters.ConverterMatcher...)[custom
 converters] to make sure that only your supported classes can be unmarshalled. You might
 want to add a `CatchAllConverter` as the last converter in the list, in addition to
 converters that explicitly support the domain classes that should be supported. As a

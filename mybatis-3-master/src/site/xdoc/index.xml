@@ -21,7 +21,7 @@
 
   <properties>
     <title>MyBatis 3 | Introduction</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
   </properties>
 
   <body>
@@ -50,7 +50,7 @@
         </p>
         <p>
           Sources of this manual are available in xdoc format at
-          <a href="https://github.com/mybatis/mybatis-3/tree/master/src/site">project's Git </a>
+          <a href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/tree/master/src/site">project's Git </a>
           Fork the repository, update them and send a pull request.
         </p>
         <p>

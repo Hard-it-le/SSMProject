@@ -207,7 +207,7 @@ transparently creates an invoker and remotely enables the account service throug
 === Using Hessian to Remotely Call Services through HTTP
 
 Hessian offers a binary HTTP-based remoting protocol. It is developed by Caucho,
-and you can find more information about Hessian itself at https://www.caucho.com/[].
+and you can find more information about Hessian itself at https://www.caucho.com.spring.mvc.controller.DemoController/[].
 
 
 [[remoting-caucho-protocols-hessian]]
@@ -395,7 +395,7 @@ In general, we strongly recommend using any other message format (such as JSON) 
 If you are concerned about security vulnerabilities due to Java serialization,
 consider the general-purpose serialization filter mechanism at the core JVM level,
 originally developed for JDK 9 but backported to JDK 8, 7 and 6 in the meantime. See
-https://blogs.oracle.com/java-platform-group/entry/incoming_filter_serialization_data_a
+https://blogs.oracle.com.spring.mvc.controller.DemoController/java-platform-group/entry/incoming_filter_serialization_data_a
 and https://openjdk.java.net/jeps/290.
 ====
 
@@ -741,7 +741,7 @@ The following interface is used on both the server and the client sides:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	public interface CheckingAccountService {
 
@@ -756,7 +756,7 @@ The following simple implementation of the preceding interface is used on the se
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	public class SimpleCheckingAccountService implements CheckingAccountService {
 
@@ -811,9 +811,9 @@ On the server, you need to expose the service object that uses the
 
 		<bean id="checkingAccountService"
 				class="org.springframework.jms.remoting.JmsInvokerServiceExporter">
-			<property name="serviceInterface" value="com.foo.CheckingAccountService"/>
+			<property name="serviceInterface" value="com.spring.mvc.controller.DemoController.foo.CheckingAccountService"/>
 			<property name="service">
-				<bean class="com.foo.SimpleCheckingAccountService"/>
+				<bean class="com.spring.mvc.controller.DemoController.foo.SimpleCheckingAccountService"/>
 			</property>
 		</bean>
 
@@ -830,14 +830,14 @@ On the server, you need to expose the service object that uses the
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 	public class Server {
 
 		public static void main(String[] args) throws Exception {
-			new ClassPathXmlApplicationContext("com/foo/server.xml", "com/foo/jms.xml");
+			new ClassPathXmlApplicationContext("com.spring.mvc.controller.DemoController/foo/server.xml", "com.spring.mvc.controller.DemoController/foo/jms.xml");
 		}
 	}
 ----
@@ -865,7 +865,7 @@ The following example defines beans that you can inject into other client-side o
 
 		<bean id="checkingAccountService"
 				class="org.springframework.jms.remoting.JmsInvokerProxyFactoryBean">
-			<property name="serviceInterface" value="com.foo.CheckingAccountService"/>
+			<property name="serviceInterface" value="com.spring.mvc.controller.DemoController.foo.CheckingAccountService"/>
 			<property name="connectionFactory" ref="connectionFactory"/>
 			<property name="queue" ref="queue"/>
 		</bean>
@@ -876,7 +876,7 @@ The following example defines beans that you can inject into other client-side o
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.foo;
+	package com.spring.mvc.controller.DemoController.foo;
 
 	import org.springframework.context.ApplicationContext;
 	import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -884,7 +884,7 @@ The following example defines beans that you can inject into other client-side o
 	public class Client {
 
 		public static void main(String[] args) throws Exception {
-			ApplicationContext ctx = new ClassPathXmlApplicationContext("com/foo/client.xml", "com/foo/jms.xml");
+			ApplicationContext ctx = new ClassPathXmlApplicationContext("com.spring.mvc.controller.DemoController/foo/client.xml", "com.spring.mvc.controller.DemoController/foo/jms.xml");
 			CheckingAccountService service = (CheckingAccountService) ctx.getBean("checkingAccountService");
 			service.cancelAccount(new Long(10));
 		}
@@ -1079,7 +1079,7 @@ The following example uses a `String` variable argument:
 [subs="verbatim,quotes"]
 ----
 	String result = restTemplate.getForObject(
-			"https://example.com/hotels/{hotel}/bookings/{booking}", String.class, "42", "21");
+			"https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}/bookings/{booking}", String.class, "42", "21");
 ----
 ====
 
@@ -1092,7 +1092,7 @@ The following example uses a `Map<String, String>`:
 	Map<String, String> vars = Collections.singletonMap("hotel", "42");
 
 	String result = restTemplate.getForObject(
-			"https://example.com/hotels/{hotel}/rooms/{hotel}", String.class, vars);
+			"https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}/rooms/{hotel}", String.class, vars);
 ----
 ====
 
@@ -1102,9 +1102,9 @@ Keep in mind URI templates are automatically encoded, as the following example s
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	restTemplate.getForObject("https://example.com/hotel list", String.class);
+	restTemplate.getForObject("https://example.com.spring.mvc.controller.DemoController/hotel list", String.class);
 
-	// Results in request to "https://example.com/hotel%20list"
+	// Results in request to "https://example.com.spring.mvc.controller.DemoController/hotel%20list"
 ----
 ====
 
@@ -1123,7 +1123,7 @@ You can use the `exchange()` methods to specify request headers, as the followin
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	String uriTemplate = "https://example.com/hotels/{hotel}";
+	String uriTemplate = "https://example.com.spring.mvc.controller.DemoController/hotels/{hotel}";
 	URI uri = UriComponentsBuilder.fromUriString(uriTemplate).build(42);
 
 	RequestEntity<Void> requestEntity = RequestEntity.get(uri)
@@ -1150,7 +1150,7 @@ On a POST, an input object is serialized to the request body, as the following e
 
 ====
 ----
-URI location = template.postForLocation("https://example.com/people", person);
+URI location = template.postForLocation("https://example.com.spring.mvc.controller.DemoController/people", person);
 ----
 ====
 
@@ -1164,7 +1164,7 @@ On a GET, the body of the response is deserialized to an output `Object`, as the
 
 ====
 ----
-Person person = restTemplate.getForObject("https://example.com/people/{id}", Person.class, 42);
+Person person = restTemplate.getForObject("https://example.com.spring.mvc.controller.DemoController/people/{id}", Person.class, 42);
 ----
 ====
 
@@ -1236,7 +1236,7 @@ converter supports `application/json`.
 
 | `MappingJackson2XmlHttpMessageConverter`
 | An `HttpMessageConverter` implementation that can read and write XML by using
-https://github.com/FasterXML/jackson-dataformat-xml[Jackson XML] extension's
+https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-dataformat-xml[Jackson XML] extension's
 `XmlMapper`. You can customize XML mapping as needed through the use of JAXB
 or Jackson's provided annotations. When you need further control (for cases where custom XML
 serializers/deserializers need to be provided for specific types), you can inject a custom `XmlMapper`
@@ -1259,7 +1259,7 @@ and writes the media type supported by the Java I/O API.
 [[rest-template-jsonview]]
 ===== Jackson JSON Views
 
-You can specify a https://www.baeldung.com/jackson-json-view-annotation[Jackson JSON View]
+You can specify a https://www.baeldung.com.spring.mvc.controller.DemoController/jackson-json-view-annotation[Jackson JSON View]
 to serialize only a subset of the object properties, as the following example shows:
 
 ====
@@ -1270,7 +1270,7 @@ to serialize only a subset of the object properties, as the following example sh
 	value.setSerializationView(User.WithoutPasswordView.class);
 
 	RequestEntity<MappingJacksonValue> requestEntity =
-		RequestEntity.post(new URI("https://example.com/user")).body(value);
+		RequestEntity.post(new URI("https://example.com.spring.mvc.controller.DemoController/user")).body(value);
 
 	ResponseEntity<String> response = template.exchange(requestEntity, String.class);
 ----
@@ -1311,7 +1311,7 @@ Once the `MultiValueMap` is ready, you can pass it to the `RestTemplate`, as sho
 [subs="verbatim,quotes"]
 ----
 	MultiValueMap<String, Object> parts = ...;
-	template.postForObject("https://example.com/upload", parts, Void.class);
+	template.postForObject("https://example.com.spring.mvc.controller.DemoController/upload", parts, Void.class);
 ----
 ====
 
@@ -1440,10 +1440,10 @@ which is the EJB proxy object. We configure the proxy and set the
 	<bean id="myComponent"
 			class="org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean">
 		<property name="jndiName" value="ejb/myBean"/>
-		<property name="businessInterface" value="com.mycom.MyComponent"/>
+		<property name="businessInterface" value="com.spring.mvc.controller.DemoController.mycom.MyComponent"/>
 	</bean>
 
-	<bean id="myController" class="com.mycom.myController">
+	<bean id="myController" class="com.spring.mvc.controller.DemoController.mycom.myController">
 		<property name="myComponent" ref="myComponent"/>
 	</bean>
 ----
@@ -1468,9 +1468,9 @@ The following example shows how to do so:
 [subs="verbatim,quotes"]
 ----
 	<jee:local-slsb id="myComponent" jndi-name="ejb/myBean"
-			business-interface="com.mycom.MyComponent"/>
+			business-interface="com.spring.mvc.controller.DemoController.mycom.MyComponent"/>
 
-	<bean id="myController" class="com.mycom.myController">
+	<bean id="myController" class="com.spring.mvc.controller.DemoController.mycom.myController">
 		<property name="myComponent" ref="myComponent"/>
 	</bean>
 ----
@@ -3998,13 +3998,13 @@ If no `objectName` has been provided for the `ManagedResource` attribute, an
 `ObjectName` is created with the following
 format: _[fully-qualified-package-name]:type=[short-classname],name=[bean-name]_. For
 example, the generated `ObjectName` for the following bean would be
-`com.example:type=MyClass,name=myBean`:
+`com.spring.mvc.controller.DemoController.example:type=MyClass,name=myBean`:
 
 ====
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="myBean" class="com.example.MyClass"/>
+	<bean id="myBean" class="com.spring.mvc.controller.DemoController.example.MyClass"/>
 ----
 ====
 
@@ -4287,7 +4287,7 @@ example writes notifications to the console:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.example;
+	package com.spring.mvc.controller.DemoController.example;
 
 	import javax.management.AttributeChangeNotification;
 	import javax.management.Notification;
@@ -4328,7 +4328,7 @@ example) to `notificationListenerMappings`:
 			<property name="notificationListenerMappings">
 				<map>
 					<entry key="bean:name=testBean1">
-						<bean class="com.example.ConsoleLoggingNotificationListener"/>
+						<bean class="com.spring.mvc.controller.DemoController.example.ConsoleLoggingNotificationListener"/>
 					</entry>
 				</map>
 			</property>
@@ -4367,7 +4367,7 @@ as the following example shows:
 			<property name="notificationListenerMappings">
 				<map>
 					<entry key="__testBean__">
-						<bean class="com.example.ConsoleLoggingNotificationListener"/>
+						<bean class="com.spring.mvc.controller.DemoController.example.ConsoleLoggingNotificationListener"/>
 					</entry>
 				</map>
 			</property>
@@ -4394,7 +4394,7 @@ map, as the following example shows:
 	<property name="notificationListenerMappings">
 		<map>
 			<entry key="*">
-				<bean class="com.example.ConsoleLoggingNotificationListener"/>
+				<bean class="com.spring.mvc.controller.DemoController.example.ConsoleLoggingNotificationListener"/>
 			</entry>
 		</map>
 	</property>
@@ -4430,7 +4430,7 @@ different to what was presented previously, as the following example shows:
 				<list>
 					<bean class="org.springframework.jmx.export.NotificationListenerBean">
 						<constructor-arg>
-							<bean class="com.example.ConsoleLoggingNotificationListener"/>
+							<bean class="com.spring.mvc.controller.DemoController.example.ConsoleLoggingNotificationListener"/>
 						</constructor-arg>
 						<property name="mappedObjectNames">
 							<list>
@@ -4492,7 +4492,7 @@ we also want to filter out extraneous `Notifications` by supplying a
 		</bean>
 
 		<!-- implements both the NotificationListener and NotificationFilter interfaces -->
-		<bean id="customerNotificationListener" class="com.example.ConsoleLoggingNotificationListener"/>
+		<bean id="customerNotificationListener" class="com.spring.mvc.controller.DemoController.example.ConsoleLoggingNotificationListener"/>
 
 		<bean id="testBean1" class="org.springframework.jmx.JmxTestBean">
 			<property name="name" value="TEST"/>
@@ -4601,7 +4601,7 @@ you can accept the coupling to both Spring and JMX, then do so.
 
 This section contains links to further resources about JMX:
 
-* The https://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html[JMX
+* The https://www.oracle.com.spring.mvc.controller.DemoController/technetwork/java/javase/tech/javamanagement-140525.html[JMX
 homepage] at Oracle.
 * The https://jcp.org/aboutJava/communityprocess/final/jsr003/index3.html[JMX
   specification] (JSR-000003).
@@ -4712,7 +4712,7 @@ shows how to do so:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="eciManagedConnectionFactory" class="com.ibm.connector2.cics.ECIManagedConnectionFactory">
+	<bean id="eciManagedConnectionFactory" class="com.spring.mvc.controller.DemoController.ibm.connector2.cics.ECIManagedConnectionFactory">
 		<property name="serverName" value="TXSERIES"/>
 		<property name="connectionURL" value="tcp://localhost/"/>
 		<property name="portNumber" value="2006"/>
@@ -4768,7 +4768,7 @@ The following example shows how to configure a `ConnectionSpecConnectionFactoryA
 [subs="verbatim,quotes"]
 ----
 	<bean id="managedConnectionFactory"
-			class="com.sun.connector.cciblackbox.CciLocalTxManagedConnectionFactory">
+			class="com.spring.mvc.controller.DemoController.sun.connector.cciblackbox.CciLocalTxManagedConnectionFactory">
 		<property name="connectionURL" value="jdbc:hsqldb:hsql://localhost:9001"/>
 		<property name="driverName" value="org.hsqldb.jdbcDriver"/>
 	</bean>
@@ -4782,7 +4782,7 @@ The following example shows how to configure a `ConnectionSpecConnectionFactoryA
 			class="org.springframework.jca.cci.connection.ConnectionSpecConnectionFactoryAdapter">
 		<property name="targetConnectionFactory" ref="targetConnectionFactory"/>
 		<property name="connectionSpec">
-			<bean class="com.sun.connector.cciblackbox.CciConnectionSpec">
+			<bean class="com.spring.mvc.controller.DemoController.sun.connector.cciblackbox.CciConnectionSpec">
 				<property name="user" value="sa"/>
 				<property name="password" value=""/>
 			</bean>
@@ -4807,7 +4807,7 @@ shows how to use the `SingleConnectionFactory` adapter class:
 [subs="verbatim,quotes"]
 ----
 	<bean id="eciManagedConnectionFactory"
-			class="com.ibm.connector2.cics.ECIManagedConnectionFactory">
+			class="com.spring.mvc.controller.DemoController.ibm.connector2.cics.ECIManagedConnectionFactory">
 		<property name="serverName" value="TEST"/>
 		<property name="connectionURL" value="tcp://localhost/"/>
 		<property name="portNumber" value="2006"/>
@@ -5350,7 +5350,7 @@ could resemble the following example in non-managed mode:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="managedConnectionFactory" class="com.ibm.connector2.cics.ECIManagedConnectionFactory">
+	<bean id="managedConnectionFactory" class="com.spring.mvc.controller.DemoController.ibm.connector2.cics.ECIManagedConnectionFactory">
 		<property name="serverName" value="TXSERIES"/>
 		<property name="connectionURL" value="local:"/>
 		<property name="userName" value="CICSUSER"/>
@@ -5612,7 +5612,7 @@ The corresponding configuration of Spring beans could be as follows in non-manag
 [subs="verbatim,quotes"]
 ----
 	<bean id="managedConnectionFactory"
-			class="com.sun.connector.cciblackbox.CciLocalTxManagedConnectionFactory">
+			class="com.spring.mvc.controller.DemoController.sun.connector.cciblackbox.CciLocalTxManagedConnectionFactory">
 		<property name="connectionURL" value="jdbc:hsqldb:hsql://localhost:9001"/>
 		<property name="driverName" value="org.hsqldb.jdbcDriver"/>
 	</bean>
@@ -5626,7 +5626,7 @@ The corresponding configuration of Spring beans could be as follows in non-manag
 			class="org.springframework.jca.cci.connection.ConnectionSpecConnectionFactoryAdapter">
 		<property name="targetConnectionFactory" ref="targetConnectionFactory"/>
 		<property name="connectionSpec">
-			<bean class="com.sun.connector.cciblackbox.CciConnectionSpec">
+			<bean class="com.spring.mvc.controller.DemoController.sun.connector.cciblackbox.CciConnectionSpec">
 				<property name="user" value="sa"/>
 				<property name="password" value=""/>
 			</bean>
@@ -5652,7 +5652,7 @@ follows:
 			class="org.springframework.jca.cci.connection.ConnectionSpecConnectionFactoryAdapter">
 		<property name="targetConnectionFactory" ref="targetConnectionFactory"/>
 		<property name="connectionSpec">
-			<bean class="com.sun.connector.cciblackbox.CciConnectionSpec">
+			<bean class="com.spring.mvc.controller.DemoController.sun.connector.cciblackbox.CciConnectionSpec">
 				<property name="user" value="sa"/>
 				<property name="password" value=""/>
 			</bean>
@@ -5740,7 +5740,7 @@ The corresponding configuration of Spring beans could be as follows in non-manag
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="managedConnectionFactory" class="com.ibm.connector2.cics.ECIManagedConnectionFactory">
+	<bean id="managedConnectionFactory" class="com.spring.mvc.controller.DemoController.ibm.connector2.cics.ECIManagedConnectionFactory">
 		<property name="serverName" value="TXSERIES"/>
 		<property name="connectionURL" value="local:"/>
 		<property name="userName" value="CICSUSER"/>
@@ -5846,7 +5846,7 @@ the Spring Framework's email library:
 * The https://javaee.github.io/javamail/[JavaMail] library
 
 This library is freely available on the web -- for example, in Maven Central as
-`com.sun.mail:javax.mail`.
+`com.spring.mvc.controller.DemoController.sun.mail:javax.mail`.
 ****
 
 The Spring Framework provides a helpful utility library for sending email that shields
@@ -5951,16 +5951,16 @@ The following example shows the bean definitions for the preceding code:
 [subs="verbatim,quotes"]
 ----
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="mail.mycompany.com"/>
+		<property name="host" value="mail.mycompany.com.spring.mvc.controller.DemoController"/>
 	</bean>
 
 	<!-- this is a template message that we can pre-load with default state -->
 	<bean id="templateMessage" class="org.springframework.mail.SimpleMailMessage">
-		<property name="from" value="customerservice@mycompany.com"/>
+		<property name="from" value="customerservice@mycompany.com.spring.mvc.controller.DemoController"/>
 		<property name="subject" value="Your order"/>
 	</bean>
 
-	<bean id="orderManager" class="com.mycompany.businessapp.support.SimpleOrderManager">
+	<bean id="orderManager" class="com.spring.mvc.controller.DemoController.mycompany.businessapp.support.SimpleOrderManager">
 		<property name="mailSender" ref="mailSender"/>
 		<property name="templateMessage" ref="templateMessage"/>
 	</bean>
@@ -6005,7 +6005,7 @@ callback interface. In the following example, the `mailSender` property is of ty
 				public void prepare(MimeMessage mimeMessage) throws Exception {
 					mimeMessage.setRecipient(Message.RecipientType.TO,
 							new InternetAddress(order.getCustomer().getEmailAddress()));
-					mimeMessage.setFrom(new InternetAddress("mail@mycompany.com"));
+					mimeMessage.setFrom(new InternetAddress("mail@mycompany.com.spring.mvc.controller.DemoController"));
 					mimeMessage.setText("Dear " + order.getCustomer().getFirstName() + " " +
 							order.getCustomer().getLastName() + ", thanks for your order. " +
 							"Your order number is " + order.getOrderNumber() + ".");
@@ -6048,11 +6048,11 @@ pretty easy to create a `MimeMessage`, as the following example shows:
 ----
 	// of course you would use DI in any real-world cases
 	JavaMailSenderImpl sender = new JavaMailSenderImpl();
-	sender.setHost("mail.host.com");
+	sender.setHost("mail.host.com.spring.mvc.controller.DemoController");
 
 	MimeMessage message = sender.createMimeMessage();
 	MimeMessageHelper helper = new MimeMessageHelper(message);
-	helper.setTo("test@host.com");
+	helper.setTo("test@host.com.spring.mvc.controller.DemoController");
 	helper.setText("Thank you for ordering!");
 
 	sender.send(message);
@@ -6078,13 +6078,13 @@ with a single JPEG image attachment:
 [subs="verbatim,quotes"]
 ----
 	JavaMailSenderImpl sender = new JavaMailSenderImpl();
-	sender.setHost("mail.host.com");
+	sender.setHost("mail.host.com.spring.mvc.controller.DemoController");
 
 	MimeMessage message = sender.createMimeMessage();
 
 	// use the true flag to indicate you need a multipart message
 	MimeMessageHelper helper = new MimeMessageHelper(message, true);
-	helper.setTo("test@host.com");
+	helper.setTo("test@host.com.spring.mvc.controller.DemoController");
 
 	helper.setText("Check out this image!");
 
@@ -6107,13 +6107,13 @@ with an inline image:
 [subs="verbatim,quotes"]
 ----
 	JavaMailSenderImpl sender = new JavaMailSenderImpl();
-	sender.setHost("mail.host.com");
+	sender.setHost("mail.host.com.spring.mvc.controller.DemoController");
 
 	MimeMessage message = sender.createMimeMessage();
 
 	// use the true flag to indicate you need a multipart message
 	MimeMessageHelper helper = new MimeMessageHelper(message, true);
-	helper.setTo("test@host.com");
+	helper.setTo("test@host.com.spring.mvc.controller.DemoController");
 
 	// use the true flag to indicate the text included is HTML
 	helper.setText("<html><body><img src='cid:identifier1234'></body></html>", true);
@@ -6801,7 +6801,7 @@ In the preceding configuration, a `queue-capacity` value has also been provided.
 The configuration of the thread pool should also be considered in light of the
 executor's queue capacity. For the full description of the relationship between pool
 size and queue capacity, see the documentation for
-https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html[`ThreadPoolExecutor`].
+https://docs.oracle.com.spring.mvc.controller.DemoController/javase/8/docs/api/java/util/concurrent/ThreadPoolExecutor.html[`ThreadPoolExecutor`].
 The main idea is that, when a task is submitted, the executor first tries to use a
 free thread if the number of active threads is currently less than the core size.
 If the core size has been reached, the task is added to the queue, as long as its
@@ -7181,7 +7181,7 @@ provide the actual data store. This abstraction is materialized by the
 
 Spring provides <<cache-store-configuration, a few implementations>> of that abstraction:
 JDK `java.util.concurrent.ConcurrentMap` based caches, https://www.ehcache.org/[Ehcache 2.x],
-Gemfire cache, https://github.com/ben-manes/caffeine/wiki[Caffeine], and JSR-107
+Gemfire cache, https://github.com.spring.mvc.controller.DemoController/ben-manes/caffeine/wiki[Caffeine], and JSR-107
 compliant caches (such as Ehcache 3.x). See <<cache-plug>> for more information on
 plugging in other cache stores and providers.
 
@@ -8187,7 +8187,7 @@ are made available by the manager. The following example shows how to do so:
 ====
 
 The Caffeine `CacheManager` also supports custom `Caffeine` and `CacheLoader`.
-See the https://github.com/ben-manes/caffeine/wiki[Caffeine documentation]
+See the https://github.com.spring.mvc.controller.DemoController/ben-manes/caffeine/wiki[Caffeine documentation]
 for more information about those.
 
 

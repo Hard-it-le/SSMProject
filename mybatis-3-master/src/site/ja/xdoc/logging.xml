@@ -21,8 +21,8 @@
 
   <properties>
     <title>MyBatis 3 | ロギング</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="harawata@gmail.com">Iwao AVE!</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="harawata@gmail.com.spring.mvc.controller.DemoController">Iwao AVE!</author>
   </properties>
 
   <body>
@@ -83,7 +83,7 @@ org.apache.ibatis.logging.LogFactory.useStdOutLogging();]]></source>
           <a href="http://logging.apache.org/log4j/">Apache Log4j</a>
         </li>
         <li>
-          <a href="http://java.sun.com/j2se/1.4.1/docs/guide/util/logging/">JDK Logging API</a>
+          <a href="http://java.sun.com.spring.mvc.controller.DemoController/j2se/1.4.1/docs/guide/util/logging/">JDK Logging API</a>
         </li>
       </ul>
       <subsection name="Logging Configuration">

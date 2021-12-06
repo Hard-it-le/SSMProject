@@ -91,7 +91,7 @@ The `org.springframework.mock.web` package contains a comprehensive set of Servl
 mock objects that are useful for testing web contexts, controllers, and filters. These
 mock objects are targeted at usage with Spring's Web MVC framework and are generally more
 convenient to use than dynamic mock objects (such as http://easymock.org/[EasyMock])
-or alternative Servlet API mock objects (such as http://www.mockobjects.com[MockObjects]).
+or alternative Servlet API mock objects (such as http://www.mockobjects.com.spring.mvc.controller.DemoController[MockObjects]).
 
 TIP: Since Spring Framework 5.0, the mock objects in `org.springframework.mock.web` are
 based on the Servlet 4.0 API.
@@ -1573,7 +1573,7 @@ configuration of individual JUnit Jupiter based test methods, as follows:
 ====
 
 For further details, see the
-https://github.com/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model[Spring Annotation Programming Model]
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model[Spring Annotation Programming Model]
 wiki page.
 
 
@@ -1982,19 +1982,19 @@ If you omit both the `locations` and the `value` attributes from the
 `@ContextConfiguration` annotation, the TestContext framework tries to detect a default
 XML resource location. Specifically, `GenericXmlContextLoader` and
 `GenericXmlWebContextLoader` detect a default location based on the name of the test
-class. If your class is named `com.example.MyTest`, `GenericXmlContextLoader` loads your
-application context from `"classpath:com/example/MyTest-context.xml"`. The following
+class. If your class is named `com.spring.mvc.controller.DemoController.example.MyTest`, `GenericXmlContextLoader` loads your
+application context from `"classpath:com.spring.mvc.controller.DemoController/example/MyTest-context.xml"`. The following
 example shows how to do so:
 
 ====
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.example;
+	package com.spring.mvc.controller.DemoController.example;
 
 	@RunWith(SpringRunner.class)
 	// ApplicationContext will be loaded from
-	// "classpath:com/example/MyTest-context.xml"
+	// "classpath:com.spring.mvc.controller.DemoController/example/MyTest-context.xml"
 	@ContextConfiguration <1>
 	public class MyTest {
 		// class body...
@@ -2038,19 +2038,19 @@ If you omit both the `locations` and `value` attributes from the `@ContextConfig
 annotation, the TestContext framework tries to detect a default Groovy script.
 Specifically, `GenericGroovyXmlContextLoader` and `GenericGroovyXmlWebContextLoader`
 detect a default location based on the name of the test class. If your class is named
-`com.example.MyTest`, the Groovy context loader loads your application context from
-`"classpath:com/example/MyTestContext.groovy"`. The following example shows how to use
+`com.spring.mvc.controller.DemoController.example.MyTest`, the Groovy context loader loads your application context from
+`"classpath:com.spring.mvc.controller.DemoController/example/MyTestContext.groovy"`. The following example shows how to use
 the default:
 
 ====
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.example;
+	package com.spring.mvc.controller.DemoController.example;
 
 	@RunWith(SpringRunner.class)
 	// ApplicationContext will be loaded from
-	// "classpath:com/example/MyTestContext.groovy"
+	// "classpath:com.spring.mvc.controller.DemoController/example/MyTestContext.groovy"
 	@ContextConfiguration <1>
 	public class MyTest {
 		// class body...
@@ -2393,25 +2393,25 @@ Consider two examples with XML configuration and `@Configuration` classes:
 		xsi:schemaLocation="...">
 
 		<bean id="transferService"
-				class="com.bank.service.internal.DefaultTransferService">
+				class="com.spring.mvc.controller.DemoController.bank.service.internal.DefaultTransferService">
 			<constructor-arg ref="accountRepository"/>
 			<constructor-arg ref="feePolicy"/>
 		</bean>
 
 		<bean id="accountRepository"
-				class="com.bank.repository.internal.JdbcAccountRepository">
+				class="com.spring.mvc.controller.DemoController.bank.repository.internal.JdbcAccountRepository">
 			<constructor-arg ref="dataSource"/>
 		</bean>
 
 		<bean id="feePolicy"
-			class="com.bank.service.internal.ZeroFeePolicy"/>
+			class="com.spring.mvc.controller.DemoController.bank.service.internal.ZeroFeePolicy"/>
 
 		<beans profile="dev">
 			<jdbc:embedded-database id="dataSource">
 				<jdbc:script
-					location="classpath:com/bank/config/sql/schema.sql"/>
+					location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql"/>
 				<jdbc:script
-					location="classpath:com/bank/config/sql/test-data.sql"/>
+					location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/test-data.sql"/>
 			</jdbc:embedded-database>
 		</beans>
 
@@ -2422,7 +2422,7 @@ Consider two examples with XML configuration and `@Configuration` classes:
 		<beans profile="default">
 			<jdbc:embedded-database id="dataSource">
 				<jdbc:script
-					location="classpath:com/bank/config/sql/schema.sql"/>
+					location="classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql"/>
 			</jdbc:embedded-database>
 		</beans>
 
@@ -2432,7 +2432,7 @@ Consider two examples with XML configuration and `@Configuration` classes:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service;
+	package com.spring.mvc.controller.DemoController.bank.service;
 
 	@RunWith(SpringRunner.class)
 	// ApplicationContext will be loaded from "classpath:/app-config.xml"
@@ -2485,8 +2485,8 @@ integration test with `@Configuration` classes instead of XML:
 		public DataSource dataSource() {
 			return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:com/bank/config/sql/schema.sql")
-				.addScript("classpath:com/bank/config/sql/test-data.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/test-data.sql")
 				.build();
 		}
 	}
@@ -2518,7 +2518,7 @@ integration test with `@Configuration` classes instead of XML:
 		public DataSource dataSource() {
 			return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:com/bank/config/sql/schema.sql")
+				.addScript("classpath:com.spring.mvc.controller.DemoController/bank/config/sql/schema.sql")
 				.build();
 		}
 	}
@@ -2553,7 +2553,7 @@ integration test with `@Configuration` classes instead of XML:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service;
+	package com.spring.mvc.controller.DemoController.bank.service;
 
 	@RunWith(SpringRunner.class)
 	@ContextConfiguration(classes = {
@@ -2603,7 +2603,7 @@ has been moved to an abstract superclass, `AbstractIntegrationTest`:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service;
+	package com.spring.mvc.controller.DemoController.bank.service;
 
 	@RunWith(SpringRunner.class)
 	@ContextConfiguration(classes = {
@@ -2619,7 +2619,7 @@ has been moved to an abstract superclass, `AbstractIntegrationTest`:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service;
+	package com.spring.mvc.controller.DemoController.bank.service;
 
 	// "dev" profile inherited from superclass
 	public class TransferServiceTest extends AbstractIntegrationTest {
@@ -2642,7 +2642,7 @@ disable the inheritance of active profiles, as the following example shows:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service;
+	package com.spring.mvc.controller.DemoController.bank.service;
 
 	// "dev" profile overridden with "production"
 	@ActiveProfiles(profiles = "production", inheritProfiles = false)
@@ -2673,7 +2673,7 @@ The following example demonstrates how to implement and register a custom
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service;
+	package com.spring.mvc.controller.DemoController.bank.service;
 
 	// "dev" profile overridden programmatically via a custom resolver
 	@ActiveProfiles(
@@ -2687,7 +2687,7 @@ The following example demonstrates how to implement and register a custom
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	package com.bank.service.test;
+	package com.spring.mvc.controller.DemoController.bank.service.test;
 
 	public class OperatingSystemActiveProfilesResolver implements ActiveProfilesResolver {
 
@@ -2730,7 +2730,7 @@ You can configure test properties files by using the `locations` or `value` attr
 `@TestPropertySource`.
 
 Both traditional and XML-based properties file formats are supported -- for example,
-`"classpath:/com/example/test.properties"` or `"file:///path/to/file.xml"`.
+`"classpath:/com.spring.mvc.controller.DemoController/example/test.properties"` or `"file:///path/to/file.xml"`.
 
 Each path is interpreted as a Spring `Resource`. A plain path (for example,
 `"test.properties"`) is treated as a classpath resource that is relative to the package
@@ -2788,8 +2788,8 @@ The following example sets two inlined properties:
 If `@TestPropertySource` is declared as an empty annotation (that is, without explicit
 values for the `locations` or `properties` attributes), an attempt is made to detect a
 default properties file relative to the class that declared the annotation. For example,
-if the annotated test class is `com.example.MyTest`, the corresponding default properties
-file is `classpath:com/example/MyTest.properties`. If the default cannot be detected, an
+if the annotated test class is `com.spring.mvc.controller.DemoController.example.MyTest`, the corresponding default properties
+file is `classpath:com.spring.mvc.controller.DemoController/example/MyTest.properties`. If the default cannot be detected, an
 `IllegalStateException` is thrown.
 
 ====== Precedence
@@ -3411,7 +3411,7 @@ shows this configuration:
 			https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 		<!-- this bean will be injected into the HibernateTitleRepositoryTests class -->
-		<bean id="titleRepository" class="com.foo.repository.hibernate.HibernateTitleRepository">
+		<bean id="titleRepository" class="com.spring.mvc.controller.DemoController.foo.repository.hibernate.HibernateTitleRepository">
 			<property name="sessionFactory" ref="sessionFactory"/>
 		</bean>
 
@@ -3484,10 +3484,10 @@ The following listing shows the configuration for this use case:
 ----
 	<beans>
 
-		<bean id="userService" class="com.example.SimpleUserService"
+		<bean id="userService" class="com.spring.mvc.controller.DemoController.example.SimpleUserService"
 				c:loginAction-ref="loginAction"/>
 
-		<bean id="loginAction" class="com.example.LoginAction"
+		<bean id="loginAction" class="com.spring.mvc.controller.DemoController.example.LoginAction"
 				c:username="#{request.getParameter('user')}"
 				c:password="#{request.getParameter('pswd')}"
 				scope="request">
@@ -3546,10 +3546,10 @@ following example shows how to do so:
 ----
 	<beans>
 
-		<bean id="userService" class="com.example.SimpleUserService"
+		<bean id="userService" class="com.spring.mvc.controller.DemoController.example.SimpleUserService"
 				c:userPreferences-ref="userPreferences" />
 
-		<bean id="userPreferences" class="com.example.UserPreferences"
+		<bean id="userPreferences" class="com.spring.mvc.controller.DemoController.example.UserPreferences"
 				c:theme="#{session.getAttribute('theme')}"
 				scope="session">
 			<aop:scoped-proxy/>
@@ -4047,11 +4047,11 @@ If no SQL scripts are specified, an attempt is made to detect a `default` script
 depending on where `@Sql` is declared. If a default cannot be detected, an
 `IllegalStateException` is thrown.
 
-* Class-level declaration: If the annotated test class is `com.example.MyTest`, the
-  corresponding default script is `classpath:com/example/MyTest.sql`.
+* Class-level declaration: If the annotated test class is `com.spring.mvc.controller.DemoController.example.MyTest`, the
+  corresponding default script is `classpath:com.spring.mvc.controller.DemoController/example/MyTest.sql`.
 * Method-level declaration: If the annotated test method is named `testMethod()` and is
-  defined in the class `com.example.MyTest`, the corresponding default script is
-  `classpath:com/example/MyTest.testMethod.sql`.
+  defined in the class `com.spring.mvc.controller.DemoController.example.MyTest`, the corresponding default script is
+  `classpath:com.spring.mvc.controller.DemoController/example/MyTest.testMethod.sql`.
 
 ====== Declaring Multiple `@Sql` Sets
 
@@ -4726,12 +4726,12 @@ The preceding test relies on the `WebApplicationContext` support of the TestCont
 framework to load Spring configuration from an XML configuration file located in the same
 package as the test class, but Java-based and Groovy-based configuration are also
 supported. See these
-https://github.com/spring-projects/spring-framework/tree/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples/context[sample tests].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples/context[sample tests].
 
 The `MockMvc` instance is used to perform a `GET` request to `/accounts/1` and verify
 that the resulting response has status 200, the content type is `application/json`, and
 the response body has a JSON property called `name` with the value `Lee`. The `jsonPath`
-syntax is supported through the Jayway https://github.com/jayway/JsonPath[JsonPath
+syntax is supported through the Jayway https://github.com.spring.mvc.controller.DemoController/jayway/JsonPath[JsonPath
 project]. Many other options for verifying the result of the performed request are
 discussed later in this document.
 
@@ -5094,7 +5094,7 @@ Note that common expectations are always applied and cannot be overridden withou
 creating a separate `MockMvc` instance.
 
 When a JSON response content contains hypermedia links created with
-https://github.com/spring-projects/spring-hateoas[Spring HATEOAS], you can verify the
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-hateoas[Spring HATEOAS], you can verify the
 resulting links by using JsonPath expressions, as the following example shows:
 
 ====
@@ -5107,7 +5107,7 @@ resulting links by using JsonPath expressions, as the following example shows:
 ====
 
 When XML response content contains hypermedia links created with
-https://github.com/spring-projects/spring-hateoas[Spring HATEOAS], you can verify the
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-hateoas[Spring HATEOAS], you can verify the
 resulting links by using XPath expressions:
 
 ====
@@ -5243,10 +5243,10 @@ of testing even within the same project.
 ===== Further Examples
 
 The framework's own tests include
-https://github.com/spring-projects/spring-framework/tree/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples[many
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-test/src/test/java/org/springframework/test/web/servlet/samples[many
 sample tests] intended to show how to use Spring MVC Test. You can browse these examples
 for further ideas. Also, the
-https://github.com/spring-projects/spring-mvc-showcase[`spring-mvc-showcase`] project has
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-mvc-showcase[`spring-mvc-showcase`] project has
 full test coverage based on Spring MVC Test.
 
 
@@ -5563,8 +5563,8 @@ We can also specify additional configuration options, as the following example s
 			// for illustration only - defaults to ""
 			.contextPath("")
 			// By default MockMvc is used for localhost only;
-			// the following will use MockMvc for example.com and example.org as well
-			.useMockMvcForHosts("example.com","example.org")
+			// the following will use MockMvc for example.com.spring.mvc.controller.DemoController and example.org as well
+			.useMockMvcForHosts("example.com.spring.mvc.controller.DemoController","example.org")
 			.build();
 	}
 ----
@@ -5586,8 +5586,8 @@ instance separately and supplying it to the `MockMvcWebClientBuilder`, as follow
 			// for illustration only - defaults to ""
 			.contextPath("")
 			// By default MockMvc is used for localhost only;
-			// the following will use MockMvc for example.com and example.org as well
-			.useMockMvcForHosts("example.com","example.org")
+			// the following will use MockMvc for example.com.spring.mvc.controller.DemoController and example.org as well
+			.useMockMvcForHosts("example.com.spring.mvc.controller.DemoController","example.org")
 			.build();
 ----
 ====
@@ -5696,7 +5696,7 @@ represents the `HtmlPage` we are currently on, as the following example shows:
 ====
 
 Formerly, this pattern was known as the
-https://github.com/SeleniumHQ/selenium/wiki/PageObjects[Page Object Pattern]. While we
+https://github.com.spring.mvc.controller.DemoController/SeleniumHQ/selenium/wiki/PageObjects[Page Object Pattern]. While we
 can certainly do this with HtmlUnit, WebDriver provides some tools that we explore in the
 following sections to make this pattern much easier to implement.
 
@@ -5803,7 +5803,7 @@ features, we can place this logic in a shared location.
 
 <2> We have a member variable for each of the parts of the HTML page in which we are
 interested. These are of type `WebElement`. WebDriver's
-https://github.com/SeleniumHQ/selenium/wiki/PageFactory[`PageFactory`] lets us remove a
+https://github.com.spring.mvc.controller.DemoController/SeleniumHQ/selenium/wiki/PageFactory[`PageFactory`] lets us remove a
 lot of code from the HtmlUnit version of `CreateMessagePage` by automatically resolving
 each `WebElement`. The
 https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/PageFactory.html#initElements-org.openqa.selenium.WebDriver-java.lang.Class-[`PageFactory#initElements(WebDriver,Class<T>)`]
@@ -5811,7 +5811,7 @@ method automatically resolves each `WebElement` by using the field name and look
 by the `id` or `name` of the element within the HTML page.
 
 <3> We can use the
-https://github.com/SeleniumHQ/selenium/wiki/PageFactory#making-the-example-work-using-annotations[`@FindBy` annotation]
+https://github.com.spring.mvc.controller.DemoController/SeleniumHQ/selenium/wiki/PageFactory#making-the-example-work-using-annotations[`@FindBy` annotation]
 to override the default lookup behavior. Our example shows how to use the `@FindBy`
 annotation to look up our submit button with a `css` selector (*input[type=submit]*).
 ====
@@ -5862,7 +5862,7 @@ as follows:
 ====
 
 For additional information on using WebDriver, see the Selenium
-https://github.com/SeleniumHQ/selenium/wiki/Getting-Started[WebDriver documentation].
+https://github.com.spring.mvc.controller.DemoController/SeleniumHQ/selenium/wiki/Getting-Started[WebDriver documentation].
 
 [[spring-mvc-test-server-htmlunit-webdriver-advanced-builder]]
 ====== Advanced `MockMvcHtmlUnitDriverBuilder`
@@ -5903,8 +5903,8 @@ We can also specify additional configuration options, as follows:
 				// for illustration only - defaults to ""
 				.contextPath("")
 				// By default MockMvc is used for localhost only;
-				// the following will use MockMvc for example.com and example.org as well
-				.useMockMvcForHosts("example.com","example.org")
+				// the following will use MockMvc for example.com.spring.mvc.controller.DemoController and example.org as well
+				.useMockMvcForHosts("example.com.spring.mvc.controller.DemoController","example.org")
 				.build();
 }
 ----
@@ -5926,8 +5926,8 @@ instance separately and supplying it to the `MockMvcHtmlUnitDriverBuilder`, as f
 			// for illustration only - defaults to ""
 			.contextPath("")
 			// By default MockMvc is used for localhost only;
-			// the following will use MockMvc for example.com and example.org as well
-			.useMockMvcForHosts("example.com","example.org")
+			// the following will use MockMvc for example.com.spring.mvc.controller.DemoController and example.org as well
+			.useMockMvcForHosts("example.com.spring.mvc.controller.DemoController","example.org")
 			.build();
 ----
 ====
@@ -6183,7 +6183,7 @@ configuration. Check for the support for code completion on static members.
 ===== Further Examples of Client-side REST Tests
 
 Spring MVC Test's own tests include
-https://github.com/spring-projects/spring-framework/tree/master/spring-test/src/test/java/org/springframework/test/web/client/samples[example
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-test/src/test/java/org/springframework/test/web/client/samples[example
 tests] of client-side REST tests.
 
 include::testing-webtestclient.adoc[leveloffset=+2]
@@ -6201,10 +6201,10 @@ See the following resources for more information about testing:
 * https://joel-costigliola.github.io/assertj/[AssertJ]: "`Fluent assertions for Java`",
   including support for Java 8 lambdas, streams, and other features.
 * https://en.wikipedia.org/wiki/Mock_Object[Mock Objects]: Article in Wikipedia.
-* http://www.mockobjects.com/[MockObjects.com]: Web site dedicated to mock objects, a
+* http://www.mockobjects.com.spring.mvc.controller.DemoController/[MockObjects.com.spring.mvc.controller.DemoController]: Web site dedicated to mock objects, a
   technique for improving the design of code within test-driven development.
 * https://mockito.github.io[Mockito]: Java mock library based on the
-  http://xunitpatterns.com/Test%20Spy.html[Test Spy] pattern.
+  http://xunitpatterns.com.spring.mvc.controller.DemoController/Test%20Spy.html[Test Spy] pattern.
 * http://easymock.org/[EasyMock]: Java library "`that provides Mock Objects for
   interfaces (and objects through the class extension) by generating them on the fly
   using Java's proxy mechanism.`" Used by the Spring Framework in its test suite.

@@ -21,8 +21,8 @@
 
   <properties>
     <title>마이바티스 3 | 시작하기</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="fromm0@gmail.com">이동국(한국어 번역)</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="fromm0@gmail.com.spring.mvc.controller.DemoController">이동국(한국어 번역)</author>
   </properties>
 
   <body>
@@ -31,7 +31,7 @@
     <subsection name="설치">
       <p>
         마이바티스를 사용하기 위해 
-        <a href="https://github.com/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
+        <a href="https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/releases">mybatis-x.x.x.jar</a>
         파일을 클래스패스에 두어야 한다. 
       </p>
       <p>
@@ -174,7 +174,7 @@ Blog blog = mapper.selectBlog(101);]]></source>
       <p>
         <strong>이름 분석(Name Resolution):</strong> 타이핑을 줄이기 위해 마이바티스는 구문과 결과매핑, 캐시등의 모든 설정엘리먼트를 위한 이름 분석 규칙을 사용한다.</p>
       <ul>
-        <li>“com.mypackage.MyMapper.selectAllThings”과 같은 패키지를 포함한 전체 경로명(Fully qualified names)은 같은 형태의 경로가 있다면 그 경로내에서 직접 찾는다.</li>
+        <li>“com.spring.mvc.controller.DemoController.mypackage.MyMapper.selectAllThings”과 같은 패키지를 포함한 전체 경로명(Fully qualified names)은 같은 형태의 경로가 있다면 그 경로내에서 직접 찾는다.</li>
         <li>“selectAllThings”과 같은 짧은 형태의 이름은 모호하지 않은 엔트리를 참고하기 위해 사용될 수 있다. 
 		그래서 짧은 이름은 모호해서 에러를 자주 보게 되니 되도록 이면 전체 경로를 사용해야 할 것이다.</li>
       </ul>

@@ -21,8 +21,8 @@
 
   <properties>
     <title>MyBatis 3 | Configuración</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="eduardo.macarron@gmail.com">Eduardo Macarron</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="eduardo.macarron@gmail.com.spring.mvc.controller.DemoController">Eduardo Macarron</author>
   </properties>
 
   <body>
@@ -1710,7 +1710,7 @@ SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader,properti
 		</p>
 
         <source><![CDATA[import org.apache.ibatis.datasource.unpooled.UnpooledDataSourceFactory;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.spring.mvc.controller.DemoController.mchange.v2.c3p0.ComboPooledDataSource;
         
 public class C3P0DataSourceFactory extends UnpooledDataSourceFactory {
 

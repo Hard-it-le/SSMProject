@@ -264,7 +264,7 @@ https://jsonassert.skyscreamer.org[JSONAssert] to verify JSON content, as follow
 ----
 ====
 
-You can also use https://github.com/jayway/JsonPath[JSONPath] expressions, as follows:
+You can also use https://github.com.spring.mvc.controller.DemoController/jayway/JsonPath[JSONPath] expressions, as follows:
 
 ====
 [source,java,intent=0]

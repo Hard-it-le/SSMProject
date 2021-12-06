@@ -227,7 +227,7 @@
 						<xsd:annotation>
 							<xsd:documentation><![CDATA[
 	The Exception(s) that will trigger rollback; comma-delimited.
-	For example, 'com.foo.MyBusinessException,ServletException'
+	For example, 'com.spring.mvc.controller.DemoController.foo.MyBusinessException,ServletException'
 							]]></xsd:documentation>
 						</xsd:annotation>
 					</xsd:attribute>
@@ -235,7 +235,7 @@
 						<xsd:annotation>
 							<xsd:documentation><![CDATA[
 	The Exception(s) that will *not* trigger rollback; comma-delimited.
-	For example, 'com.foo.MyBusinessException,ServletException'
+	For example, 'com.spring.mvc.controller.DemoController.foo.MyBusinessException,ServletException'
 							]]></xsd:documentation>
 						</xsd:annotation>
 					</xsd:attribute>

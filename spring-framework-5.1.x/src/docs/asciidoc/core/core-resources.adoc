@@ -289,7 +289,7 @@ prefixes:
 [source,java,indent=0]
 [subs="verbatim,quotes"]
 ----
-	Resource template = ctx.getResource("https://myhost.com/resource/path/myTemplate.txt");
+	Resource template = ctx.getResource("https://myhost.com.spring.mvc.controller.DemoController/resource/path/myTemplate.txt");
 ----
 ====
 
@@ -301,7 +301,7 @@ The following table summarizes the strategy for converting `String` objects to `
 | Prefix| Example| Explanation
 
 | classpath:
-| `classpath:com/myapp/config.xml`
+| `classpath:com.spring.mvc.controller.DemoController/myapp/config.xml`
 | Loaded from the classpath.
 
 | file:
@@ -491,7 +491,7 @@ Consider the following directory layout:
 [literal]
 [subs="verbatim,quotes"]
 ----
-com/
+com.spring.mvc.controller.DemoController/
   foo/
     services.xml
     daos.xml
@@ -547,9 +547,9 @@ Path locations can contain Ant-style patterns, as the following example shows:
 [subs="verbatim"]
 ----
 /WEB-INF/*-context.xml
-com/mycompany/**/applicationContext.xml
+com.spring.mvc.controller.DemoController/mycompany/**/applicationContext.xml
 file:C:/some/path/*-context.xml
-classpath:com/mycompany/**/applicationContext.xml
+classpath:com.spring.mvc.controller.DemoController/mycompany/**/applicationContext.xml
 ----
 ====
 
@@ -644,7 +644,7 @@ entries in the classpath. When you build JARs with Ant, do not activate the file
 switch of the JAR task. Also, classpath directories may not get exposed based on security
 policies in some environments -- for example, stand-alone applications on JDK 1.7.0_45
 and higher (which requires 'Trusted-Library' to be set up in your manifests. See
-https://stackoverflow.com/questions/19394570/java-jre-7u45-breaks-classloader-getresources).
+https://stackoverflow.com.spring.mvc.controller.DemoController/questions/19394570/java-jre-7u45-breaks-classloader-getresources).
 
 On JDK 9's module path (Jigsaw), Spring's classpath scanning generally works as expected.
 Putting resources into a dedicated directory is highly recommendable here as well,
@@ -659,7 +659,7 @@ Consider the following example of a resource location:
 [literal]
 [subs="verbatim,quotes"]
 ----
-com/mycompany/package1/service-context.xml
+com.spring.mvc.controller.DemoController/mycompany/package1/service-context.xml
 ----
 ====
 
@@ -668,12 +668,12 @@ Now consider an Ant-style path that someone might use to try to find that file:
 [literal]
 [subs="verbatim,quotes"]
 ----
-classpath:com/mycompany/**/service-context.xml
+classpath:com.spring.mvc.controller.DemoController/mycompany/**/service-context.xml
 ----
 
 Such a resource may be in only one location, but when a path such as the preceding example
 is used to try to resolve it, the resolver works off the (first) URL returned by
-`getResource("com/mycompany");`. If this base package node exists in multiple
+`getResource("com.spring.mvc.controller.DemoController/mycompany");`. If this base package node exists in multiple
 classloader locations, the actual end resource may not be there. Therefore, in such a case
 you should prefer using `classpath*:` with the same Ant-style pattern, which
 searches all class path locations that contain the root package.

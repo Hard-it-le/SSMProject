@@ -216,7 +216,7 @@ Spring control flow pointcuts are conceptually similar to AspectJ `cflow` pointc
 although less powerful. (There is currently no way to specify that a pointcut executes
 below a join point matched by another pointcut.) A control flow pointcut matches the
 current call stack. For example, it might fire if the join point was invoked by a method
-in the `com.mycompany.web` package or by the `SomeCaller` class. Control flow pointcuts
+in the `com.spring.mvc.controller.DemoController.mycompany.web` package or by the `SomeCaller` class. Control flow pointcuts
 are specified by using the `org.springframework.aop.support.ControlFlowPointcut` class.
 
 NOTE: Control flow pointcuts are significantly more expensive to evaluate at runtime than even
@@ -903,12 +903,12 @@ The following listing shows the example:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="personTarget" class="com.mycompany.PersonImpl">
+	<bean id="personTarget" class="com.spring.mvc.controller.DemoController.mycompany.PersonImpl">
 		<property name="name" value="Tony"/>
 		<property name="age" value="51"/>
 	</bean>
 
-	<bean id="myAdvisor" class="com.mycompany.MyAdvisor">
+	<bean id="myAdvisor" class="com.spring.mvc.controller.DemoController.mycompany.MyAdvisor">
 		<property name="someProperty" value="Custom string property value"/>
 	</bean>
 
@@ -917,7 +917,7 @@ The following listing shows the example:
 
 	<bean id="person"
 		class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="proxyInterfaces" value="com.mycompany.Person"/>
+		<property name="proxyInterfaces" value="com.spring.mvc.controller.DemoController.mycompany.Person"/>
 
 		<property name="target" ref="personTarget"/>
 		<property name="interceptorNames">
@@ -958,7 +958,7 @@ with an ordinary Java object. The following example shows how to do so:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="personUser" class="com.mycompany.PersonUser">
+	<bean id="personUser" class="com.spring.mvc.controller.DemoController.mycompany.PersonUser">
 		<property name="person"><ref bean="person"/></property>
 	</bean>
 ----
@@ -978,17 +978,17 @@ anonymous inner bean:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="myAdvisor" class="com.mycompany.MyAdvisor">
+	<bean id="myAdvisor" class="com.spring.mvc.controller.DemoController.mycompany.MyAdvisor">
 		<property name="someProperty" value="Custom string property value"/>
 	</bean>
 
 	<bean id="debugInterceptor" class="org.springframework.aop.interceptor.DebugInterceptor"/>
 
 	<bean id="person" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="proxyInterfaces" value="com.mycompany.Person"/>
+		<property name="proxyInterfaces" value="com.spring.mvc.controller.DemoController.mycompany.Person"/>
 		<!-- Use inner bean, not local reference to target -->
 		<property name="target">
-			<bean class="com.mycompany.PersonImpl">
+			<bean class="com.spring.mvc.controller.DemoController.mycompany.PersonImpl">
 				<property name="name" value="Tony"/>
 				<property name="age" value="51"/>
 			</bean>
@@ -1400,13 +1400,13 @@ elements discussed in this section:
 		<property name="transactionInterceptor" ref="transactionInterceptor"/>
 	</bean>
 
-	<bean id="customAdvisor" class="com.mycompany.MyAdvisor"/>
+	<bean id="customAdvisor" class="com.spring.mvc.controller.DemoController.mycompany.MyAdvisor"/>
 
-	<bean id="businessObject1" class="com.mycompany.BusinessObject1">
+	<bean id="businessObject1" class="com.spring.mvc.controller.DemoController.mycompany.BusinessObject1">
 		<!-- Properties omitted -->
 	</bean>
 
-	<bean id="businessObject2" class="com.mycompany.BusinessObject2"/>
+	<bean id="businessObject2" class="com.spring.mvc.controller.DemoController.mycompany.BusinessObject2"/>
 ----
 ====
 
@@ -1524,7 +1524,7 @@ The following listing shows an example configuration:
 [source,xml,indent=0]
 [subs="verbatim,quotes"]
 ----
-	<bean id="businessObjectTarget" class="com.mycompany.MyBusinessObject"
+	<bean id="businessObjectTarget" class="com.spring.mvc.controller.DemoController.mycompany.MyBusinessObject"
 			scope="prototype">
 		... properties omitted
 	</bean>

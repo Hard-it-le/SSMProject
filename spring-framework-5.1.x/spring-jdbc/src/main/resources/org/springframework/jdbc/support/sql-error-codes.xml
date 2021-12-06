@@ -83,7 +83,7 @@
 		</property>
 	</bean>
 
-	<!-- https://help.sap.com/saphelp_hanaplatform/helpdata/en/20/a78d3275191014b41bae7c4a46d835/content.htm -->
+	<!-- https://help.sap.com.spring.mvc.controller.DemoController/saphelp_hanaplatform/helpdata/en/20/a78d3275191014b41bae7c4a46d835/content.htm -->
 	<bean id="HDB" name="Hana" class="org.springframework.jdbc.support.SQLErrorCodes">
 		<property name="databaseProductNames">
 			<list>

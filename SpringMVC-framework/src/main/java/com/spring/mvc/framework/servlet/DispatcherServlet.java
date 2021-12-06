@@ -47,8 +47,9 @@ public class DispatcherServlet extends HttpServlet {
     /**
      * handlerMapping
      * 存储url和Method之间的映射关系
+     *
+     * private Map<String, Method> handlerMapping = new HashMap<>();
      */
-    //  private Map<String, Method> handlerMapping = new HashMap<>();
     private List<Handler> handlerMapping = new ArrayList<>();
 
     @Override

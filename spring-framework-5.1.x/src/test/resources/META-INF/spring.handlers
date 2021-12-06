@@ -1,1 +1,1 @@
-http\://www.foo.com/schema/component=com.foo.ComponentNamespaceHandler
+http\://www.foo.com.spring.mvc.controller.DemoController/schema/component=com.spring.mvc.controller.DemoController.foo.ComponentNamespaceHandler

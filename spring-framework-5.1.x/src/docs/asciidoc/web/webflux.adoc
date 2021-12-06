@@ -9,8 +9,8 @@ https://www.reactive-streams.org/[Reactive Streams] back pressure, and runs on s
 Netty, Undertow, and Servlet 3.1+ containers.
 
 Both web frameworks mirror the names of their source modules
-(https://github.com/spring-projects/spring-framework/tree/master/spring-webmvc[spring-webmvc] and
-https://github.com/spring-projects/spring-framework/tree/master/spring-webflux[spring-webflux])
+(https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-webmvc[spring-webmvc] and
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-webflux[spring-webflux])
 and co-exist side by side in the Spring Framework. Each module is optional.
 Applications can use one or the other module or, in some cases, both --
 for example, Spring MVC controllers with the reactive `WebClient`.
@@ -58,8 +58,8 @@ code, it becomes important to control the rate of events so that a fast producer
 overwhelm its destination.
 
 Reactive Streams is a
-https://github.com/reactive-streams/reactive-streams-jvm/blob/master/README.md#specification[small spec]
-(also https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html[adopted] in Java 9)
+https://github.com.spring.mvc.controller.DemoController/reactive-streams/reactive-streams-jvm/blob/master/README.md#specification[small spec]
+(also https://docs.oracle.com.spring.mvc.controller.DemoController/javase/9/docs/api/java/util/concurrent/Flow.html[adopted] in Java 9)
 that defines the interaction between asynchronous components with back pressure.
 For example a data repository (acting as
 https://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Publisher.html[Publisher])
@@ -83,7 +83,7 @@ low-level. Applications need a higher-level and richer, functional API to
 compose async logic -- similar to the Java 8 `Stream` API but not only for collections.
 This is the role that reactive libraries play.
 
-https://github.com/reactor/reactor[Reactor] is the reactive library of choice for
+https://github.com.spring.mvc.controller.DemoController/reactor/reactor[Reactor] is the reactive library of choice for
 Spring WebFlux. It provides the
 https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html[`Mono`] and
 https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html[`Flux`] API types
@@ -308,8 +308,8 @@ request handling, on top of which concrete programming models such as annotated
 controllers and functional endpoints are built.
 * For the client side, there is a basic `ClientHttpConnector` contract to perform HTTP
 requests with non-blocking I/O and Reactive Streams back pressure, along with adapters for
-https://github.com/reactor/reactor-netty[Reactor Netty] and for the reactive
-https://github.com/jetty-project/jetty-reactive-httpclient[Jetty HttpClient].
+https://github.com.spring.mvc.controller.DemoController/reactor/reactor-netty[Reactor Netty] and for the reactive
+https://github.com.spring.mvc.controller.DemoController/jetty-project/jetty-reactive-httpclient[Jetty HttpClient].
 The higher level <<web-reactive.adoc#webflux-client, WebClient>> used in applications
 builds on this basic contract.
 * For client and server, <<webflux-codecs, codecs>> to use to serialize and
@@ -333,7 +333,7 @@ The following table describes the supported server APIs:
 
 | Netty
 | Netty API
-| https://github.com/reactor/reactor-netty[Reactor Netty]
+| https://github.com.spring.mvc.controller.DemoController/reactor/reactor-netty[Reactor Netty]
 
 | Undertow
 | Undertow API
@@ -353,7 +353,7 @@ The following table describes the supported server APIs:
 |===
 
 The following table describes server dependencies (also see
-https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-the-Spring-Framework[supported versions]):
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/What%27s-New-in-the-Spring-Framework[supported versions]):
 
 |===
 |Server name|Group id|Artifact name
@@ -556,7 +556,7 @@ Mono<MultiValueMap<String, Part>> getMultipartData();
 The `DefaultServerWebExchange` uses the configured
 `HttpMessageReader<MultiValueMap<String, Part>>` to parse `multipart/form-data` content
 into a `MultiValueMap`. At present,
-https://github.com/synchronoss/nio-multipart[Synchronoss NIO Multipart] is the only
+https://github.com.spring.mvc.controller.DemoController/synchronoss/nio-multipart[Synchronoss NIO Multipart] is the only
 third-party library supported and the only library we know for non-blocking parsing of
 multipart requests. It is enabled through the `ServerCodecConfigurer` bean
 (see the <<webflux-web-handler-api, Web Handler API>>).
@@ -687,7 +687,7 @@ customize the codecs to use in an application. See the section on configuring
 [[webflux-codecs-jackson]]
 ==== Jackson JSON
 
-JSON and binary JSON (https://github.com/FasterXML/smile-format-specification[Smile]) are
+JSON and binary JSON (https://github.com.spring.mvc.controller.DemoController/FasterXML/smile-format-specification[Smile]) are
 both supported when the Jackson library is present.
 
 The `Jackson2Decoder` works as follows:
@@ -747,7 +747,7 @@ consistently for access to the cached form data versus reading from the raw requ
 encoding "multipart/form-data" content. In turn `MultipartHttpMessageReader` delegates to
 another `HttpMessageReader` for the actual parsing to a `Flux<Part>` and then simply
 collects the parts into a `MultiValueMap`. At present the
-https://github.com/synchronoss/nio-multipart[Synchronoss NIO Multipart] is used for the
+https://github.com.spring.mvc.controller.DemoController/synchronoss/nio-multipart[Synchronoss NIO Multipart] is used for the
 actual parsing.
 
 On the server side where multipart form content may need to be accessed from multiple
@@ -1147,7 +1147,7 @@ The net effect is the same as if the controller had returned a `RedirectView` or
 `Rendering.redirectTo("abc").build()`, but now the controller itself can
 operate in terms of logical view names. A view name such as
 `redirect:/some/resource` is relative to the current application, while a view name such as
-`redirect:https://example.com/arbitrary/path` redirects to an absolute URL.
+`redirect:https://example.com.spring.mvc.controller.DemoController/arbitrary/path` redirects to an absolute URL.
 
 
 [[webflux-multiple-representations]]
@@ -2503,7 +2503,7 @@ Spring offers support for the Jackson JSON library.
 [.small]#<<web.adoc#mvc-ann-jackson, Same as in Spring MVC>>#
 
 Spring WebFlux provides built-in support for
-https://www.baeldung.com/jackson-json-view-annotation[Jackson's Serialization Views],
+https://www.baeldung.com.spring.mvc.controller.DemoController/jackson-json-view-annotation[Jackson's Serialization Views],
 which allows rendering only a subset of all fields in an `Object`. To use it with
 `@ResponseBody` or `ResponseEntity` controller methods, you can use Jackson's
 `@JsonView` annotation to activate a serialization view class, as the following example shows:
@@ -3205,15 +3205,15 @@ For Jackson JSON and XML, consider using
 {api-spring-framework}/http/converter/json/Jackson2ObjectMapperBuilder.html[`Jackson2ObjectMapperBuilder`],
 which customizes Jackson's default properties with the following ones:
 
-* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/DeserializationFeature.html#FAIL_ON_UNKNOWN_PROPERTIES[`DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`] is disabled.
-* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/MapperFeature.html#DEFAULT_VIEW_INCLUSION[`MapperFeature.DEFAULT_VIEW_INCLUSION`] is disabled.
+* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com.spring.mvc.controller.DemoController/fasterxml/jackson/databind/DeserializationFeature.html#FAIL_ON_UNKNOWN_PROPERTIES[`DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`] is disabled.
+* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com.spring.mvc.controller.DemoController/fasterxml/jackson/databind/MapperFeature.html#DEFAULT_VIEW_INCLUSION[`MapperFeature.DEFAULT_VIEW_INCLUSION`] is disabled.
 
 It also automatically registers the following well-known modules if they are detected on the classpath:
 
-* https://github.com/FasterXML/jackson-datatype-jdk7[`jackson-datatype-jdk7`]: Support for Java 7 types like `java.nio.file.Path`.
-* https://github.com/FasterXML/jackson-datatype-joda[`jackson-datatype-joda`]: Support for Joda-Time types.
-* https://github.com/FasterXML/jackson-datatype-jsr310[`jackson-datatype-jsr310`]: Support for Java 8 Date and Time API types.
-* https://github.com/FasterXML/jackson-datatype-jdk8[`jackson-datatype-jdk8`]: Support for other Java 8 types, such as `Optional`.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-jdk7[`jackson-datatype-jdk7`]: Support for Java 7 types like `java.nio.file.Path`.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-joda[`jackson-datatype-joda`]: Support for Joda-Time types.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-jsr310[`jackson-datatype-jsr310`]: Support for Java 8 Date and Time API types.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-jdk8[`jackson-datatype-jdk8`]: Support for other Java 8 types, such as `Optional`.
 
 
 
@@ -3495,7 +3495,7 @@ Servlet 4 containers are required to support HTTP/2, and Spring Framework 5 is c
 with Servlet API 4. From a programming model perspective, there is nothing specific that
 applications need to do. However, there are considerations related to server configuration.
 For more details, see the
-https://github.com/spring-projects/spring-framework/wiki/HTTP-2-support[HTTP/2 wiki page].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/HTTP-2-support[HTTP/2 wiki page].
 
 Currently, Spring WebFlux does not support HTTP/2 with Netty. There is also no support for
 pushing resources programmatically to the client.

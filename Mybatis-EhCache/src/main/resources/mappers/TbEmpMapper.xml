@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yjl.mybatis.mapper.TbEmpMapper">
+<mapper namespace="com.spring.mvc.controller.DemoController.yjl.mybatis.mapper.TbEmpMapper">
     <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
     <sql id="selectPart">
       select * from tb_emp
    </sql>
-    <select id="selectEmpById" resultType="com.yjl.mybatis.entity.TbEmp">
+    <select id="selectEmpById" resultType="com.spring.mvc.controller.DemoController.yjl.mybatis.entity.TbEmp">
         <include refid="selectPart"></include>
         where emp_id =#{empId}
     </select>

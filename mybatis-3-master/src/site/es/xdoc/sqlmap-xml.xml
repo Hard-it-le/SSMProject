@@ -21,8 +21,8 @@
 
   <properties>
     <title>MyBatis 3 | Ficheros XML de mapeo</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
-    <author email="eduardo.macarron@gmail.com">Eduardo Macarron</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
+    <author email="eduardo.macarron@gmail.com.spring.mvc.controller.DemoController">Eduardo Macarron</author>
   </properties>
 
   <body>
@@ -549,7 +549,7 @@ Por ejemplo, si la columna id de la tabla Author del ejemplo siguiente fuera aut
         <p>
           Este statement simplemente obtiene como resultado una HashMap que contiene como claves todas las columnas, tal y como se ha especificado en el atributo resultType. Aunque es muy útil en muchos casos, una HashMap no contribuye a un buen modelo de dominio. Es más probable que tu aplicación use JavaBeans o POJOs (Plain Old Java Objects) para el modelo de dominio. MyBatis soporta ambos. Dado el siguiente JavaBean:
         </p>
-        <source><![CDATA[package com.someapp.model;
+        <source><![CDATA[package com.spring.mvc.controller.DemoController.someapp.model;
 public class User {
   private int id;
   private String username;
@@ -583,7 +583,7 @@ public class User {
           Este JavaBean puede mapearse desde un ResultSet de forma casi tan sencilla como la HashMap.
         </p>
 
-        <source><![CDATA[<select id="selectUsers" resultType="com.someapp.model.User">
+        <source><![CDATA[<select id="selectUsers" resultType="com.spring.mvc.controller.DemoController.someapp.model.User">
   select id, username, hashedPassword
   from some_table
   where id = #{id}
@@ -593,7 +593,7 @@ public class User {
         </p>
 
         <source><![CDATA[<!-- In Config XML file -->
-<typeAlias type="com.someapp.model.User" alias="User"/>
+<typeAlias type="com.spring.mvc.controller.DemoController.someapp.model.User" alias="User"/>
 
 <!-- In SQL Mapping XML file -->
 <select id="selectUsers" resultType="User">
@@ -1716,7 +1716,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
         <p>Además de poder personalizar la caché de las formas indicadas, puedes sustituir el sistema de caché por completo y proporcionar tu propia caché, o crear un adaptador para cachés de terceros. 
         </p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache"/>]]></source>
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache"/>]]></source>
 
         <p>Este ejemplo muestra cómo usar una caché personalizada. La clase especificada en el atributo type debe implementar el interfaz org.mybatis.cache.Cache y proporcionar un constructor que recibe como parámetro un String id. Este es uno de los interfaces más complejos de MyBatis pero su funcionalidad es simple.
         </p>
@@ -1734,7 +1734,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
         <p>Para configurar tu caché añade simplemente propiedades tipo JavaBean a tu implementación, y pasa las propiedades usando el elemento cache, por ejemplo el siguiente ejemplo llamará a un método “setCacheFile(String file)” en tu implementación de caché:
         </p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache">
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache">
   <property name="cacheFile" value="/tmp/my-custom-cache.tmp"/>
 </cache>]]></source>
 
@@ -1773,7 +1773,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
         <p>Recuerda que en la sección anterior se indicó que la caché de un namespace sería utilizada por statements del mismo namespace. Es posible que en alguna ocasión quieras compartir la misma configuración de caché e instancia entre statements de distintos namespaces. En estos casos puedes hacer referencia a otra caché usando el elemento cache-ref.
         </p>
 
-        <source><![CDATA[<cache-ref namespace="com.someone.application.data.SomeMapper"/>]]></source>
+        <source><![CDATA[<cache-ref namespace="com.spring.mvc.controller.DemoController.someone.application.data.SomeMapper"/>]]></source>
       </subsection>
     </section>
   </body>

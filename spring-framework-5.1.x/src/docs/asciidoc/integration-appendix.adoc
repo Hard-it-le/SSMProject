@@ -50,7 +50,7 @@ The following example shows how to use JNDI to look up a data source without the
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="jdbc/MyDataSource"/>
 	</bean>
-	<bean id="userDao" class="com.foo.JdbcUserDao">
+	<bean id="userDao" class="com.spring.mvc.controller.DemoController.foo.JdbcUserDao">
 		<!-- Spring will do the cast automatically (as usual) -->
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
@@ -66,7 +66,7 @@ schema:
 ----
 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/MyDataSource"/>
 
-	<bean id="userDao" class="com.foo.JdbcUserDao">
+	<bean id="userDao" class="com.spring.mvc.controller.DemoController.foo.JdbcUserDao">
 		<!-- Spring will do the cast automatically (as usual) -->
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
@@ -162,8 +162,8 @@ different properties without `jee`:
 		<property name="cache" value="true"/>
 		<property name="resourceRef" value="true"/>
 		<property name="lookupOnStartup" value="false"/>
-		<property name="expectedType" value="com.myapp.DefaultThing"/>
-		<property name="proxyInterface" value="com.myapp.Thing"/>
+		<property name="expectedType" value="com.spring.mvc.controller.DemoController.myapp.DefaultThing"/>
+		<property name="proxyInterface" value="com.spring.mvc.controller.DemoController.myapp.Thing"/>
 	</bean>
 ----
 ====
@@ -180,8 +180,8 @@ different properties with `jee`:
 			cache="true"
 			resource-ref="true"
 			lookup-on-startup="false"
-			expected-type="com.myapp.DefaultThing"
-			proxy-interface="com.myapp.Thing"/>
+			expected-type="com.spring.mvc.controller.DemoController.myapp.DefaultThing"
+			proxy-interface="com.spring.mvc.controller.DemoController.myapp.Thing"/>
 ----
 ====
 
@@ -202,7 +202,7 @@ without `jee`:
 	<bean id="simple"
 			class="org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean">
 		<property name="jndiName" value="ejb/RentalServiceBean"/>
-		<property name="businessInterface" value="com.foo.service.RentalService"/>
+		<property name="businessInterface" value="com.spring.mvc.controller.DemoController.foo.service.RentalService"/>
 	</bean>
 ----
 ====
@@ -215,7 +215,7 @@ with `jee`:
 [subs="verbatim,quotes"]
 ----
 	<jee:local-slsb id="simpleSlsb" jndi-name="ejb/RentalServiceBean"
-			business-interface="com.foo.service.RentalService"/>
+			business-interface="com.spring.mvc.controller.DemoController.foo.service.RentalService"/>
 ----
 ====
 
@@ -236,7 +236,7 @@ and a number of properties without `jee`:
 	<bean id="complexLocalEjb"
 			class="org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean">
 		<property name="jndiName" value="ejb/RentalServiceBean"/>
-		<property name="businessInterface" value="com.example.service.RentalService"/>
+		<property name="businessInterface" value="com.spring.mvc.controller.DemoController.example.service.RentalService"/>
 		<property name="cacheHome" value="true"/>
 		<property name="lookupHomeOnStartup" value="true"/>
 		<property name="resourceRef" value="true"/>
@@ -253,7 +253,7 @@ and a number of properties with `jee`:
 ----
 	<jee:local-slsb id="complexLocalEjb"
 			jndi-name="ejb/RentalServiceBean"
-			business-interface="com.foo.service.RentalService"
+			business-interface="com.spring.mvc.controller.DemoController.foo.service.RentalService"
 			cache-home="true"
 			lookup-home-on-startup="true"
 			resource-ref="true">
@@ -276,11 +276,11 @@ without `jee`:
 	<bean id="complexRemoteEjb"
 			class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
 		<property name="jndiName" value="ejb/MyRemoteBean"/>
-		<property name="businessInterface" value="com.foo.service.RentalService"/>
+		<property name="businessInterface" value="com.spring.mvc.controller.DemoController.foo.service.RentalService"/>
 		<property name="cacheHome" value="true"/>
 		<property name="lookupHomeOnStartup" value="true"/>
 		<property name="resourceRef" value="true"/>
-		<property name="homeInterface" value="com.foo.service.RentalService"/>
+		<property name="homeInterface" value="com.spring.mvc.controller.DemoController.foo.service.RentalService"/>
 		<property name="refreshHomeOnConnectFailure" value="true"/>
 	</bean>
 ----
@@ -295,11 +295,11 @@ with `jee`:
 ----
 	<jee:remote-slsb id="complexRemoteEjb"
 			jndi-name="ejb/MyRemoteBean"
-			business-interface="com.foo.service.RentalService"
+			business-interface="com.spring.mvc.controller.DemoController.foo.service.RentalService"
 			cache-home="true"
 			lookup-home-on-startup="true"
 			resource-ref="true"
-			home-interface="com.foo.service.RentalService"
+			home-interface="com.spring.mvc.controller.DemoController.foo.service.RentalService"
 			refresh-home-on-connect-failure="true">
 ----
 ====

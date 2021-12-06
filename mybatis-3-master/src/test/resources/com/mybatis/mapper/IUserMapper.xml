@@ -3,14 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.mybatis.mapper.IUserMapper">
+<mapper namespace="com.spring.mvc.controller.DemoController.mybatis.mapper.IUserMapper">
 
-    <resultMap id="userMap" type="com.mybatis.pojo.User">
+    <resultMap id="userMap" type="com.spring.mvc.controller.DemoController.mybatis.pojo.User">
         <id property="id" column="id"></id>
         <result property="username" column="username"></result>
 
-        <collection property="orderList" ofType="com.mybatis.pojo.Order"
-                    select="com.mybatis.mapper.IOrderMapper.findOrderByUid" column="id" fetchType="lazy">
+        <collection property="orderList" ofType="com.spring.mvc.controller.DemoController.mybatis.pojo.Order"
+                    select="com.spring.mvc.controller.DemoController.mybatis.mapper.IOrderMapper.findOrderByUid" column="id" fetchType="lazy">
 
             <id property="id" column="oid"/>
             <result property="orderTime" column="ordertime"/>
@@ -29,7 +29,7 @@
    </select>
 
 
-    <update id="updateById" parameterType="com.mybatis.pojo.User">
+    <update id="updateById" parameterType="com.spring.mvc.controller.DemoController.mybatis.pojo.User">
         update user set username = #{username} where id = #{id}
     </update>
 

@@ -21,7 +21,7 @@
 
   <properties>
     <title>MyBatis 3 | Mapper XML Files</title>
-    <author email="clinton.begin@gmail.com">Clinton Begin</author>
+    <author email="clinton.begin@gmail.com.spring.mvc.controller.DemoController">Clinton Begin</author>
   </properties>
 
   <body>
@@ -689,7 +689,7 @@ ps.setInt(1,id);]]></source>
           good domain model. It's more likely that your application will use JavaBeans or POJOs (Plain Old
           Java Objects) for the domain model. MyBatis supports both. Consider the following JavaBean:
         </p>
-        <source><![CDATA[package com.someapp.model;
+        <source><![CDATA[package com.spring.mvc.controller.DemoController.someapp.model;
 public class User {
   private int id;
   private String username;
@@ -724,7 +724,7 @@ public class User {
           Such a JavaBean could be mapped to a <code>ResultSet</code> just as easily as the <code>HashMap</code>.
         </p>
 
-        <source><![CDATA[<select id="selectUsers" resultType="com.someapp.model.User">
+        <source><![CDATA[<select id="selectUsers" resultType="com.spring.mvc.controller.DemoController.someapp.model.User">
   select id, username, hashedPassword
   from some_table
   where id = #{id}
@@ -736,7 +736,7 @@ public class User {
         </p>
 
         <source><![CDATA[<!-- In Config XML file -->
-<typeAlias type="com.someapp.model.User" alias="User"/>
+<typeAlias type="com.spring.mvc.controller.DemoController.someapp.model.User" alias="User"/>
 
 <!-- In SQL Mapping XML file -->
 <select id="selectUsers" resultType="User">
@@ -2116,7 +2116,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
           solutions.
         </p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache"/>]]></source>
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache"/>]]></source>
 
         <p>
           This example demonstrates how to use a custom cache implementation. The class specified in the type
@@ -2140,7 +2140,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
           <code>setCacheFile(String file)</code> on your Cache implementation:
         </p>
 
-        <source><![CDATA[<cache type="com.domain.something.MyCustomCache">
+        <source><![CDATA[<cache type="com.spring.mvc.controller.DemoController.domain.something.MyCustomCache">
   <property name="cacheFile" value="/tmp/my-custom-cache.tmp"/>
 </cache>]]></source>
 
@@ -2193,7 +2193,7 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
           cache by using the cache-ref element.
         </p>
 
-        <source><![CDATA[<cache-ref namespace="com.someone.application.data.SomeMapper"/>]]></source>
+        <source><![CDATA[<cache-ref namespace="com.spring.mvc.controller.DemoController.someone.application.data.SomeMapper"/>]]></source>
       </subsection>
     </section>
   </body>

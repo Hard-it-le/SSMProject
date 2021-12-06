@@ -44,31 +44,31 @@
   <contributors>
     <contributor>
       <name>Adam Gent</name>
-      <email>adam.gent@evocatus.com</email>
+      <email>adam.gent@evocatus.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Andrea Selva</name>
-      <email>selva.andre@gmail.com</email>
+      <email>selva.andre@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Antonio Sánchez</name>
-      <email>juntandolineas@gmail.com</email>
+      <email>juntandolineas@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Arkadi Shishlov</name>
-      <email>arkadi.shishlov@gmail.com</email>
+      <email>arkadi.shishlov@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Axel Doerfler</name>
-      <email>axel.doerfler@gmail.com</email>
+      <email>axel.doerfler@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Chris Dadej</name>
-      <email>chris.dadej@gmail.com</email>
+      <email>chris.dadej@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Denis Vygovskiy</name>
-      <email>qizant@gmail.com</email>
+      <email>qizant@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Franta Mejta</name>
@@ -76,11 +76,11 @@
     </contributor>
     <contributor>
       <name>Jurriaan Pruys</name>
-      <email>jurriaan@pruys.com</email>
+      <email>jurriaan@pruys.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Keith Wong</name>
-      <email>wongkwl@gmail.com</email>
+      <email>wongkwl@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Lasse Voss</name>
@@ -88,7 +88,7 @@
     </contributor>
     <contributor>
       <name>Luke Stevens</name>
-      <email>nosuchluke@gmail.com</email>
+      <email>nosuchluke@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Paul Krause</name>
@@ -96,11 +96,11 @@
     </contributor>
     <contributor>
       <name>Peter Leibiger</name>
-      <email>kuhnroyal@gmail.com</email>
+      <email>kuhnroyal@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Riccardo Cossu</name>
-      <email>riccardo.cossu@gmail.com</email>
+      <email>riccardo.cossu@gmail.com.spring.mvc.controller.DemoController</email>
     </contributor>
     <contributor>
       <name>Tomáš Neuberg</name>
@@ -109,14 +109,14 @@
   </contributors>
 
   <scm>
-    <url>http://github.com/mybatis/mybatis-3</url>
-    <connection>scm:git:ssh://github.com/mybatis/mybatis-3.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/mybatis/mybatis-3.git</developerConnection>
+    <url>http://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3</url>
+    <connection>scm:git:ssh://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3.git</developerConnection>
     <tag>mybatis-3.5.3</tag>
   </scm>
   <issueManagement>
     <system>GitHub Issue Management</system>
-    <url>https://github.com/mybatis/mybatis-3/issues</url>
+    <url>https://github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3/issues</url>
   </issueManagement>
   <ciManagement>
     <system>Travis CI</system>
@@ -126,7 +126,7 @@
     <site>
       <id>gh-pages</id>
       <name>Mybatis GitHub Pages</name>
-      <url>git:ssh://git@github.com/mybatis/mybatis-3.git?gh-pages#</url>
+      <url>git:ssh://git@github.com.spring.mvc.controller.DemoController/mybatis/mybatis-3.git?gh-pages#</url>
     </site>
   </distributionManagement>
 

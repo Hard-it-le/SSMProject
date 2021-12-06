@@ -5,18 +5,18 @@
 Spring Web MVC is the original web framework built on the Servlet API and has been included
 in the Spring Framework from the very beginning. The formal name, "`Spring Web MVC,`"
 comes from the name of its source module
-(https://github.com/spring-projects/spring-framework/tree/master/spring-webmvc[`spring-webmvc`]),
+(https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-webmvc[`spring-webmvc`]),
 but it is more commonly known as "`Spring MVC`".
 
 Parallel to Spring Web MVC, Spring Framework 5.0 introduced a reactive-stack web framework
 whose name, "`Spring WebFlux,`" is also based on its source module
-(https://github.com/spring-projects/spring-framework/tree/master/spring-webflux[`spring-webflux`]).
+(https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/tree/master/spring-webflux[`spring-webflux`]).
 This section covers Spring Web MVC. The <<web-reactive.adoc#spring-web-reactive, next section>>
 covers Spring WebFlux.
 
 For baseline information and compatibility with Servlet container and Java EE version
 ranges, see the Spring Framework
-https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions[Wiki].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/Spring-Framework-Versions[Wiki].
 
 
 
@@ -275,7 +275,7 @@ Applications can declare the infrastructure beans listed in <<mvc-servlet-specia
 that are required to process requests. The `DispatcherServlet` checks the
 `WebApplicationContext` for each special bean. If there are no matching bean types,
 it falls back on the default types listed in
-https://github.com/spring-projects/spring-framework/blob/master/spring-webmvc/src/main/resources/org/springframework/web/servlet/DispatcherServlet.properties[`DispatcherServlet.properties`].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/blob/master/spring-webmvc/src/main/resources/org/springframework/web/servlet/DispatcherServlet.properties[`DispatcherServlet.properties`].
 
 In most cases, the <<mvc-config>> is the best starting point. It declares the required
 beans in either Java or XML and provides a higher-level configuration callback API to
@@ -711,7 +711,7 @@ redirect is needed. The rest of the view name is the redirect URL.
 The net effect is the same as if the controller had returned a `RedirectView`, but now
 the controller itself can operate in terms of logical view names. A logical view
 name (such as `redirect:/myapp/some/resource`) redirects relative to the current
-Servlet context, while a name such as `redirect:https://myhost.com/some/arbitrary/path`
+Servlet context, while a name such as `redirect:https://myhost.com.spring.mvc.controller.DemoController/some/arbitrary/path`
 redirects to an absolute URL.
 
 Note that, if a controller method is annotated with the `@ResponseStatus`, the annotation
@@ -2789,7 +2789,7 @@ Spring offers support for the Jackson JSON library.
 [.small]#<<web-reactive.adoc#webflux-ann-jsonview, Same as in Spring WebFlux>>#
 
 Spring MVC provides built-in support for
-https://www.baeldung.com/jackson-json-view-annotation[Jackson's Serialization Views],
+https://www.baeldung.com.spring.mvc.controller.DemoController/jackson-json-view-annotation[Jackson's Serialization Views],
 which allow rendering only a subset of all fields in an `Object`. To use it with
 `@ResponseBody` or `ResponseEntity` controller methods, you can use Jackson's
 `@JsonView` annotation to activate a serialization view class, as the following example shows:
@@ -4461,20 +4461,20 @@ In the preceding example,
 is used to create a common configuration for both `MappingJackson2HttpMessageConverter` and
 `MappingJackson2XmlHttpMessageConverter` with indentation enabled, a customized date format,
 and the registration of
-https://github.com/FasterXML/jackson-module-parameter-names[`jackson-module-parameter-names`],
+https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-module-parameter-names[`jackson-module-parameter-names`],
 Which adds support for accessing parameter names (a feature added in Java 8).
 
 This builder customizes Jackson's default properties as follows:
 
-* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/DeserializationFeature.html#FAIL_ON_UNKNOWN_PROPERTIES[`DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`] is disabled.
-* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/MapperFeature.html#DEFAULT_VIEW_INCLUSION[`MapperFeature.DEFAULT_VIEW_INCLUSION`] is disabled.
+* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com.spring.mvc.controller.DemoController/fasterxml/jackson/databind/DeserializationFeature.html#FAIL_ON_UNKNOWN_PROPERTIES[`DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`] is disabled.
+* https://fasterxml.github.io/jackson-databind/javadoc/2.6/com.spring.mvc.controller.DemoController/fasterxml/jackson/databind/MapperFeature.html#DEFAULT_VIEW_INCLUSION[`MapperFeature.DEFAULT_VIEW_INCLUSION`] is disabled.
 
 It also automatically registers the following well-known modules if they are detected on the classpath:
 
-* https://github.com/FasterXML/jackson-datatype-jdk7[jackson-datatype-jdk7]: Support for Java 7 types, such as `java.nio.file.Path`.
-* https://github.com/FasterXML/jackson-datatype-joda[jackson-datatype-joda]: Support for Joda-Time types.
-* https://github.com/FasterXML/jackson-datatype-jsr310[jackson-datatype-jsr310]: Support for Java 8 Date and Time API types.
-* https://github.com/FasterXML/jackson-datatype-jdk8[jackson-datatype-jdk8]: Support for other Java 8 types, such as `Optional`.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-jdk7[jackson-datatype-jdk7]: Support for Java 7 types, such as `java.nio.file.Path`.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-joda[jackson-datatype-joda]: Support for Joda-Time types.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-jsr310[jackson-datatype-jsr310]: Support for Java 8 Date and Time API types.
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-jdk8[jackson-datatype-jdk8]: Support for other Java 8 types, such as `Optional`.
 
 NOTE: Enabling indentation with Jackson XML support requires
 https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.codehaus.woodstox%22%20AND%20a%3A%22woodstox-core-asl%22[`woodstox-core-asl`]
@@ -4482,8 +4482,8 @@ dependency in addition to https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22jac
 
 Other interesting Jackson modules are available:
 
-* https://github.com/zalando/jackson-datatype-money[jackson-datatype-money]: Support for `javax.money` types (unofficial module).
-* https://github.com/FasterXML/jackson-datatype-hibernate[jackson-datatype-hibernate]: Support for Hibernate-specific types and properties (including lazy-loading aspects).
+* https://github.com.spring.mvc.controller.DemoController/zalando/jackson-datatype-money[jackson-datatype-money]: Support for `javax.money` types (unofficial module).
+* https://github.com.spring.mvc.controller.DemoController/FasterXML/jackson-datatype-hibernate[jackson-datatype-hibernate]: Support for Hibernate-specific types and properties (including lazy-loading aspects).
 
 The following example shows how to achieve the same configuration in XML:
 
@@ -4505,7 +4505,7 @@ The following example shows how to achieve the same configuration in XML:
 	<bean id="objectMapper" class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean"
 		  p:indentOutput="true"
 		  p:simpleDateFormat="yyyy-MM-dd"
-		  p:modulesToInstall="com.fasterxml.jackson.module.paramnames.ParameterNamesModule"/>
+		  p:modulesToInstall="com.spring.mvc.controller.DemoController.fasterxml.jackson.module.paramnames.ParameterNamesModule"/>
 
 	<bean id="xmlMapper" parent="objectMapper" p:createXmlMapper="true"/>
 ----
@@ -4980,7 +4980,7 @@ Servlet 4 containers are required to support HTTP/2, and Spring Framework 5 is c
 with Servlet API 4. From a programming model perspective, there is nothing specific that
 applications need to do. However, there are considerations related to server configuration.
 For more details, see the
-https://github.com/spring-projects/spring-framework/wiki/HTTP-2-support[HTTP/2 wiki page].
+https://github.com.spring.mvc.controller.DemoController/spring-projects/spring-framework/wiki/HTTP-2-support[HTTP/2 wiki page].
 
 The Servlet API does expose one construct related to HTTP/2. You can use the
 `javax.servlet.http.PushBuilder` proactively push resources to clients, and it
