@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>spring-mvc</servlet-name>
-    <servlet-class>com.spring.mvc.framework.DispatcherServlet</servlet-class>
+    <servlet-class>com.spring.mvc.framework.servlet.DispatcherServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>

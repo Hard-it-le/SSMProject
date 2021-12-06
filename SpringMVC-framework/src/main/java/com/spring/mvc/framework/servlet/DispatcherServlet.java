@@ -1,4 +1,4 @@
-package com.spring.mvc.framework;
+package com.spring.mvc.framework.servlet;
 
 import javax.servlet.http.HttpServlet;
 
