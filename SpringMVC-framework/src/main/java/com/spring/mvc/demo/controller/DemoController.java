@@ -2,6 +2,7 @@ package com.spring.mvc.demo.controller;
 
 import com.spring.mvc.demo.service.DemoService;
 import com.spring.mvc.framework.annotations.Autowired;
+import com.spring.mvc.framework.annotations.RequestMapping;
 import com.spring.mvc.framework.annotations.TestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @created: 2021/12/06
  */
 @TestController
+@RequestMapping("/demo")
 public class DemoController {
 
 

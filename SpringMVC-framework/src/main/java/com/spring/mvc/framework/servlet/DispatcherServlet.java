@@ -1,5 +1,9 @@
 package com.spring.mvc.framework.servlet;
 
+import com.spring.mvc.demo.controller.DemoController;
+import com.spring.mvc.framework.annotations.TestController;
+import com.spring.mvc.framework.annotations.TestService;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * @program: SSMProject
@@ -26,6 +28,11 @@ public class DispatcherServlet extends HttpServlet {
      */
     private List<String> classNameCaches = new ArrayList<>();
 
+    /**
+     * ioc容器
+     */
+    private Map<String, Object> ioc = new HashMap<>();
+
     @Override
     public void init(ServletConfig config) throws ServletException {
         //1、加载配置文件SpringMVC.properties
@@ -35,7 +42,13 @@ public class DispatcherServlet extends HttpServlet {
         //2、扫描相关的类，扫描注解
         doScan(properties.getProperty("scanPackage"));
         //3、初始化bean对象（实现IOC容器，基于注解）
-        doInstance();
+        try {
+            doInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
 
         //4、 实现依赖注入
         doAutowired();
@@ -63,15 +76,65 @@ public class DispatcherServlet extends HttpServlet {
      * <p>
      * 基于classNameCache缓存类的全限定类名，以及反射技术完成对象创建和管理
      */
-    private void doInstance() {
+    private void doInstance() throws IllegalAccessException, InstantiationException {
         if (classNameCaches.size() == 0) {
             return;
         }
+        try {
+            for (int i = 0; i < classNameCaches.size(); i++) {
+                String className = classNameCaches.get(i);
+                //反射
+                Class<?> aClass = Class.forName(className);
 
-        for (int i = 0; i < classNameCaches.size(); i++) {
-            String className = classNameCaches.get(i);
+                //区分controller、service
+                if (aClass.isAnnotationPresent(TestController.class)) {
+                    // controller的id此处不做过多处理，不取value了，就拿类的首字母小写作为id，保存到ioc中
+                    // DemoController
+                    String simpleName = aClass.getSimpleName();
+                    // demoController
+                    String lowerFirstSimpleName = lowerFirst(simpleName);
+                    Object o = aClass.newInstance();
+                    ioc.put(lowerFirstSimpleName, o);
+                } else if (aClass.isAnnotationPresent(TestService.class)) {
+                    TestService annotation = aClass.getAnnotation(TestService.class);
+                    //获取注解的value的值
+                    String beanName = annotation.value();
+                    // 如果指定了id，就以指定的为准
+                    if (!"".equals(beanName.trim())) {
+                        ioc.put(beanName, aClass.newInstance());
+                    } else {
+                        // 如果没有指定，就以类名首字母小写
+                        beanName = lowerFirst(aClass.getSimpleName());
+                        ioc.put(beanName, aClass.newInstance());
+                    }
+                    // service层往往是有接口的，面向接口开发，此时再以接口名为id，放入一份对象到ioc中，便于后期根据接口类型注入
+                    Class<?>[] interfaces = aClass.getInterfaces();
+                    for (int j = 0; j < interfaces.length; j++) {
+                        Class<?> anInterface = interfaces[j];
+                        // 以接口的全限定类名作为id放入
+                        ioc.put(anInterface.getName(), aClass.newInstance());
+                    }
+                } else {
+                    continue;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
+    /**
+     * 首字母小写方法
+     *
+     * @param str
+     * @return
+     */
+    public String lowerFirst(String str) {
+        char[] chars = str.toCharArray();
+        if ('A' <= chars[0] && chars[0] <= 'Z') {
+            chars[0] += 32;
+        }
+        return String.valueOf(chars);
     }
 
 

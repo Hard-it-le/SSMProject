@@ -7,7 +7,7 @@ import com.spring.mvc.framework.annotations.TestService;
  * @author: yjl
  * @created: 2021/12/06
  */
-@TestService
+
 public interface DemoService {
     String getName(String name);
 }
