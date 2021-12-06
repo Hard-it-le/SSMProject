@@ -6,6 +6,7 @@ import com.spring.mvc.framework.annotations.RequestMapping;
 import com.spring.mvc.framework.annotations.TestController;
 import com.spring.mvc.framework.annotations.TestService;
 import com.spring.mvc.framework.pojo.Handler;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -16,9 +17,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -102,7 +105,6 @@ public class DispatcherServlet extends HttpServlet {
             Method[] methods = aClass.getMethods();
             for (int i = 0; i < methods.length; i++) {
                 Method method = methods[i];
-
                 //  方法没有标识RequestMapping，就不处理
                 if (!aClass.isAnnotationPresent(RequestMapping.class)) {
                     continue;
@@ -113,12 +115,8 @@ public class DispatcherServlet extends HttpServlet {
                 String methodUrl = annotation.value();
                 // 计算出来的url /demo/query
                 String url = baseUrl + methodUrl;
-
                 // 把method所有信息及url封装为一个Handler
-
-
                 Handler handler = new Handler(entry.getValue(), method, Pattern.compile(url));
-
                 // 计算方法的参数位置信息  // query(HttpServletRequest request, HttpServletResponse response,String name)
                 Parameter[] parameters = method.getParameters();
                 for (int j = 0; j < parameters.length; j++) {
@@ -130,13 +128,9 @@ public class DispatcherServlet extends HttpServlet {
                         // <name,2>
                         handler.getParamIndexMapping().put(parameter.getName(), j);
                     }
-
                 }
-
-
                 // 建立url和method之间的映射关系（map缓存起来）
                 handlerMapping.add(handler);
-
             }
         }
     }
@@ -304,6 +298,70 @@ public class DispatcherServlet extends HttpServlet {
         // 反射调用，需要传入对象，需要传入参数，此处无法完成调用，没有把对象缓存起来，也没有参数！！！！改造initHandlerMapping();
         //  method.invoke();
 
+        //根据url获取到当前处理请求的handler中
+        Handler handler = getHandler(req);
 
+        if (null == handler) {
+            resp.getWriter().write("404 not found");
+            return;
+        }
+
+        //参数绑定
+        // 获取所有参数类型数组，这个数组的长度就是我们最后要传入的args数组的长度
+        Class<?>[] parameterTypes = handler.getMethod().getParameterTypes();
+        //根据上述数组长度创建一个新的数组，反射用
+        Object[] paramValues = new Object[parameterTypes.length];
+
+        // 以下就是为了向参数数组中塞值，而且还得保证参数的顺序和方法中形参顺序一致
+        Map<String, String[]> parameterMap = req.getParameterMap();
+        // 遍历request中所有参数  （填充除了request，response之外的参数）
+        for (Map.Entry<String, String[]> param : parameterMap.entrySet()) {
+            // name=1&name=2   name [1,2]
+            // 如同 1,2
+            String value = StringUtils.join(param.getValue(), ",");
+            // 如果参数和方法中的参数匹配上了，填充数据
+            if (!handler.getParamIndexMapping().containsKey(param.getKey())) {
+                continue;
+            }
+            // 方法形参确实有该参数，找到它的索引位置，对应的把参数值放入paraValues
+            //name在第 2 个位置
+            Integer index = handler.getParamIndexMapping().get(param.getKey());
+            // 把前台传递过来的参数值填充到对应的位置去
+            paramValues[index] = value;
+        }
+
+        Integer requestIndex = handler.getParamIndexMapping().get(HttpServletRequest.class.getSimpleName());
+        paramValues[requestIndex] = req;
+
+        Integer responseIndex = handler.getParamIndexMapping().get(HttpServletResponse.class.getSimpleName());
+        paramValues[responseIndex] = resp;
+
+
+        // 最终调用handler的method属性
+        try {
+            handler.getMethod().invoke(handler.getController(), paramValues);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Handler getHandler(HttpServletRequest req) {
+
+        if (handlerMapping.isEmpty()) {
+            return null;
+        }
+
+        String url = req.getRequestURI();
+        for (Handler handler : handlerMapping) {
+
+            Matcher matcher = handler.getPattern().matcher(url);
+            if (!matcher.matches()) {
+                continue;
+            }
+            return handler;
+        }
+        return null;
     }
 }
