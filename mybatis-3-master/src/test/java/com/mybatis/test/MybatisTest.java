@@ -1,9 +1,9 @@
-package com.lagou.test;
+package com.mybatis.test;
 
-import com.lagou.mapper.IOrderMapper;
-import com.lagou.mapper.IUserMapper;
-import com.lagou.pojo.Order;
-import com.lagou.pojo.User;
+import com.mybatis.mapper.IOrderMapper;
+import com.mybatis.mapper.IUserMapper;
+import com.mybatis.pojo.Order;
+import com.mybatis.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

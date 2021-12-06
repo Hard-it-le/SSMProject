@@ -1,6 +1,6 @@
-package com.lagou.mapper;
+package com.mybatis.mapper;
 
-import com.lagou.pojo.Order;
+import com.mybatis.pojo.Order;
 
 import java.util.List;
 

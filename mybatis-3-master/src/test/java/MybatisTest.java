@@ -1,5 +1,5 @@
-import com.lagou.mapper.IUserMapper;
-import com.lagou.pojo.User;
+import com.mybatis.mapper.IUserMapper;
+import com.mybatis.pojo.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -29,9 +29,9 @@ public class MybatisTest {
 
     // 4.(1)根据statementid来从Configuration中map集合中获取到了指定的MappedStatement对象
        //(2)将查询任务委派了executor执行器
-    User user =  sqlSession.selectOne("com.lagou.mapper.IUserMapper.findById",1);
+    User user =  sqlSession.selectOne("com.mybatis.mapper.IUserMapper.findById",1);
     System.out.println(user);
-    User user2 =  sqlSession.selectOne("com.lagou.mapper.IUserMapper.findById",1);
+    User user2 =  sqlSession.selectOne("com.mybatis.mapper.IUserMapper.findById",1);
     System.out.println(user2);
 
     // 5.释放资源
@@ -72,7 +72,7 @@ public class MybatisTest {
     SqlSession sqlSession1 = factory.openSession();
     SqlSession sqlSession2 = factory.openSession();
 
-    User user1 = sqlSession1.selectOne("com.lagou.mapper.IUserMapper.findById", 1);
+    User user1 = sqlSession1.selectOne("com.mybatis.mapper.IUserMapper.findById", 1);
     System.out.println(user1);
 
     sqlSession1.commit();
@@ -81,10 +81,10 @@ public class MybatisTest {
     user.setId(1);
     user.setUsername("jack");
     // 增删改会清空二级缓存
-    sqlSession1.update("com.lagou.mapper.IUserMapper.updateById",user);
+    sqlSession1.update("com.mybatis.mapper.IUserMapper.updateById",user);
 
 
-    User user2 = sqlSession2.selectOne("com.lagou.mapper.IUserMapper.findById", 1);
+    User user2 = sqlSession2.selectOne("com.mybatis.mapper.IUserMapper.findById", 1);
     System.out.println(user2);
 
   }
@@ -101,7 +101,7 @@ public class MybatisTest {
 
     SqlSession sqlSession = factory.openSession();
 
-    User user = sqlSession.selectOne("com.lagou.mapper.IUserMapper.findById", 1);
+    User user = sqlSession.selectOne("com.mybatis.mapper.IUserMapper.findById", 1);
 
     System.out.println(user.getUsername());
     System.out.println(user.getOrderList());

@@ -1,4 +1,4 @@
-package com.lagou.pojo;
+package com.mybatis.pojo;
 
 import java.io.Serializable;
 import java.util.List;

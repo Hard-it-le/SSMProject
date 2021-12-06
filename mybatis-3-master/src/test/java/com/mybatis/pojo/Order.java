@@ -1,4 +1,4 @@
-package com.lagou.pojo;
+package com.mybatis.pojo;
 
 public class Order {
 
